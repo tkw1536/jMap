@@ -1,5 +1,5 @@
 var initializeGUI = function(){
-	var ul = $('<ul>').appendTo("#floors");
+	var ul = $('<ul class="dropdown-menu" role="menu">').appendTo("#floors");
 	for (var i = 0; i<Floors.length; i++)
 	{
 		(function(){
@@ -17,7 +17,8 @@ var initializeGUI = function(){
 						Box.clearRendering();
 						Box.makeRendering(Floor[1]);
 
-						return false; //prevent the native browser handler from triggering
+						ul.prev().text(Floor[0]).append('<span class="caret"></span>'); 
+
 					})
 				)
 				
@@ -26,6 +27,4 @@ var initializeGUI = function(){
 	}
 
 	ul.find("a").eq(0).click(); //Find the first link in the <ul> and click it
-
-	$("#floors").dropdown(); //Initialise the dropdown menu
 };
