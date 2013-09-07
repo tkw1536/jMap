@@ -6,5 +6,6 @@ $(function(){
 	});
 
 	//init the GUI
-	initializeGUI();
+	gui.buildMenu(); //build the menu for the gui
+	gui.buildSearchBox(); //build the search Box
 })

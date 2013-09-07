@@ -16,20 +16,33 @@ var Box = function(x, y, x_size, y_size){
 	Render a box
 */
 Box.prototype.render = function() {
+	return Box.prototype.renderWith.call(this, Box); //default grid size
+};
+
+/*
+	Render a box
+*/
+Box.prototype.renderWith = function(grid) {
 	return $("<div>")
 	.css({
-		"top": this.y*Box.YSize()+Box.YOrigin(),
-		"left": this.x*Box.XSize()+Box.XOrigin(),
-		"width": this.x_size*Box.XSize(),
-		"height": this.y_size*Box.YSize()
+		"top": this.y*grid.YSize()+grid.YOrigin(),
+		"left": this.x*grid.XSize()+grid.XOrigin(),
+		"width": this.x_size*grid.XSize(),
+		"height": this.y_size*grid.YSize()
 	})
 	.addClass("box")
 	.appendTo("body");
 };
 
 //General Grid dimensions
-Box.XSize = function(){return 4;};  
-Box.YSize = function(){return 4;};  
+Box.XSize = function(){
+	//return stats.getBestXSize(gui.currentFloor, $(window).width()-200); 
+	return 4; 
+};  
+Box.YSize = function(){
+	//return stats.getBestYSize(gui.currentFloor, $(window).height()-200); 
+	return 4; 
+};
 
 //Origin
 Box.XOrigin = function(){return $(window).width() / 2;};  
