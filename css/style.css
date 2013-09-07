@@ -1,0 +1,108 @@
+/*
+Styling for different types of rooms
+*/
+.student {
+	position: fixed; 
+	border-top: 1px solid black; 
+	border-bottom: 1px solid black; 
+	border-left: 1px solid black; 
+	border-right: 1px solid black;
+	display: table-cell;
+	vertical-align: middle;
+	text-align: center;
+	color: transparent;
+	background-color: #5A5A5A;
+}
+
+.cor {
+	position: fixed; 
+	border-top: 1px solid black; 
+	display: table-cell;
+	vertical-align: middle;
+	text-align: center;
+	color: transparent;
+	background-color: #B3B3B3;
+}
+
+.stairs {
+	position: fixed; 
+	border-bottom: 1px solid black; 
+	border-left: 1px solid black; 
+	border-right: 1px solid black;
+	display: table-cell;
+	vertical-align: middle;
+	text-align: center;
+	color: transparent;
+	background-color: #B3B3B3;
+}
+
+.kitchen {
+	position: fixed; 
+	border-top: 1px solid black; 
+	border-bottom: 1px solid black; 
+	border-left: 1px solid black; 
+	border-right: 1px solid black;
+	display: table-cell;
+	vertical-align: middle;
+	text-align: center;
+	color: transparent;
+	background-color: #5A5A5A;
+}
+
+.admin {
+	position: fixed; 
+	border-top: 1px solid black; 
+	border-bottom: 1px solid black; 
+	border-left: 1px solid black; 
+	border-right: 1px solid black;
+	display: table-cell;
+	vertical-align: middle;
+	text-align: center;
+	color: transparent;
+	background-color: #5A5A5A;
+}
+
+.toilet {
+	position: fixed; 
+	border-top: 1px solid black;  
+	border-left: 1px solid black; 
+	border-right: 1px solid black;
+	display: table-cell;
+	vertical-align: middle;
+	text-align: center;
+	color: transparent;
+	background-color: #B3B3B3;
+}
+
+/*
+Hover on different types of rooms
+*/
+.box:hover {
+	background-color: yellow; 
+	color: purple;
+}
+
+.admin:hover {
+	background-color: purple; 
+	color: yellow;
+}
+
+.toilet:hover {
+	background-color: purple; 
+	color: yellow;
+}
+
+.kitchen:hover {
+	background-color: purple; 
+	color: yellow;
+}
+
+.cor:hover {
+	background-color: #B3B3B3; 
+	color: transparent;
+}
+
+.stairs:hover {
+	background-color: #B3B3B3; 
+	color: yellow;
+}
