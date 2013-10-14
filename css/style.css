@@ -1,6 +1,13 @@
 /*
-Styling for different types of rooms
+	Styling for different types of rooms
 */
+
+html, body {
+	height: 100%; 
+	width: 100%; 
+	overflow: none; 
+}
+
 .student {
 	position: fixed; 
 	border-top: 1px solid black; 
@@ -77,32 +84,46 @@ Styling for different types of rooms
 /*
 Hover on different types of rooms
 */
-.box:hover {
+.box:hover, .box.active {
 	background-color: yellow; 
 	color: purple;
 }
 
-.admin:hover {
+.admin:hover, .admin.active {
 	background-color: purple; 
 	color: yellow;
 }
 
-.toilet:hover {
+.toilet:hover, .toilet.active {
 	background-color: purple; 
 	color: yellow;
 }
 
-.kitchen:hover {
+.kitchen:hover, .kitchen.active {
 	background-color: purple; 
 	color: yellow;
 }
 
-.cor:hover {
+.cor:hover, .cor.active{
 	background-color: #B3B3B3; 
 	color: transparent;
 }
 
-.stairs:hover {
+.stairs:hover, .stairs.active {
 	background-color: #B3B3B3; 
 	color: yellow;
+}
+
+/*
+	Not Found Message
+*/
+.notfound {
+	color: red;
+	width: 100%;
+	font-size: 300%;
+	font-weight: bold;
+	width:500px;
+	margin:0px auto;
+	top: 100px; 
+	position: relative;
 }

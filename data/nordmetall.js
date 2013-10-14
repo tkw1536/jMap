@@ -1,4 +1,8 @@
-var Floor1 = [
+/*
+	Buildings - Data for Nordmetall
+*/
+
+var NM1 = [
 	//[x, y, x_size, y_size, name, id, type]
 	//Types: "student", "floor", "stairs", "common", "toilet", "kitchen", "admin"
 
@@ -38,7 +42,7 @@ var Floor1 = [
 	
 	[-26, -48, 24, 10, "Room 12", undefined, "student"],
 	[-2, -48, 24, 10, "Room 13", undefined, "student"],
-	[-48, -60, 116, 12, "Corridor North", "corr_north", "cor"],
+	[-48, -60, 116, 12, "Corridor North", ["corr_north"], "cor"],
 	[22, -48, 24, 10, "RA Apartment", undefined, "admin"],
 	
 	[46, -48, 12, 10, "Kitchen East", undefined, "kitchen"],
@@ -46,7 +50,7 @@ var Floor1 = [
 	[68, -60, 6, 132, "Corridor East", undefined, "cor"]
 ];
 
-var Floor2 = [
+var NM2 = [
 	//[x, y, x_size, y_size, name, id, type]
 	//Types: "student", "floor", "stairs", "common", "toilet", "kitchen", "admin"
 
@@ -69,7 +73,7 @@ var Floor2 = [
 	[58, -36, 10, 12, "NB tbd ", undefined, "student"],
 	[58, -24, 10, 24, "NB 263/ 262 ", undefined, "student"],
 	[58, 0, 10, 24, "NB 267/ 266 ", undefined, "student"],
-	[58, 24, 10, 24, "NB 271/ 270 ", undefined, "student"],
+	[58, 24, 10, 24, "NB 271/ 270 ", ["NB-270", "NB-271"], "student"],
 	[58, 48, 10, 24, "NB 275/ 274 ", undefined, "student"],
 
 	//B - East - Out
@@ -86,7 +90,7 @@ var Floor2 = [
 	
 	[-26, -48, 24, 10, "NB 247/246 ", undefined, "student"],
 	[-2, -48, 24, 10, "NB 251/250 ", undefined, "student"],
-	[-48, -60, 116, 12, "Corridor North", "corr_north", "cor"],
+	[-48, -60, 116, 12, "Corridor North", ["corr_north"], "cor"],
 	[22, -48, 24, 10, "RA Apartment NB 255", undefined, "admin"],
 	
 	[46, -48, 12, 10, "Kitchen NB 258", undefined, "kitchen"],
@@ -94,7 +98,7 @@ var Floor2 = [
 	[68, -60, 6, 132, "Corridor East", undefined, "cor"]
 ];
 
-var Floor3 = [
+var NM3 = [
 	//[x, y, x_size, y_size, name, id, type]
 	//Types: "student", "floor", "stairs", "common", "toilet", "kitchen", "admin"
 
@@ -134,7 +138,7 @@ var Floor3 = [
 	
 	[-26, -48, 24, 10, "NB 347/346 ", undefined, "student"],
 	[-2, -48, 24, 10, "NB 351/350 ", undefined, "student"],
-	[-48, -60, 116, 12, "Corridor North", "corr_north", "cor"],
+	[-48, -60, 116, 12, "Corridor North", ["corr_north"], "cor"],
 	[22, -48, 24, 10, "RA Apartment NB 355", undefined, "admin"],
 	
 	[46, -48, 12, 10, "Kitchen NB 358", undefined, "kitchen"],
@@ -142,7 +146,7 @@ var Floor3 = [
 	[68, -60, 6, 132, "Corridor East", undefined, "cor"]
 ];
 
-var Floor4 = [
+var NM4 = [
 	//[x, y, x_size, y_size, name, id, type]
 	//Types: "student", "floor", "stairs", "common", "toilet", "kitchen", "admin"
 
@@ -187,10 +191,9 @@ var Floor4 = [
 	[68, -60, 6, 132, "Corridor East", undefined, "cor"]
 ];
 
-var Floors = [
-	["1st Floor", Floor1], 
-	["2nd Floor", Floor2],
-	["3rd Floor", Floor3],
-	["4th Floor", Floor4]
-	//["5th Floor", Floor5]
+var NM = [
+	["Floor 1", NM1], 
+	["Floor 2", NM2], 
+	["Floor 3", NM3], 
+	["Floor 4", NM4]
 ]

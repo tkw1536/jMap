@@ -23,32 +23,37 @@ Box.prototype.render = function() {
 	Render a box
 */
 Box.prototype.renderWith = function(grid) {
+
+	var size = grid.Size(); 
+
 	return $("<div>")
 	.css({
-		"top": this.y*grid.YSize()+grid.YOrigin(),
-		"left": this.x*grid.XSize()+grid.XOrigin(),
-		"width": this.x_size*grid.XSize(),
-		"height": this.y_size*grid.YSize()
+		"top": this.y*size+grid.YOrigin(),
+		"left": this.x*size+grid.XOrigin(),
+		"width": this.x_size*size,
+		"height": this.y_size*size
 	})
 	.addClass("box")
 	.appendTo("body");
 };
 
 //General Grid dimensions
-Box.XSize = function(){
+Box.Size = function(){
 	//return stats.getBestXSize(gui.currentFloor, $(window).width()-200); 
-	return 4; 
-};  
-Box.YSize = function(){
-	//return stats.getBestYSize(gui.currentFloor, $(window).height()-200); 
-	return 4; 
+	//return 4; 
+	return stats.findScale(20, 40, Box.lastRendering);
 };
 
 //Origin
-Box.XOrigin = function(){return $(window).width() / 2;};  
-Box.YOrigin = function(){return $(window).height() / 2;}; 
+Box.XOrigin = function(){
+	return stats.findOrigin(20, 40, Box.lastRendering)[0];
+};  
+Box.YOrigin = function(){
+	return stats.findOrigin(20, 40, Box.lastRendering)[1];
+}; 
 
 Box.lastRendering = []; 
+Box.lastClick = undefined; 
 
 /*
 	Clear all rendered boxes
@@ -61,7 +66,11 @@ Box.clearRendering = function(){
 /*
 	Render a list of boxes. 
 */
-Box.makeRendering = function(renderArray){
+Box.makeRendering = function(renderArray, onClick){
+	Box.lastRendering = renderArray.slice(0); 
+	Box.lastClick = onClick; 
+
+	var onClick = (typeof onClick == "function")?onClick:function(){};
 	for(var i=0;i<renderArray.length;i++){
 		(function(){
 			var spec = renderArray[i]; 
@@ -69,15 +78,22 @@ Box.makeRendering = function(renderArray){
 			var tile = 
 			box.render()
 			.text(spec[4])
-			.attr("id", spec[5])
-			.addClass(spec[6]); 
+			.addClass("activatable "+spec[6])
+			.click(function(){
+				onClick(spec[5], spec); 
+			});
+
+			if(typeof spec[5] != "undefined"){
+				for(var j=0;j<spec[5].length;j++){
+					tile.addClass("id-"+spec[5][j]);
+				}
+			}
+			
 		})(); 
 	}
-
-	Box.lastRendering = renderArray; 
 }
 
 Box.refreshRendering = function(){
 	Box.clearRendering(); 
-	Box.makeRendering(Box.lastRendering); 
-}
+	Box.makeRendering(Box.lastRendering, Box.lastClick); 
+};

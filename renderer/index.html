@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<title>Nordmetall - Interactive Map (Renderer) </title>
+
+		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+		<!-- Include Bootstrap CSS -->
+		
+		<link rel="stylesheet" href="https://netdna.bootstrapcdn.com/bootstrap/3.0.0/css/bootstrap.min.css">
+		<link rel="stylesheet" href="https://netdna.bootstrapcdn.com/bootstrap/3.0.0/css/bootstrap-theme.min.css">
+
+		<!-- Custom CSS -->
+		<link rel="stylesheet" href="../css/style.css">
+
+		<script src="../js/remote.js"></script>
+
+		<script src="../data/nordmetall.js"></script>
+		<script src="../data/test.js"></script>
+		<script src="js/data.js"></script>
+
+
+		<script src="js/renderer.js"></script>
+		<script src="js/stats.js"></script>
+		<script src="js/gui.js"></script>
+		
+	</head>
+	<body>
+		<div class="container">
+			<div class="btn-group" id="buildings">
+				<a class="btn btn-default dropdown-toggle" data-toggle="dropdown" href="#" style="width: 100px; "><span id="buildingstitle">Loading Buildings ...</span><span class="caret"></span></a>
+			</div>
+
+			<div class="btn-group" id="floors">
+				<a class="btn btn-default dropdown-toggle" data-toggle="dropdown" href="#" style="width: 100px; "><span id="floorstitle">Loading Floors ...</span><span class="caret"></span></a>
+			</div>
+		</div>
+		
+
+		<script src="https://code.jquery.com/jquery.js"></script>
+		<script src="https://netdna.bootstrapcdn.com/bootstrap/3.0.0/js/bootstrap.min.js"></script>
+		<script src="js/init.js"></script>
+	</body>
+</html>
