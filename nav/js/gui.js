@@ -1,14 +1,22 @@
 var gui = {};
 
 gui.makeSearch = function(query){
-	jpeople.search(query, function(res){
-		$("#welcomeresult").remove(); 
-		if(res){
-			gui.renderResults(res); 
-		} else {
-			gui.clear();
-		}
-	})
+	if(gui.externalMode){
+		// gui.renderRoomResults(); 
+		gui.renderExternalModeMessage(); 
+	} else {
+		// Internal mdeo we have jPeople access
+		jpeople.search(query, function(res){
+			$("#welcomeresult").remove(); 
+			if(res){
+				gui.renderPeopleResults(res); 
+			} else {
+				gui.clear();
+			}
+		}); 
+	}
+	
+	
 }
 
 gui.showRoom = function(id){
@@ -21,17 +29,15 @@ gui.showRoom = function(id){
 	}); 
 }
 
-gui.renderResults = function(people){
+gui.showPerson = function(data){
+	window.parent.renderer.loadRemote("renderer", function(){
+		// code to show person in main
+	})
+}
+
+gui.renderPeopleResults = function(people){
 
 	var resultList = gui.clear(); 
-
-	/*
-		<a href="#" class="list-group-item" id="welcomeresult">
-			<h4 class="list-group-item-heading">To get started</h4>
-			<p class="list-group-item-text">select a room on the left or search for a person by typing in the box above</p>
-		</a>
-	*/
-
 	for(var i=0;i<people.length;i++){
 		(function(person){
 			$("<a href='#'>").addClass("list-group-item")
@@ -48,13 +54,62 @@ gui.renderResults = function(people){
 				)
 			)
 			.appendTo(resultList); 
-
-
 		})(people[i]); 
     }
+}
+
+gui.renderRoomResults = function(rooms){
+
+	var resultList = gui.clear(); 
+	for(var i=0;i<rooms.length;i++){
+		(function(room){
+			$("<a href='#'>").addClass("list-group-item")
+			.click(function(){
+				gui.showRoom(rooms.id); 
+				return false; 
+			})
+			.append(
+				$("<h4>").addClass("list-group-item-heading pull-right").text(room.name), 
+				$("<div>").addClass("list-group-item-text")
+				.text(room.building+", "+room.floor)
+			)
+			.appendTo(resultList); 
+		})(rooms[i]); 
+    }
+}
+
+gui.renderExternalModeMessage = function(){
+	$("<a href='#'>").addClass("list-group-item")
+			.click(function(){
+				gui.showRoom(person.room); 
+				return false; 
+			})
+			.append(
+				$("<h4>").addClass("list-group-item-heading").text("External Mode"), 
+				$("<div>").addClass("list-group-item-text").text("You are not in the Jacobs University network. You will not be able to search (for now). ")
+			)
+			.appendTo(gui.clear()); 
 }
 
 
 gui.clear = function(){
 	return $("#results").empty(); 
+}
+
+gui.init = function(ext){
+
+	gui.externalMode = ext; 
+
+	$("#searchform").submit(function(){
+		gui.makeSearch($("#peoplesearch").val()); 
+		return false; 
+	}); 
+
+	$("#welcomeresult").click(function(){
+		return false; 
+	});
+
+	$("#peoplesearch").bind("keyup input paste", function(){
+		gui.makeSearch($("#peoplesearch").val()); 
+	});
 }

@@ -55,42 +55,48 @@ self.search = function(query, callback){
 	//encode the query
 	var query = encodeURIComponent(query);
 
+	var reqURL = "http://"+((typeof window.jpeople_server_hack == "string")?window.jpeople_server_hack:jpeople_server_name)+jpeople_server_path+"?action=fullAutoComplete&str="+query; 
+
 	//me the search and get a result
-	jQuery
-	.ajax({
-		url: "http://"+((typeof window.jpeople_server_hack == "string")?window.jpeople_server_hack:jpeople_server_name)+jpeople_server_path+"?action=fullAutoComplete&str="+query, //nasty hack to ignore CORS
-	})
-	.done(function(data){
-		try{
-			var data = (typeof data == "string")?JSON.parse(data):data; 
-			var people_tree = data["records"]; 
-			var people_list = []; 
+	try{
+		jQuery
+		.ajax({
+			url: reqURL, 
+		})
+		.done(function(data){
+			try{
+				var data = (typeof data == "string")?JSON.parse(data):data; 
+				var people_tree = data["records"]; 
+				var people_list = []; 
 
-			for(var i=0;i<people_tree.length;i++){
-				var person = people_tree[i]; 
+				for(var i=0;i<people_tree.length;i++){
+					var person = people_tree[i]; 
 
-				var person_dict = {}; 
+					var person_dict = {}; 
 
-				for(var tag in person){
-					if(jpeople_attr_map.hasOwnProperty(tag)){
-						person_dict[jpeople_attr_map[tag]] = person[tag]; 
+					for(var tag in person){
+						if(jpeople_attr_map.hasOwnProperty(tag)){
+							person_dict[jpeople_attr_map[tag]] = person[tag]; 
+						}
 					}
+
+					person_dict["photo"] = "http://"+jpeople_server_name+jpeople_server_image_prefix+person_dict["eid"]+jpeople_server_image_suffix;
+
+					people_list.push(person_dict); 
 				}
-
-				person_dict["photo"] = "http://"+jpeople_server_name+jpeople_server_image_prefix+person_dict["eid"]+jpeople_server_image_suffix;
-
-				people_list.push(person_dict); 
+			} catch(e){
+				callback([]); 
+				return; 
 			}
-		} catch(e){
-			callback(false); 
-			return; 
-		}
 
-		callback(people_list); 
-	})
-	.fail(function() {
-	  callback(false); 
-	});
+			callback(people_list); 
+		})
+		.fail(function() {
+		  callback(false); 
+		});
+	} catch(e){
+		callback(false); 
+	}
 
 };
 

@@ -1,5 +1,3 @@
-window.loadRemote("renderer");
-
 $(function(){
 
 	//set the resize handler

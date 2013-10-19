@@ -1,6 +1,8 @@
-window.loadRemote = function(providerName){
-	window.loadRemote = function(name, callback){
+(function(){
+	var providerName = location.pathname.split("/"); 
+	providerName = providerName[(providerName[providerName.length-1]=="" || providerName[providerName.length-1]=="index.html")?(providerName.length-2):(providerName.length-1)]
 
+	window.loadRemote = function(name, callback){
 		var callback = (typeof callback == "function")?callback:function(){}; 
 		if(name == providerName){
 			$(function(){
@@ -12,12 +14,13 @@ window.loadRemote = function(providerName){
 			var parent = window.parent; 
 
 			parent.document.getElementsByName(frameName)[0].onload = function(){ 
-
-				parent[frameName].loadRemote(name, callback); 
 				parent.document.getElementsByName(frameName)[0].onload = function(){}; //Unregister onload event
+				parent[frameName].loadRemote(name, callback); 	
 			}
 
 			location.href = "../"+name+"/index.html"; 
 		}
 	};
-}
+
+	window.loadRemote.providerName = providerName; 
+})();

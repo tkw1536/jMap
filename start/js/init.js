@@ -1,5 +1,3 @@
-window.loadRemote("start");
-
 $(function(){
 	
 	$("<a href='#'>").click(function(){
