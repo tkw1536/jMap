@@ -32,7 +32,8 @@ gui.showRoom = function(id){
 
 gui.showPerson = function(data){
 	window.parent.renderer.loadRemote("renderer", function(){
-		// code to show person in main
+		console.log(this.gui); 
+		this.gui.showPerson(data); 
 	})
 }
 
@@ -42,16 +43,16 @@ gui.renderPeopleResults = function(people){
 	for(var i=0;i<people.length;i++){
 		(function(person){
 			$("<a href='#'>").addClass("list-group-item")
-			.click(function(){
-				gui.showRoom(person.room); 
-				return false; 
-			})
+			.click(function(){gui.showPerson(person); return false; })
 			.append(
-				$("<h4>").addClass("list-group-item-heading pull-right").text(person["lname"]+", "+person["fname"]), 
+				$("<h4>").addClass("list-group-item-heading pull-right").text(person["lname"]+", "+person["fname"])
+				.click(function(){gui.showPerson(person); return false;  }), 
 				$("<div>").addClass("list-group-item-text").append(
 					$("<img>").attr("src",person.photo).width(42).height(56)
-				//	$("<span class='pull-right'>").text(person.majorlong + ", "+ person.country), 
-
+					.click(function(){
+					gui.showRoom(person.room); 
+					return false; 
+				})
 				)
 				)
 			.appendTo(resultList); 

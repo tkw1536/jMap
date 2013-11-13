@@ -128,6 +128,8 @@ gui.showNotFoundMsg = function(){
 }
 
 gui.showPerson = function(person){
-	//show a jpeople person thingy. 
+	//show a jpeople person thingy
+	//a BS dialog with all the stuff in it
 	//TBD
+	alert(JSON.stringify(person)); //for now
 }
