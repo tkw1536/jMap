@@ -126,3 +126,8 @@ gui.showNotFoundMsg = function(){
 		})
 	})
 }
+
+gui.showPerson = function(person){
+	//show a jpeople person thingy. 
+	//TBD
+}

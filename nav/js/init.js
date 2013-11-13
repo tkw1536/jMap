@@ -26,7 +26,7 @@ $(function(){
 	check_external_query(function(s){
 		var s = !s; 
 		if(s){
-			gui.renderExternalModeMessage(); 
+			gui.renderExternalModeMessage(); //we are external
 		}
 		gui.init(s)
 	}); 
