@@ -2,6 +2,7 @@ var gui = {};
 
 gui.currentBuilding = -1;
 gui.currentFloor = -1; 
+gui.currentFlash = undefined; 
 
 gui.buildMenu = function(){
 
@@ -90,6 +91,7 @@ gui.flashRoom = function(id){
 	//flashes a room if it is currently being rendered
 	$(".activatable").removeClass("active"); 
 	$(document.getElementsByClassName("id-"+id)).addClass("active");
+	gui.currentFlash = id; 
 }
 
 gui.renderRoomById = function(id, flash, switchFloor){
@@ -125,11 +127,31 @@ gui.showNotFoundMsg = function(){
 			$(this).remove(); 
 		})
 	})
+	gui.currentFlash = undefined; 
 }
 
 gui.showPerson = function(person){
-	//show a jpeople person thingy
-	//a BS dialog with all the stuff in it
-	//TBD
-	alert(JSON.stringify(person)); //for now
+	var state = gui.getRenderState(); 
+	window.loadRemote("people-renderer", function(win){
+		win.render.prevRenderState = state; 
+		win.render.renderPerson(person); 
+	}); 
+}
+
+gui.getRenderState = function(){
+	//gets the current render state
+	return JSON.stringify({
+		"build": gui.currentBuilding, 
+		"floor": gui.currentFloor, 
+		"flash": gui.currentFlash
+	}); 
+}
+
+gui.setRenderState = function(state){
+	//sets the current render state
+	var state = JSON.parse(state); 
+	gui.renderFloor(state.build, state.floor); 
+	if(typeof state.flash !== "undefined"){
+		gui.flashRoom(state.flash); 
+	}
 }

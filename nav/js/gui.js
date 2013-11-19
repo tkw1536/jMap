@@ -31,10 +31,24 @@ gui.showRoom = function(id){
 }
 
 gui.showPerson = function(data){
-	window.parent.renderer.loadRemote("renderer", function(){
-		console.log(this.gui); 
-		this.gui.showPerson(data); 
-	})
+	var state = false;
+
+	var next = function(){
+		window.parent.renderer.loadRemote("people-renderer", function(win){
+			win.render.prevRenderState = state; 
+			win.render.renderPerson(data); 
+		}); 
+	}
+
+	if(window.parent.renderer.loadRemote.providerName == "renderer"){
+		//If the renderer is currently loaded, save its state
+		window.parent.renderer.loadRemote("renderer", function(win){
+			var state = win.gui.getRenderState(); 
+			next(); 
+		});
+	} else {
+		next(); 
+	}
 }
 
 gui.renderPeopleResults = function(people){
