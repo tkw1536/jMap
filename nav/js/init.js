@@ -2,7 +2,6 @@ $(function(){
 
 	window.jpeople_server_hack = window.location.hostname; //TODO: Remove this when publishing
 
-
 	function check_external_image(callback){
 		//Check if we are in the Jacobs University network
 		var test = $("<img/>")
@@ -25,11 +24,6 @@ $(function(){
 
 	check_external_query(function(s){
 		var s = !s; 
-		if(s){
-			gui.renderExternalModeMessage(); //we are external
-		}
 		gui.init(s)
 	}); 
-
-	
 })

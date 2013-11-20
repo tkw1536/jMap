@@ -10,29 +10,39 @@
 		<link rel="stylesheet" href="https://netdna.bootstrapcdn.com/bootstrap/3.0.0/css/bootstrap.min.css">
 		<link rel="stylesheet" href="https://netdna.bootstrapcdn.com/bootstrap/3.0.0/css/bootstrap-theme.min.css">
 
-		<!-- 
-		<link rel="stylesheet" href="../css/style.css">
-		-->
+		<style type="text/css">
+			.container.bar{
+				position:absolute; 
+				top:0px; 
+				left:0px; 
+				right:0px;
+				height:70px; 
+				overflow:hidden;
+			}
+			.container.results{
+				position:absolute; 
+				top:70px; bottom:0px; left:0px; right:0px; 
+				overflow:auto;
+			}
+		</style>
 
 		<script src="js/jpeople.js"></script>
 		<script src="js/gui.js"></script>
 		
 	</head>
 	<body>
-		<div class="container">
-			
-			<br />
 
-			<form id="searchform">
-					<input type="text" class="form-control" id="peoplesearch" placeholder="Search jPeople">
-			</form>
+		<div class="container bar">
+				<form class="navbar-form navbar-left" id="searchform" role="search">
+					<input type="text" class="form-control" id="peoplesearch" placeholder="Search jPeople" autocomplete="off">
+				</form>
+		</div>
 
-			<br />
-
+		<div class="container results">
 			<div class="list-group" id="results">
 				<a href="#" class="list-group-item" id="welcomeresult">
-					<h4 class="list-group-item-heading">To get started</h4>
-					<p class="list-group-item-text">select a room on the left or search for a person by typing in the box above</p>
+					<h4 class="list-group-item-heading">Loading</h4>
+					<p class="list-group-item-text">Page is loading ... Please enable JavaScript. </p>
 				</a>
 			</div>
 		</div>

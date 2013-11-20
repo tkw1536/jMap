@@ -1,23 +1,72 @@
+//from: http://remysharp.com/2010/07/21/throttling-function-calls/
+function debounce(fn, delay) {
+	var timer = null;
+	return function () {
+		var context = this, args = arguments;
+			clearTimeout(timer);
+			timer = setTimeout(function () {
+			fn.apply(context, args);
+		}, delay);
+	};
+}
+
+
 var gui = {};
 
-gui.makeSearch = function(query){
+gui.makeSearch = debounce(function(query){
 	if(gui.externalMode){
-		gui.searchRoomExternal(query, function(res){
+		gui.searchRoomsExternal(query.split(";"), function(res){
 			gui.renderRoomResults(res);
 		}); 
 	} else {
 		// Internally we have jPeople access
-		jpeople.search(query, function(res){
+		gui.searchJPeople(query.split(";"), function(res){
 			$("#welcomeresult").remove(); 
-			if(res){
-				gui.renderPeopleResults(res); 
-			} else {
-				gui.clear();
-			}
+
+			gui.renderPeopleResults(res); 
 		}); 
 	}
-	
-	
+}, 250); 
+
+gui.searchJPeople = function(persons, callback){
+	var i=0; 
+	var results = []; 
+	var next = function(){
+		if(i<persons.length){
+			if((!persons[i] || /^\s*$/.test(persons[i]))){
+				i++; 
+				return next(); 
+			}
+			jpeople.search(persons[i].trim(), function(res){
+				if(res){
+					results.push.apply(results, res); 
+				}
+				i++; 
+				next(); 
+			}); 
+		} else {
+			var uresults = []; 
+
+		    for(var j=0;j<results.length;j++){
+		    	var add = true; 
+		    	for(var k=0;k<uresults.length;k++){
+		    		if(results[j].eid === uresults[k].eid){
+		    			add = false; 
+		    			break; 
+		    		}
+		    	}
+
+		    	if(add){
+		    		uresults.push(results[j]); 
+		    	}
+		    }
+
+			callback((uresults.length == 0)?false:uresults); 
+		}
+	}
+
+	next(); 
+
 }
 
 gui.showRoom = function(id){
@@ -53,6 +102,10 @@ gui.showPerson = function(data){
 
 gui.renderPeopleResults = function(people){
 
+	if(!people){
+		return gui.renderModeMessage(); 
+	}
+
 	var resultList = gui.clear(); 
 	for(var i=0;i<people.length;i++){
 		(function(person){
@@ -73,14 +126,52 @@ gui.renderPeopleResults = function(people){
 		})(people[i]); 
 	}
 }
+gui.searchRoomsExternal = function(persons, callback){
+	var i=0; 
+	var results = []; 
+	var next = function(){
+		if(i<persons.length){
+			if((!persons[i] || /^\s*$/.test(persons[i]))){
+				i++; 
+				return next(); 
+			}
+			gui.searchRoomExternal(persons[i].trim(), function(res){
+				if(res){
+					results.push.apply(results, res); 
+				}
+				i++; 
+				next(); 
+			}); 
+		} else {
+			var uresults = []; 
 
+		    for(var j=0;j<results.length;j++){
+		    	var add = true; 
+		    	for(var k=0;k<uresults.length;k++){
+		    		if(JSON.stringify(results[j]) === JSON.stringify(uresults[k])){
+		    			add = false; 
+		    			break; 
+		    		}
+		    	}
+
+		    	if(add){
+		    		uresults.push(results[j]); 
+		    	}
+		    }
+
+			callback((uresults.length == 0)?false:uresults); 
+		}
+	}
+
+	next(); 
+}
 gui.searchRoomExternal = function(query, callback){
 	//search rooms database
 
 	window.parent.renderer.loadRemote("renderer", function(){
 
 		if(query.length < 3){
-			return; 
+			return callback(false);
 		}
 
 		var win = this; 
@@ -130,6 +221,10 @@ gui.searchRoomExternal = function(query, callback){
 
 gui.renderRoomResults = function(rooms){
 
+	if(!rooms){
+		return gui.renderModeMessage(); 
+	}
+
 	var resultList = gui.clear(); 
 	for(var i=0;i<rooms.length;i++){
 		(function(room){
@@ -148,17 +243,36 @@ gui.renderRoomResults = function(rooms){
 	}
 }
 
-gui.renderExternalModeMessage = function(){
-	$("<a href='#'>").addClass("list-group-item")
+gui.renderModeMessage = function(){
+	var m = $("<a href='#'>").addClass("list-group-item")
 	.click(function(){
-		gui.showRoom(person.room); 
 		return false; 
 	})
-	.append(
-		$("<h4>").addClass("list-group-item-heading").text("External Mode"), 
-		$("<div>").addClass("list-group-item-text").text("You are not in the Jacobs University network. You will not be able to search (for now). ")
+
+	if(gui.externalMode && !gui.canInternalMode){
+
+		m.append(
+			$("<h4>").addClass("list-group-item-heading").text("External Mode"), 
+			$("<div>").addClass("list-group-item-text").text("You are not in the Jacobs University network. You can only search for rooms. ")
 		)
-	.appendTo(gui.clear()); 
+	} else if(gui.externalMode){
+		m.append(
+			$("<h4>").addClass("list-group-item-heading").text("Room search mode"), 
+			$("<div>").addClass("list-group-item-text").text("click to switch to full search mode")
+		).click(function(){
+			gui.externalMode = false; 
+			$("#peoplesearch").keyup(); //update searcg
+		})
+	} else {
+		m.append(
+			$("<h4>").addClass("list-group-item-heading").text("Full search mode"), 
+			$("<div>").addClass("list-group-item-text").text("click to switch to room search mode")
+		).click(function(){
+			gui.externalMode = true; 
+			$("#peoplesearch").keyup(); //update searcg
+		})
+	}
+	return m.appendTo(gui.clear()); 
 }
 
 
@@ -168,7 +282,10 @@ gui.clear = function(){
 
 gui.init = function(ext){
 
-	gui.externalMode = ext; 
+	gui.externalMode = ext;
+	gui.canInternalMode = !ext; 
+
+	gui.renderModeMessage();
 
 	$("#searchform").submit(function(){
 		gui.makeSearch($("#peoplesearch").val()); 
