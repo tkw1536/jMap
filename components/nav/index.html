@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<title>CollegeMap - NAV</title>
+
+		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+		<!-- Include Bootstrap CSS -->
+		<link rel="stylesheet" href="../../libs/bootstrap/css/bootstrap.min.css">
+		<link rel="stylesheet" href="../../libs/bootstrap/css/bootstrap-theme.min.css">
+		<link rel="stylesheet" href="../../css/nav.css">
+	</head>
+	<body>
+
+		<div class="container bar">
+				<form class="navbar-form navbar-left" id="searchform" role="search">
+					<input type="text" class="form-control" id="peoplesearch" placeholder="Search jPeople" autocomplete="off">
+				</form>
+		</div>
+
+		<div class="container results">
+			<div class="list-group" id="results">
+				<a href="#" class="list-group-item" id="welcomeresult">
+					<h4 class="list-group-item-heading">Loading</h4>
+					<p class="list-group-item-text">Page is loading ... Please enable JavaScript. </p>
+				</a>
+			</div>
+		</div>
+
+		<script src="../../libs/jquery/jquery.js"></script>
+		<script src="../../libs/bootstrap/js/bootstrap.min.js"></script>
+		<script src="../../js/util.js"></script>
+		<script src="js/gui.js"></script>
+		<script src="js/init.js"></script>
+	</body>
+</html>

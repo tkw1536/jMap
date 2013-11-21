@@ -2,4 +2,38 @@
 
 This is a project which provides an interactive map of the college I live in. Done together with my roommate. 
 
-See the demo at http://tkw1536.github.io/CollegeMap/ (broken)
+See the demo at http://w1536.tk/CollegeMap/ (external mdoe only)
+
+## How it works
+
+* Has three frames: 
+	* `nav`: navigation
+	* `renderer`: renders map
+	* `bridge`: Serves as a bridge between other frames
+
+## Bridge API
+
+```js
+	//Access:
+	window.top.bridge(function(bridge){
+		//Do stuff here
+	})
+```
+
+* `bridge.getRenderer()`
+* `bridge.setRenderer(renderer, callback)`
+
+* `bridge.getMapData()`
+
+* `bridge.searchMapData(queries, callback)`
+* `bridge.searchJPeople(queries, callback)`
+
+* `bridge.checkIfExternal(callback)`
+
+* `bridge.getMapRenderState()`
+* `bridge.setMapRenderState(state)`
+* `bridge.renderMap([state])`
+
+* `bridge.getPersonRenderState()`
+* `bridge.setPersonRenderState(person)`
+* `bridge.renderPerson([person])` - Switch to render the given person or saved person render State

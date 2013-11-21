@@ -81,8 +81,12 @@ html, body {
 	background-color: #B3B3B3;
 }
 
+.box {
+	overflow: hidden;
+}
+
 /*
-Hover on different types of rooms
+	Hover on different types of rooms
 */
 .box:hover, .box.active {
 	background-color: yellow; 
@@ -126,4 +130,17 @@ Hover on different types of rooms
 	margin:0px auto;
 	top: 100px; 
 	position: relative;
+}
+
+/* bar */
+.container.bar{
+	position:absolute; 
+	top:0px; 
+	left:0px; 
+	right:0px;
+	height:70px; 
+}
+
+.dropdown.wide > a.dropdown-toggle {
+	width: 150px !important;
 }

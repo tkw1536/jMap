@@ -41,15 +41,15 @@ Box.prototype.renderWith = function(grid) {
 Box.Size = function(){
 	//return stats.getBestXSize(gui.currentFloor, $(window).width()-200); 
 	//return 4; 
-	return stats.findScale(20, 40, Box.lastRendering);
+	return stats.findScale(20, 70, Box.lastRendering);
 };
 
 //Origin
 Box.XOrigin = function(){
-	return stats.findOrigin(20, 40, Box.lastRendering)[0];
+	return stats.findOrigin(20, 70, Box.lastRendering)[0];
 };  
 Box.YOrigin = function(){
-	return stats.findOrigin(20, 40, Box.lastRendering)[1];
+	return stats.findOrigin(20, 70, Box.lastRendering)[1];
 }; 
 
 Box.lastRendering = []; 
@@ -75,9 +75,11 @@ Box.makeRendering = function(renderArray, onClick){
 		(function(){
 			var spec = renderArray[i]; 
 			var box = new Box(spec[0], spec[1], spec[2], spec[3]); 
+			var sub = $("<div>").text(spec[4]).css("font-size", "1em"); 
+
 			var tile = 
 			box.render()
-			.text(spec[4])
+			.append(sub)
 			.addClass("activatable "+spec[6])
 			.click(function(){
 				onClick(spec[5], spec); 
@@ -88,9 +90,18 @@ Box.makeRendering = function(renderArray, onClick){
 					tile.addClass("id-"+spec[5][j]);
 				}
 			}
+
+			//update font size 
+			//from: http://www.metaltoad.com/blog/resizing-text-fit-container
+		    var fontstep = 2;
+			while (sub.height()>tile.height() || sub.width()>tile.width()){
+		    	sub.css('font-size',((sub.css('font-size').substr(0,2)-fontstep)) + 'px').css('line-height',((sub.css('font-size').substr(0,2))) + 'px');
+		    }
 			
 		})(); 
 	}
+
+	gui.flushRenderState(); 
 }
 
 Box.refreshRendering = function(){

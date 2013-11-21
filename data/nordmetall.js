@@ -56,44 +56,44 @@ var NM2 = [
 
 	//B - West - Out
 	[-64, -60, 10, 12, "NB tbd ", undefined, "student"],
-	[-64, -48, 10, 24, "NB 219/ 218 ", undefined, "student"],
-	[-64, -24, 10, 24, "NB 215/ 214 ", undefined, "student"],
-	[-64, 0, 10, 24, "NB 211/ 210 ", undefined, "student"],
-	[-64, 24, 10, 24, "NB 207/ 206 ", undefined, "student"],
-	[-64, 48, 10, 24, "NB 203/ 202 ", undefined, "student"],
-	
+	[-64, -48, 10, 24, "NB 218 / 219 ", ["NB-218", "NB-219"], "student"],
+	[-64, -24, 10, 24, "NB 214 / 215 ", ["NB-214", "NB-215"], "student"],
+	[-64, 0, 10, 24, "NB 210 / 211 ", ["NB-210", "NB-211"], "student"],
+	[-64, 24, 10, 24, "NB 206 / 207 ", ["NB-206", "NB-207"], "student"],
+	[-64, 48, 10, 24, "NB 202 / 203 ", ["NB-202", "NB-203"], "student"], 
+
 	//B - West - In
-	[-48, 48, 10, 24, "NB 238/ 239 ", undefined, "student"],
-	[-48, 24, 10, 24, "NB 234/ 235 ", undefined, "student"],
-	[-48, 0, 10, 24, "NB 230/ 231 ", undefined, "student"],
-	[-48, -24, 10, 24, "NB 226/ 227 ", undefined, "student"],
-	[-48, -36, 10, 12, "NB unknown ", undefined, "student"],
+	[-48, 48, 10, 24, "NB 238 / 239 ", ["NB-238", "NB-239"], "student"],
+	[-48, 24, 10, 24, "NB 234 / 235 ", ["NB-234", "NB-235"], "student"],
+	[-48, 0, 10, 24, "NB 230 / 231 ", ["NB-230", "NB-231"], "student"],
+	[-48, -24, 10, 24, "NB 226 / 227 ", ["NB-226", "NB-227"], "student"],
+	[-48, -36, 10, 12, "NB unknown ", undefined, "student"], 
 
 	//B - East - In 
 	[58, -36, 10, 12, "NB tbd ", undefined, "student"],
-	[58, -24, 10, 24, "NB 263/ 262 ", undefined, "student"],
-	[58, 0, 10, 24, "NB 267/ 266 ", undefined, "student"],
-	[58, 24, 10, 24, "NB 271/ 270 ", ["NB-270", "NB-271"], "student"],
-	[58, 48, 10, 24, "NB 275/ 274 ", undefined, "student"],
+	[58, -24, 10, 24, "NB 262 / 263 ", ["NB-262", "NB-263"], "student"],
+	[58, 0, 10, 24, "NB 266 / 267 ", ["NB-266", "NB-267"], "student"],
+	[58, 24, 10, 24, "NB 270 / 271 ", ["NB-270", "NB-271"], "student"],
+	[58, 48, 10, 24, "NB 274 / 275 ", ["NB-274", "NB-275"], "student"], 
 
 	//B - East - Out
-	[74, 48, 10, 24, "NB 296/ 297 ", undefined, "student"],
-	[74, 24, 10, 24, "NB 292/ 293 ", undefined, "student"],
-	[74, 0, 10, 24, "NB 288/ 289 ", undefined, "student"],
-	[74, -24, 10, 24, "NB 284/ 285 ", undefined, "student"],
-	[74, -48, 10, 24, "NB 280/ 281 ", undefined, "student"],
-	[74, -60, 10, 12, "NB tbd ", undefined, "student"],
+	[74, 48, 10, 24, "NB 296 / 297 ", ["NB-296", "NB-297"], "student"],
+	[74, 24, 10, 24, "NB 292 / 293 ", ["NB-292", "NB-293"], "student"],
+	[74, 0, 10, 24, "NB 288 / 289 ", ["NB-288", "NB-289"], "student"],
+	[74, -24, 10, 24, "NB 284 / 285 ", ["NB-284", "NB-285"], "student"],
+	[74, -48, 10, 24, "NB 280 / 281 ", ["NB-280", "NB-281"], "student"],
+	[74, -60, 10, 12, "NB tbd ", undefined, "student"], 
 
 	[-54, -60, 6, 132, "Corridor West", undefined, "cor"],
 	[-48, -48, 10, 12, "Staircase West", undefined, "stairs"],
-	[-38, -48, 12, 10, "Kitchen NB 245", undefined, "kitchen"],
-	
-	[-26, -48, 24, 10, "NB 247/246 ", undefined, "student"],
-	[-2, -48, 24, 10, "NB 251/250 ", undefined, "student"],
+	[-38, -48, 12, 10, "Kitchen NB 245", ["NB-245"], "kitchen"],
+
+	[-26, -48, 24, 10, "NB 246 / 247", ["NB-246", "NB-247"], "student"],
+	[-2, -48, 24, 10, "NB 250 / 251", ["NB-250", "NB-251"], "student"],
 	[-48, -60, 116, 12, "Corridor North", ["corr_north"], "cor"],
-	[22, -48, 24, 10, "RA Apartment NB 255", undefined, "admin"],
-	
-	[46, -48, 12, 10, "Kitchen NB 258", undefined, "kitchen"],
+	[22, -48, 24, 10, "RA Apartment NB 255", ["NB-255"], "admin"],
+
+	[46, -48, 12, 10, "Kitchen NB 258", ["NB-258"], "kitchen"],
 	[58, -48, 10, 12, "Staircase East", undefined, "stairs"],
 	[68, -60, 6, 132, "Corridor East", undefined, "cor"]
 ];

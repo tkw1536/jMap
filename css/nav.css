@@ -1,0 +1,14 @@
+.container.bar{
+	position:absolute; 
+	top:0px; 
+	left:0px; 
+	right:0px;
+	height:70px; 
+	overflow:hidden;
+}
+
+.container.results{
+	position:absolute; 
+	top:70px; bottom:0px; left:0px; right:0px; 
+	overflow:auto;
+}

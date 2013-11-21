@@ -2,13 +2,15 @@
 <html>
     <head>
     	<title>Even better jPeople WITH a MAP</title>
-    	<script src="https://code.jquery.com/jquery.js"></script>
-    	<script src="js/resize.js"></script>
+    	<script src="libs/jquery/jquery.js"></script>
+    	<script src="js/bridge.js"></script>
+        <script src="js/resize.js"></script>
     	<meta content='width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0' name='viewport' />
 		<meta name="viewport" content="width=device-width" />
     </head>
-    <frameset framespacing="0" cols="33%,66%" frameborder="0" noresize>
-        <frame name="top" src="nav/index.html" target="top">
-        <frame name="renderer" src="start/index.html" target="renderer">
+    <frameset framespacing="0" cols="35%,65%,0" frameborder="0" noresize>
+        <frame name="nav" src="components/nav/index.html" target="top">
+        <frame name="renderer" src="components/start/index.html" target="renderer">
+        <frame name="bridge" src="components/bridge/index.html" target="data">
     </frameset>
 </html>
