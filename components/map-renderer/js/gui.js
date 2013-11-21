@@ -78,10 +78,13 @@ gui.refreshFloorMenu = function(){
 								if(typeof id == "string" || typeof id == "undefined"){
 									window.top.bridge(function(b){
 										b.setSearchString(id); 
+										gui.flashRoom(id); 
 									})
 								} else {
+
 									window.top.bridge(function(b){
 										b.setSearchString(id.join("; ")); 
+										gui.flashRoom(id[0]); 
 									});
 								}
 							});
@@ -111,6 +114,11 @@ gui.flashRoom = function(id){
 	$(".activatable").removeClass("active"); 
 	$(document.getElementsByClassName("id-"+id)).addClass("active");
 	gui.currentFlash = id; 
+}
+
+gui.unFlash = function(){
+	$(".activatable").removeClass("active"); 
+	gui.currentFlash = undefined; 
 }
 
 gui.renderRoomById = function(id, flash, switchFloor, callback){
