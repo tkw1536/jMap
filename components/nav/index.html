@@ -14,18 +14,39 @@
 
 		<div class="container bar">
 				<form class="navbar-form navbar-left" id="searchform" role="search">
-					<input type="text" class="form-control" id="peoplesearch" placeholder="Search jPeople" autocomplete="off">
+					<input type="search" class="form-control" id="peoplesearch" placeholder="Search jPeople" autocomplete="off">
 				</form>
 		</div>
 
 		<div class="container results">
 			<div class="list-group" id="results">
-				<a href="#" class="list-group-item" id="welcomeresult">
+				<a href="#" class="list-group-item">
 					<h4 class="list-group-item-heading">Loading</h4>
 					<p class="list-group-item-text">Page is loading ... Please enable JavaScript. </p>
 				</a>
 			</div>
+			<div class="list-group" id="copy">
+				<div class="list-group-item hidden" id="copynotice">
+					<h3 class="list-group-item-heading pull-right">About</h4>
+					<p class="list-group-item-text">
+						A better jPeople with a map <br />
+						License: TBD <br />
+						This project contains: <br />
+						<ul>
+							<li>
+								<a href="http://getbootstrap.com/" target="_blank">Bootstrap</a> 3.0.2, &copy; 2013 Twitter, which is licensed under <a href="../../libs/bootstrap/LICENSE" target="_blank">Apache 2 license</a>
+							</li>
+							<li>
+								<a href="http://jquery.com/" target="_blank">jQuery</a> 2.0.3, &copy; 2013 jQuery Foundation and other contributors, which is licensed under <a href="../../libs/jquery/MIT-LICENSE.txt" target="_blank">MIT License</a>
+							</li>
+						</ul>
+					</p>
+				</div>
+			</div>
+			
 		</div>
+
+		
 
 		<script src="../../libs/jquery/jquery.js"></script>
 		<script src="../../libs/bootstrap/js/bootstrap.min.js"></script>

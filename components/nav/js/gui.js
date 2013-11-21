@@ -112,7 +112,15 @@ gui.renderModeMessage = function(){
 			$("#peoplesearch").keyup(); //update searcg
 		})
 	}
-	return m.appendTo(gui.clear()); 
+
+	var g = gui.clear(); 
+
+	m.appendTo(g)
+	
+	return g
+	.append(
+		$("#copynotice").clone().removeClass("hidden")
+	);
 }
 
 
@@ -138,10 +146,6 @@ gui.init = function(ext){
 		gui.makeSearch($("#peoplesearch").val()); 
 		return false; 
 	}); 
-
-	$("#welcomeresult").click(function(){
-		return false; 
-	});
 
 	$("#peoplesearch").bind("keyup input paste", util.debounce(function(){
 		gui.makeSearch($("#peoplesearch").val()); 

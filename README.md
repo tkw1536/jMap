@@ -37,3 +37,12 @@ See the demo at http://w1536.tk/CollegeMap/ (external mdoe only)
 * `bridge.getPersonRenderState()`
 * `bridge.setPersonRenderState(person)`
 * `bridge.renderPerson([person])` - Switch to render the given person or saved person render State
+
+## License
+
+To be done. 
+
+This project contains the following libraries: 
+
+* [Bootstrap](http://getbootstrap.com/) 3.0.2, &copy; 2013 Twitter, which is licensed under [Apache 2 license](libs/bootstrap/LICENSE)
+* [jQuery](http://jquery.com/) 2.0.3, &copy; 2013 jQuery Foundation and other contributors, which is licensed under [MIT License](libs/jquery/MIT-LICENSE.txt)
