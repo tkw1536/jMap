@@ -1,6 +1,6 @@
 $(function(){
 
-	window.jpeople_server_hack = window.location.hostname; //TODO: Remove this when publishing
+	window.jpeople_server_hack = window.location.host; //TODO: Remove this when publishing
 
 	function check_external_image(callback){
 		//Check if we are in the Jacobs University network
