@@ -13,10 +13,12 @@
 			var frameName = window.name; 
 			var parent = window.parent; 
 
-			parent.document.getElementsByName(frameName)[0].onload = function(){ 
-				parent.document.getElementsByName(frameName)[0].onload = function(){}; //Unregister onload event
+			var frameElem = parent.$(parent.document.getElementsByName(frameName)[0]); 
+
+			frameElem.on("load", function(){ 
+				frameElem.off("load"); 
 				parent[frameName].loadRemote(name, callback); 	
-			}
+			}); 
 
 			location.href = "../"+name+"/index.html"; 
 		}
