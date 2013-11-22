@@ -10,6 +10,7 @@ See the demo at http://w1536.tk/CollegeMap/ (external mdoe only)
 	* `nav`: navigation
 	* `renderer`: renders map
 	* `bridge`: Serves as a bridge between other frames
+	* some eastereggs
 
 ## Bridge API
 
@@ -40,7 +41,7 @@ See the demo at http://w1536.tk/CollegeMap/ (external mdoe only)
 
 ## License
 
-To be done. 
+&copy; 2013 Tom Wiesing and Sourabh Lal, licensed under [MIT](LICENSE)
 
 This project contains the following libraries: 
 

