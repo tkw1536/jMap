@@ -39,15 +39,15 @@ Box.prototype.renderWith = function(grid) {
 
 //General Grid dimensions
 Box.Size = function(){
-	return stats.findScale(10, 10, 70, 20, Box.lastRendering);
+	return stats.findScale(10, 10, 50, 20, Box.lastRendering);
 };
 
 //Origin
 Box.XOrigin = function(){
-	return stats.findOrigin(10, 10, 70, 20, Box.lastRendering)[0];
+	return stats.findOrigin(10, 10, 50, 20, Box.lastRendering)[0];
 };  
 Box.YOrigin = function(){
-	return stats.findOrigin(10, 10, 70, 20, Box.lastRendering)[1];
+	return stats.findOrigin(10, 10, 50, 20, Box.lastRendering)[1];
 }; 
 
 Box.lastRendering = []; 

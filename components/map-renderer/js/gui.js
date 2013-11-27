@@ -171,11 +171,11 @@ gui.showPerson = function(person){
 gui.flushRenderState = function(){
 	//gets the current render state
 
-	var state = JSON.stringify({
+	var state = {
 		"build": gui.currentBuilding, 
 		"floor": gui.currentFloor, 
 		"flash": gui.currentFlash
-	}); 
+	}; 
 
 	window.top.bridge(function(b){
 		b.setMapRenderState(state); 
@@ -183,8 +183,7 @@ gui.flushRenderState = function(){
 }
 
 gui.setRenderState = function(state){
-	//sets the current render state
-	var state = JSON.parse(state); 
+	var state  = (typeof state == "undefined")?{"build": 0, "floor": 0}:state; //sets the current render state
 	gui.renderFloor(state.build, state.floor); 
 	if(typeof state.flash !== "undefined"){
 		gui.flashRoom(state.flash); 
