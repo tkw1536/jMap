@@ -27,11 +27,12 @@ stats.getMinY = stats(function(room){
 }, function(a){return Math.min.apply(undefined, a); });
 
 stats.getScale = function(min, max, size, margin){
-	return (size - 2*margin)/(max-min);
+	var s = (size - margin)/(max-min);
+	return (s>=1)?s:1; //scale at least 1
 }
 
-stats.getOrigin = function(scale, min, max, margin){
-	return -(scale*min)+margin;
+stats.getOrigin = function(scale, min, max, margin_1, margin_2){
+	return -(scale*min)+margin_1;
 };
 stats.findFrameSize = function(){
 	return [
@@ -40,7 +41,11 @@ stats.findFrameSize = function(){
 	]
 }
 
-stats.findScale = function(m_x, m_y, rooms){
+stats.findScale = function(m_x_1, m_x_2, m_y_1, m_y_2, rooms){
+	var m_x = m_x_1 + m_x_2; 
+	var m_y = m_y_1 + m_y_2; 
+
+
 	var size = stats.findFrameSize();
 
 	var x_scale = stats.getScale(stats.getMinX(rooms), stats.getMaxX(rooms), size[0], m_x);
@@ -49,12 +54,12 @@ stats.findScale = function(m_x, m_y, rooms){
 	return Math.floor(Math.min(x_scale, y_scale));
 }
 
-stats.findOrigin = function(m_x, m_y, rooms){
-	var scale = stats.findScale(m_x, m_y, rooms);
+stats.findOrigin = function(m_x_1, m_x_2, m_y_1, m_y_2, rooms){
+	var scale = stats.findScale(m_x_1, m_x_2, m_y_1, m_y_2, rooms);
 	var size = stats.findFrameSize();
 
 	return [
-		stats.getOrigin(scale, stats.getMinX(rooms), stats.getMaxX(rooms), m_x), 
-		stats.getOrigin(scale, stats.getMinY(rooms), stats.getMaxY(rooms), m_y)
+		stats.getOrigin(scale, stats.getMinX(rooms), stats.getMaxX(rooms), m_x_1, m_x_2), 
+		stats.getOrigin(scale, stats.getMinY(rooms), stats.getMaxY(rooms), m_y_1, m_y_2)
 	];
 }

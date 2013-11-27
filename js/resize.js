@@ -5,7 +5,9 @@ $(function(){
 
 		for(var i=0;i<window.frames.length;i++){
 			var targetWin = window.frames[i]; 
-			targetWin.jQuery(targetWin).resize(); 
+			try{
+				targetWin.jQuery(targetWin).resize(); 
+			} catch(e){}
 		}
 	})
 })
