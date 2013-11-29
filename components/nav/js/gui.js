@@ -1,4 +1,5 @@
 var gui = {};
+gui.ready = false; 
 
 gui.makeSearch = function(query){
 	if(gui.externalMode){
@@ -132,22 +133,34 @@ gui.clear = function(){
 gui.setSearchString = function(str){
 	$("#peoplesearch").val(str);
 
-	gui.makeSearch($("#peoplesearch").val()); 
+	if(gui.ready){
+		gui.makeSearch($("#peoplesearch").val());
+	}
+	 
 }
 
 gui.init = function(ext){
+
+	var debounce_time = 250; 
+
+	gui.ready = true; 
 
 	gui.externalMode = ext;
 	gui.canInternalMode = !ext; 
 
 	gui.renderModeMessage();
 
-	$("#searchform").submit(function(){
+	$("#searchform").submit(util.debounce(function(){
 		gui.makeSearch($("#peoplesearch").val()); 
 		return false; 
-	}); 
+	}, debounce_time)); 
 
 	$("#peoplesearch").bind("keyup input paste", util.debounce(function(){
 		gui.makeSearch($("#peoplesearch").val()); 
-	}, 250));
+	}, debounce_time));
+
+	
+	window.setTimeout(function(){
+		gui.makeSearch($("#peoplesearch").val());
+	}, debounce_time); 
 }

@@ -19,7 +19,7 @@
 				parent[frameName].loadRemote(name, callback); 	
 			}); 
 
-			location.href = "../"+name+"/index.html"; 
+			window.location.href = util.resolve("../"+name+"/index.html"); 
 		}
 	};
 

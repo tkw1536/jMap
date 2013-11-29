@@ -120,6 +120,20 @@ var util = window.util = {};
     
 }
 
+    util.once = function(check, callback, timeout){
+        var timeout = (typeof timeout == "number")?timeout:1000; 
+        
+        var next = function(){
+            if(check() === true){ 
+                callback(); 
+            } else {
+                window.setTimeout(next, timeout); 
+            }
+        }
+
+        next(); 
+    }
+
 	util.resolve = resolve; 
 	util.debounce = debounce; 
 	util.loadJS = loadExternalJS; 

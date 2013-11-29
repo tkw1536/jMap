@@ -1,23 +1,31 @@
 var Buildings = []; 
+Buildings.idMap = {}; 
 
 var finishedLoads = []; 
 var loading = false; 
 
+var buildingLoadReady = false; 
+
 $.holdReady(true);
 
-window.loadBuilding = function(JS_FILE_NAME, BUILDING_NAME, VARIABLE_NAME){
+window.loadBuilding = function(JS_FILE_NAME, BUILDING_NAME, VARIABLE_NAME, MACHINE_NAME){
+	buildingLoadReady = false; 
+
 	//load the building
 	if(loading){
-		return finishedLoads.push([JS_FILE_NAME, BUILDING_NAME, VARIABLE_NAME]); 
+		return finishedLoads.push(arguments); 
 	} else {
 		loading = true; 
 
 		util.loadJS("../../data/"+JS_FILE_NAME, function(){
 			Buildings.push([BUILDING_NAME, window[VARIABLE_NAME]]); 
+			Buildings.idMap[MACHINE_NAME.toLowerCase()] = Buildings.length - 1; 
 
 			loading = false; 
 			if(finishedLoads.length > 0){
 				window.loadBuilding.apply(window, finishedLoads.pop())
+			} else {
+				buildingLoadReady = true; 
 			}
 		});
 

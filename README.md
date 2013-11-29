@@ -2,7 +2,7 @@
 
 This is a project which provides an interactive map of the college I live in. Done together with my roommate. 
 
-See the demo at http://w1536.tk/CollegeMap/ (external mdoe only)
+See the demo at http://w1536.tk/CollegeMap/ (external mode only)
 
 ## How it works
 
@@ -29,11 +29,13 @@ See the demo at http://w1536.tk/CollegeMap/ (external mdoe only)
 * `bridge.searchMapData(queries, callback)`
 * `bridge.searchJPeople(queries, callback)`
 
+
 * `bridge.checkIfExternal(callback)`
 
 * `bridge.getMapRenderState()`
 * `bridge.setMapRenderState(state)`
 * `bridge.renderMap([state])`
+* `bridge.renderRoomById(id)`
 
 * `bridge.getPersonRenderState()`
 * `bridge.setPersonRenderState(person)`

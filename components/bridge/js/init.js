@@ -112,8 +112,15 @@ bridge.getMapRenderState = function(){
 	return mapRenderState; 
 }
 
-bridge.setMapRenderState = function(state){
-	mapRenderState = state; 
+bridge.setMapRenderState = function(state){	
+	try{
+		if(typeof state.build == "string"){
+			state.build = Buildings.idMap[state.build.toLowerCase()]; //turn a string into an id
+		}
+	} catch(e){}
+
+	mapRenderState = state;
+
 }
 
 bridge.renderRoomById = function(id){
@@ -128,11 +135,11 @@ bridge.renderRoomById = function(id){
 }
 
 bridge.renderMap = function(state){
-	if(typeof state == "undefined"){
-		state = bridge.getMapRenderState(); 
-	} else {
+	if(typeof state !== "undefined"){
 		bridge.setMapRenderState(state);
 	}
+
+	var state = bridge.getMapRenderState(); 
 
 	bridge.setRenderer("map-renderer", function(win){
 		win.gui.setRenderState(state); 
@@ -190,9 +197,9 @@ bridge.wasteSpace = function(){
 
 $(document).ready(function(){
 	while(window.top.bridge.queries.length > 0){
-		(window.top.bridge.queries.pop())(bridge); 
+		(window.top.bridge.queries.pop()).call(window, bridge, window); 
 	}
 	window.top.bridge = function(cb){
-		cb(bridge); 
+		cb.call(window, bridge, window); 
 	}
 })
