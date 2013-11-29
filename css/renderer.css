@@ -140,20 +140,14 @@ html, body {
 	height:50px; 
 }
 
-.dropdown.wide > a.dropdown-toggle{
-	width: 150px !important;
-}
-
+.dropdown.wide > a.dropdown-toggle, 
 .dropdown.wide > ul.dropdown-menu > li {
-	min-width: 150px; 
+	min-width: 125px; 
 }
 
-.dropdown.main > a.dropdown-toggle {
-	width: 200px !important;
-}
-
+.dropdown.main > a.dropdown-toggle, 
 .dropdown.main > ul.dropdown-menu > li {
-	min-width: 200px; 
+	min-width: 150px; 
 }
 
 .modal.large {
