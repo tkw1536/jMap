@@ -165,10 +165,16 @@ bridge.setSearchString = function(str){
 	window.top.frames.nav.gui.setSearchString(str);
 }
 
+var externalState = undefined; 
 bridge.checkIfExternal = function(callback){
-	jpeople.search("", function(res){
-		callback(res !== false); 
-	});
+	if(typeof externalState == "undefined"){
+		jpeople.search("", function(res){
+			externalState = (res !== false); 
+			callback(externalState); 
+		});
+	} else {
+		callback(externalState); 
+	}
 }
 
 //Waste some space
