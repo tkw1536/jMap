@@ -152,8 +152,7 @@ gui.init = function(ext){
 
 	$("#searchform").submit(util.debounce(function(){
 		gui.makeSearch($("#peoplesearch").val()); 
-		return false; 
-	}, debounce_time)); 
+	}, debounce_time, false)); 
 
 	$("#peoplesearch").bind("keyup input paste", util.debounce(function(){
 		gui.makeSearch($("#peoplesearch").val()); 
