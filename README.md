@@ -16,7 +16,7 @@ See the demo at http://w1536.tk/CollegeMap/ (external mode only)
 
 ```js
 	//Access:
-	window.top.bridge(function(bridge){
+	window.parent.bridge(function(bridge){
 		//Do stuff here
 	})
 ```

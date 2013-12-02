@@ -3,14 +3,14 @@ gui.ready = false;
 
 gui.makeSearch = function(query){
 	if(gui.externalMode){
-		window.top.bridge(function(b){
+		window.parent.bridge(function(b){
 			b.searchMapData(query.split(";"), function(res){
 				gui.renderRoomResults(res);
 			}); 
 		});
 	} else {
 		// Internally we have jPeople access
-		window.top.bridge(function(b){
+		window.parent.bridge(function(b){
 			b.searchJPeople(query.split(";"), function(res){
 				gui.renderPeopleResults(res); 
 			});
@@ -19,14 +19,14 @@ gui.makeSearch = function(query){
 }
 
 gui.showRoom = function(id){
-	window.top.bridge(function(b){
+	window.parent.bridge(function(b){
 		b.renderRoomById(id); 
 	});
 }
 
 gui.showPerson = function(data){
 	//show person via bridge
-	window.top.bridge(function(b){
+	window.parent.bridge(function(b){
 		b.renderPerson(data); 
 	});
 }

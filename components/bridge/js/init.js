@@ -9,8 +9,8 @@ var bridge = window.bridge = {};
 bridge.getMapData = function(){return Buildings; }
 
 // Renderers
-bridge.getRenderer = function(){return window.top.frames.renderer.loadRemote.providerName; }
-bridge.setRenderer = function(renderer, callback){return window.top.frames.renderer.loadRemote(renderer, callback); }
+bridge.getRenderer = function(){return window.parent.frames.renderer.loadRemote.providerName; }
+bridge.setRenderer = function(renderer, callback){return window.parent.frames.renderer.loadRemote(renderer, callback); }
 
 //Search JPeople
 bridge.searchJPeople = function(persons, callback){
@@ -169,7 +169,7 @@ bridge.renderPerson = function(state){
 }
 
 bridge.setSearchString = function(str){
-	window.top.frames.nav.gui.setSearchString(str);
+	window.parent.frames.nav.gui.setSearchString(str);
 }
 
 var externalState = undefined; 
@@ -196,10 +196,10 @@ bridge.wasteSpace = function(){
 }
 
 $(document).ready(function(){
-	while(window.top.bridge.queries.length > 0){
-		(window.top.bridge.queries.pop()).call(window, bridge, window); 
+	while(window.parent.bridge.queries.length > 0){
+		(window.parent.bridge.queries.pop()).call(window, bridge, window); 
 	}
-	window.top.bridge = function(cb){
+	window.parent.bridge = function(cb){
 		cb.call(window, bridge, window); 
 	}
 })

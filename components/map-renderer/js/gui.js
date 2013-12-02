@@ -6,7 +6,7 @@ gui.currentFlash = undefined;
 
 gui.buildMenu = function(){
 
-	window.top.bridge(function(b){
+	window.parent.bridge(function(b){
 		var Buildings = b.getMapData(); 
 
 
@@ -48,7 +48,7 @@ gui.buildMenu = function(){
 	Builds the floor menu
 */
 gui.refreshFloorMenu = function(){
-	window.top.bridge(function(b){
+	window.parent.bridge(function(b){
 		var Buildings = b.getMapData();
 	
 		var Floors = Buildings[gui.currentBuilding][1];
@@ -74,15 +74,14 @@ gui.refreshFloorMenu = function(){
 
 							Box.clearRendering();
 							Box.makeRendering(Floor[1], function(id, spec){
-								//TODO: Pop Up jPeople of this box somehow
 								if(typeof id == "string" || typeof id == "undefined"){
-									window.top.bridge(function(b){
+									window.parent.bridge(function(b){
 										b.setSearchString(id); 
 										gui.flashRoom(id); 
 									})
 								} else {
 
-									window.top.bridge(function(b){
+									window.parent.bridge(function(b){
 										b.setSearchString(id.join("; ")); 
 										gui.flashRoom(id[0]); 
 									});
@@ -122,7 +121,7 @@ gui.unFlash = function(){
 }
 
 gui.renderRoomById = function(id, flash, switchFloor, callback){
-	window.top.bridge(function(b){
+	window.parent.bridge(function(b){
 		var switchFloor = (typeof switchFloor == "boolean")?switchFloor:true;
 
 		var Room = b.findRoomById(id);
@@ -177,7 +176,7 @@ gui.flushRenderState = function(){
 		"flash": gui.currentFlash
 	}; 
 
-	window.top.bridge(function(b){
+	window.parent.bridge(function(b){
 		b.setMapRenderState(state); 
 	})
 }
