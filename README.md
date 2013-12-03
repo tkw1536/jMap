@@ -2,7 +2,7 @@
 
 This is a project which provides an interactive map of the college I live in. Done together with my roommate. 
 
-See the demo at http://w1536.tk/CollegeMap/ (external mode only)
+See the demo at http://tkw1536.github.io/CollegeMap/ (external mode only)
 
 ## How it works
 
