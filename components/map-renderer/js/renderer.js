@@ -2,7 +2,6 @@
 	Constructor for Box
 */
 var Box = function(x, y, x_size, y_size){
-	
 	//Compute position
 	this.x = x; 
 	this.y = y; 
@@ -74,7 +73,6 @@ Box.makeRendering = function(renderArray, onClick){
 			var spec = renderArray[i]; 
 			var box = new Box(spec[0], spec[1], spec[2], spec[3]); 
 			var sub = $("<div>").text(spec[4]).css("font-size", "1em"); 
-
 			var tile = 
 			box.render()
 			.append(sub)
@@ -91,10 +89,20 @@ Box.makeRendering = function(renderArray, onClick){
 
 			//update font size 
 			//from: http://www.metaltoad.com/blog/resizing-text-fit-container
-		    var fontstep = 2;
-			while (sub.height()>tile.height() || sub.width()>tile.width()){
-		    	sub.css('font-size',((sub.css('font-size').substr(0,2)-fontstep)) + 'px').css('line-height',((sub.css('font-size').substr(0,2))) + 'px');
-		    }
+		   	var fontstep = 2;
+		   	var count = 10; //max steps
+		    while (sub.height()>tile.height() || sub.width()>tile.width()){
+		    	var s = parseInt(sub.css('font-size').substr(0,2)); 
+	    		/*if(s <= fontstep+1){ //fix for size
+	    			sub.css('font-size', '1px').css('line-height',''+(1+fontstep) + 'px');
+	    			break; 
+				}*/
+	            sub.css('font-size',((s-fontstep)) + 'px').css('line-height',((s)) + 'px');
+
+	            if(count-- <= 0){ //alternate fix for zoom in page
+	            	break; 
+	            }
+            }
 			
 		})(); 
 	}
