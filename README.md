@@ -10,7 +10,7 @@ See the demo at http://tkw1536.github.io/CollegeMap/ (external mode only)
 	* `nav`: navigation
 	* `renderer`: renders map
 	* `bridge`: Serves as a bridge between other frames
-	* some eastereggs
+	* some eastereggs (spoilers??? you have been warned)
 
 ## Bridge API
 

@@ -8,9 +8,77 @@
 		<link rel="stylesheet" href="../../css/renderer.css">
 	</head>
 	<body>
-		PEOPLE-RENDERER
+		<div class="container" id="content">
+			<div class="row clearfix">
+				<div class="col-md-2 column">
+					<img src="about:blank" id="photo"/>
+				</div>
+				<div class="col-md-4 column">
+					<h2>
+						<span class="replace" id="lname">lname</span>, <span class="replace" id="fname">fname</span>
+					</h2>
+					
+					<div>
+						<span class="group"><span class="replace" id="majorlong">majorlong</span>, </span><span class="group">Class of 20<span class="replace" id="year">year</span><br /></span>
 
-		<div id="content"></div>
+						<span class="replace" id="description">description</span><span class="group">, <span class="replace" id="status">status</span><br /></span>
+
+						<span class="replace" id="country">country</span>
+					</div>
+				</div>
+				<div class="col-md-4 column">
+
+					<span class="group">
+					<h2>
+						<span class="replace" id="college">college</span>
+					</h2>
+					</span>
+
+					<div>
+						<span class="group">
+							Block <span class="replace" id="block">block</span>, 
+							Floor <span class="replace" id="floor">floor</span>, 
+							Room <span class="replace" id="room">room</span>
+							<a href="#" id="showroom">View on Map &raquo;</a>
+
+							<br />
+						</span>
+
+						
+
+						<span class="group">
+							Office: <span class="replace" id="office">office</span>
+							<!--
+							<a href="#" id="showoffice">View on Map &raquo;</a>
+							-->
+
+							<br />
+						</span>
+
+						
+
+						<span class="group">
+							Phone: (+49 421) 200<strong><span class="replace" id="phone">phone</span></strong>
+							<a href="#" id="calllink">Call now &raquo;</a>
+
+							<br />
+						</span>
+
+						<span class="group">
+							E-Mail: <span class="replace" id="email">email</span>
+							<a href="#" id="maillink">Write mail &raquo;</a>
+						</span>
+					</div>
+
+					
+				</div>
+			</div>
+		</div>
+
+		<div class="container" id="msg">
+			Please search for a person on the left. Thank you!
+		</div>
+
 		<script src="../../libs/jquery/jquery.js"></script>
 		<script src="../../libs/bootstrap/js/bootstrap.min.js"></script>
 		<script src="../../js/util.js"></script>

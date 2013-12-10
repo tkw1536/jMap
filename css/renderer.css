@@ -154,3 +154,7 @@ html, body {
     width: 80%; /* respsonsive width */
     margin-left:-40%; /* width/2) */
 }
+#photo{
+	max-width: 180px;
+	max-height: 250px;
+}

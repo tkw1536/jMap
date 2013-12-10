@@ -6,10 +6,38 @@ gui.renderPerson = function(person){
 	}
 	window.parent.bridge(function(b){
 		b.setPersonRenderState(person); 
-	})
-	$("#content").text(JSON.stringify(person)); 
+	});
+
+	$("#msg").hide(); 
+
+	var spans = $("#content").show()
+	.find("span").show().end()
+	.find("span.replace").each(function(){
+		var me = $(this);
+		var attr = person[me.attr("id")]; 
+
+		if(typeof attr !== "undefined" && attr !== ""){
+			me.text(attr); 
+		} else {
+			var e = me.hide().closest("span.group").hide(); 
+		}
+	});
+
+	$("#showroom").off("click").click(function(){
+		window.parent.bridge(function(b){
+			b.renderRoomById(person["room"]); 
+		});
+	});
+
+	$("#maillink").attr("href", "mailto:"+person["email"]); 
+	$("#calllink").attr("href", "tel:0049421200"+person["phone"]); 
+
+	$("#photo").attr("src", person["photo"]); 
+
+
 }
 
 gui.showMessage = function(){
-	return $("#content").text("Please search a person on the left. Thanks. "); 
+	$("#content").hide(); 
+	$("#msg").show(); 
 }
