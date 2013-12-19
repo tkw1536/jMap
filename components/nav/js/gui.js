@@ -121,6 +121,11 @@ gui.renderModeMessage = function(){
 	return g
 	.append(
 		$("#copynotice").clone().removeClass("hidden")
+		.click(function(){
+			window.parent.bridge(function(b){
+				b.setRenderer("about"); 
+			})
+		})
 	);
 }
 
@@ -140,7 +145,6 @@ gui.setSearchString = function(str){
 }
 
 gui.init = function(ext){
-
 	var debounce_time = 250; 
 
 	gui.ready = true; 

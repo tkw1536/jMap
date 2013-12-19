@@ -14,6 +14,7 @@ $(function(){
 	window.parent.bridge(function(bridge){
 		menu.append(
 			$("<li id='menuitem-start'>").append($("<a href='#'>").text("Start").click(function(){window.loadRemote("start"); })), 
+
 			$("<li id='menuitem-map-renderer'>").append($("<a href='#'>").text("Map").click(function(){
 				bridge.renderMap(); 
 			}))
@@ -27,6 +28,11 @@ $(function(){
 					}))
 				);
 			}
+
+			menu.append(
+				$("<li id='menuitem-about'>").append($("<a href='#'>").text("About").click(function(){window.loadRemote("about"); }))
+			);
+
 		}); 
 
 		var id = $(document.getElementById("menuitem-"+window.loadRemote.providerName));

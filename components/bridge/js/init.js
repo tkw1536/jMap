@@ -10,7 +10,10 @@ bridge.getMapData = function(){return Buildings; }
 
 // Renderers
 bridge.getRenderer = function(){return window.parent.frames.renderer.loadRemote.providerName; }
-bridge.setRenderer = function(renderer, callback){return window.parent.frames.renderer.loadRemote(renderer, callback); }
+
+bridge.setRenderer = function(renderer, callback){
+	return window.parent.frames.renderer.loadRemote(renderer, (typeof callback == "function")?callback:function(){});
+}
 
 //Search JPeople
 bridge.searchJPeople = function(persons, callback){

@@ -151,7 +151,7 @@ var NM4 = [
 	//Types: "student", "floor", "stairs", "common", "toilet", "kitchen", "admin"
 
 	//B - West - Out
-	[-64, -60, 10, 12, "Room 1", undefined, "student"],
+	[-64, -60, 10, 12, "NB-422", ["NB-422"], "student"],
 	[-64, -48, 10, 24, "Room 2", undefined, "student"],
 	[-64, -24, 10, 24, "Room 3", undefined, "student"],
 	[-64, 0, 10, 24, "Room 4", undefined, "student"],
