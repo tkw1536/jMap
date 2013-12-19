@@ -95,10 +95,10 @@ var NM2 = [
 
 	[46, -48, 12, 10, "Kitchen NB 258", ["NB-258"], "kitchen"],
 	[58, -48, 10, 12, "Staircase East", undefined, "stairs"],
-	[68, -60, 6, 132, "Corridor East", undefined, "cor"]
+	[68, -60, 6, 132, "Corridor East", undefined, "cor"],
 	
 	//C-Block
-	[58, 82, 10, 6, "NB 203", ["NB-203"], "student"],
+	[58, 82, 10, 6, "NB 203", ["NB-203"], "student"]
 ];
 
 var NM3 = [
