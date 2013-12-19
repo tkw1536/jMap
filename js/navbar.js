@@ -3,8 +3,17 @@ var nbar = undefined;
 $(function(){
 	//Init the navbar here
 	nbar = $("<ul>").addClass("nav nav-tabs").appendTo(
-		$("<div>").addClass("container bar").prependTo("body")
+		$("<div>").addClass("container bar")
+		.css({
+			"position": "fixed", 
+			"top": 0, 
+			"left": 0,
+			"zIndex": 1000,
+			"background-color": "white"
+		}).prependTo($("body").css("padding-top", 50))
 	);
+
+	nbar
 
 	var entries = $('<li class="dropdown main active"><a class="dropdown-toggle" data-toggle="dropdown" href="#" style="width: 100px; ">Loading ...<span class="caret"></span></a></li>')
 	.appendTo(nbar); 
