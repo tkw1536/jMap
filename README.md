@@ -49,3 +49,4 @@ This project contains the following libraries:
 
 * [Bootstrap](http://getbootstrap.com/) 3.0.2, &copy; 2013 Twitter, which is licensed under [Apache 2 license](libs/bootstrap/LICENSE)
 * [jQuery](http://jquery.com/) 2.0.3, &copy; 2013 jQuery Foundation and other contributors, which is licensed under [MIT License](libs/jquery/MIT-LICENSE.txt)
+* [jquery.nicescroll](http://github.com/inuyaksa/jquery.nicescroll/) 3.5.4, &copy; 2011-13 InuYaksa, which is licensed under [MIT License](libs/jquery.nicescroll/MIT.LICENSE)

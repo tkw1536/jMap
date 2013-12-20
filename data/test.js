@@ -3,7 +3,7 @@
 */
 
 var Test1 = [
-	//[x, y, x_size, y_size, name, id, type]
+	//[x, y, x_size, y_size, name, id, type, search_force_include]
 	//Types: "student", "floor", "stairs", "common", "toilet", "kitchen", "admin"
 	
 	[-26, -48, 24, 10, "Room 12", undefined, "student"],
@@ -17,16 +17,16 @@ var Test1 = [
 ];
 
 var Test2 = [
-	//[x, y, x_size, y_size, name, id, type]
+	//[x, y, x_size, y_size, name, id, type, search_force_include]
 	//Types: "student", "floor", "stairs", "common", "toilet", "kitchen", "admin"
 
 	//B - West - Out
-	[-64, -60, 10, 12, "NB tbd ", ["abc"], "student"],
-	[-64, -48, 10, 24, "NB 219/ 218 ", undefined, "student"],
-	[-64, -24, 10, 24, "NB 215/ 214 ", undefined, "student"],
-	[-64, 0, 10, 24, "NB 211/ 210 ", undefined, "student"],
-	[-64, 24, 10, 24, "NB 207/ 206 ", undefined, "student"],
-	[-64, 48, 10, 24, "NB 203/ 202 ", undefined, "student"]
+	[-64, -60, 10, 12, "TBD ", ["abc"], "student"],
+	[-64, -48, 10, 24, "NB A", undefined, "student"],
+	[-64, -24, 10, 24, "NB B", undefined, "student"],
+	[-64, 0, 10, 24, "NB C ", undefined, "student"],
+	[-64, 24, 10, 24, "NB D", undefined, "student"],
+	[-64, 48, 10, 24, "NB E", undefined, "student"]
 ];
 
 var Test = [
