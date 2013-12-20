@@ -1,4 +1,8 @@
-var jpeople_server_image_prefix; 
+var jpeople_server_name, 
+jpeople_server_path, 
+jpeople_image_server, 
+jpeople_server_image_prefix, 
+jpeople_server_image_suffix;
 
 (function(){
 
@@ -9,13 +13,11 @@ var jpeople_server_image_prefix;
 //There should be no need to change this. 
 
 //Where is jPeople?
-var jpeople_server_name = "jpeople.user.jacobs-university.de";
-
-//var jpeople_server_hack = false //use window.jpeople_server_hack
-
-var jpeople_server_path = "/ajax.php";
-jpeople_server_image_prefix = "http://jpeople.user.jacobs-university.de/utils/images/";
-var jpeople_server_image_suffix = ".jpg";
+jpeople_server_name = "jpeople.user.jacobs-university.de";
+jpeople_server_path = "/ajax.php";
+jpeople_image_server = "swebtst01.public.jacobs-university.de"; //switch this to something else
+jpeople_server_image_prefix = "/jPeople/image.php?id=";
+jpeople_server_image_suffix = "";
 
 //Map for property names
 //Anything not in here will be removed
@@ -57,48 +59,37 @@ self.search = function(query, callback){
 	//encode the query
 	var query = encodeURIComponent(query);
 
-	var reqURL = "http://"+((typeof window.jpeople_server_hack == "string")?window.jpeople_server_hack:jpeople_server_name)+jpeople_server_path+"?action=fullAutoComplete&str="+query; 
-
 	//me the search and get a result
-	try{
-		jQuery
-		.ajax({
-			url: reqURL, 
-		})
-		.done(function(data){
-			try{
-				var data = (typeof data == "string")?JSON.parse(data):data; 
-				var people_tree = data["records"]; 
-				var people_list = []; 
+	jQuery
+	.ajax({
+		url: "http://"+jpeople_server_name+jpeople_server_path+"?action=fullAutoComplete&str="+query,
+	})
+	.done(function(data){
+		var data = (typeof data == "string")?JSON.parse(data):data; 
+		var people_tree = data["records"] || []; 
+		var people_list = []; 
 
-				for(var i=0;i<people_tree.length;i++){
-					var person = people_tree[i]; 
+		for(var i=0;i<people_tree.length;i++){
+			var person = people_tree[i]; 
 
-					var person_dict = {}; 
+			var person_dict = {}; 
 
-					for(var tag in person){
-						if(jpeople_attr_map.hasOwnProperty(tag)){
-							person_dict[jpeople_attr_map[tag]] = person[tag]; 
-						}
-					}
-
-					person_dict["photo"] = jpeople_server_image_prefix+person_dict["eid"]+jpeople_server_image_suffix;
-
-					people_list.push(person_dict); 
+			for(var tag in person){
+				if(jpeople_attr_map.hasOwnProperty(tag)){
+					person_dict[jpeople_attr_map[tag]] = person[tag]; 
 				}
-			} catch(e){
-				callback([]); 
-				return; 
 			}
 
-			callback(people_list); 
-		})
-		.fail(function() {
-		  callback(false); 
-		});
-	} catch(e){
-		callback(false); 
-	}
+			person_dict["photo"] = "http://"+jpeople_image_server+jpeople_server_image_prefix+person_dict["eid"]+jpeople_server_image_suffix;
+
+			people_list.push(person_dict); 
+		}
+
+		callback(people_list); 
+	})
+	.fail(function() {
+	  callback(false); 
+	});
 
 };
 

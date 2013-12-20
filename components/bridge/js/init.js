@@ -1,7 +1,7 @@
 //Init.js
 //Initialises bridge API
 
-window.jpeople_server_hack = window.location.host; //TODO: Remove this when publishing
+jpeople_server_name = window.location.host;
 
 var bridge = window.bridge = {}; 
 
