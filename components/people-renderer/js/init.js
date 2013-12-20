@@ -1,1 +1,3 @@
-//Do nothing for now!
+$(function(){
+	gui.init(); 
+})	

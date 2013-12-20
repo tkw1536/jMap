@@ -33,11 +33,15 @@ gui.renderPerson = function(person){
 	$("#calllink").attr("href", "tel:0049421200"+person["phone"]); 
 
 	$("#photo").attr("src", person["photo"]); 
-
-
 }
 
 gui.showMessage = function(){
 	$("#content").hide(); 
 	$("#msg").show(); 
+}
+
+gui.init = function(){
+	if (!(/Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent))){
+		$("#calllink").hide();
+	}
 }
