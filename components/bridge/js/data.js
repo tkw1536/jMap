@@ -105,6 +105,10 @@ Data.searchSingle = function(query, callback){
 	var data = Data.iterateRooms(function(room, i, j){
 		//do stuff here
 		//search for query somehow
+		if(room[6] !== "student" && room[7] !== true){
+			//include only student rooms or rooms with forced attribute in search
+			return; 
+		}
 		if(matchesW(query, room[4]) || matchesW(query, room[5]) || matchesW(query, room[6]) || matchesW(query, Buildings[i][0])){
 			results.push(
 			{
