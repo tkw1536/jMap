@@ -98,9 +98,9 @@ var NM2 = [
 	[68, -60, 6, 132, "Corridor East", undefined, "cor"],
 	
 	//C-Block
-	[58, 82, 10, 10, "NC 203", ["NC-203"], "student"],
-	[58, 88, 54, 6, "NC South Corridor", undefined, "cor"],
-	[58, 94, 10, 10, "NC 224", ["NC-224"], "student"],
+//	[58, 82, 10, 10, "NC 203", ["NC-203"], "student"],
+//	[58, 88, 54, 6, "NC South Corridor", undefined, "cor"],
+//	[58, 94, 10, 10, "NC 224", ["NC-224"], "student"],
 	
 //	[-2, -48, 24, 10, "NC 222", ["NC-222"], "student"],
 //	[-2, -48, 24, 10, "NC 218 / 219", ["NC-218", "NC-219"], "student"],

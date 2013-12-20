@@ -15,6 +15,18 @@ bridge.setRenderer = function(renderer, callback){
 	return window.parent.frames.renderer.loadRemote(renderer, (typeof callback == "function")?callback:function(){});
 }
 
+var jpeople_image_server_org = "http://jpeople.user.jacobs-university.de/utils/images/"; 
+var jpeople_image_server_alt = "http://ircitweb.irc-it.jacobs-university.de/cnpics_128_intranet/"; 
+
+bridge.setForceImages = function(state){
+	jpeople_server_image_prefix = state?
+	jpeople_image_server_alt:jpeople_image_server_org; 
+}
+
+bridge.getForceImages = function(){
+	return jpeople_server_image_prefix == jpeople_image_server_alt; 
+}
+
 //Search JPeople
 bridge.searchJPeople = function(persons, callback){
 	var persons = (typeof persons == "string")?[persons]:persons; 

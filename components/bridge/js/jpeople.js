@@ -1,3 +1,5 @@
+var jpeople_server_image_prefix; 
+
 (function(){
 
 //
@@ -12,7 +14,7 @@ var jpeople_server_name = "jpeople.user.jacobs-university.de";
 //var jpeople_server_hack = false //use window.jpeople_server_hack
 
 var jpeople_server_path = "/ajax.php";
-var jpeople_server_image_prefix = "/utils/images/";
+jpeople_server_image_prefix = "http://jpeople.user.jacobs-university.de/utils/images/";
 var jpeople_server_image_suffix = ".jpg";
 
 //Map for property names
@@ -80,7 +82,7 @@ self.search = function(query, callback){
 						}
 					}
 
-					person_dict["photo"] = "http://"+jpeople_server_name+jpeople_server_image_prefix+person_dict["eid"]+jpeople_server_image_suffix;
+					person_dict["photo"] = jpeople_server_image_prefix+person_dict["eid"]+jpeople_server_image_suffix;
 
 					people_list.push(person_dict); 
 				}

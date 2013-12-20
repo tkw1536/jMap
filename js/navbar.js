@@ -39,7 +39,8 @@ $(function(){
 			}
 
 			menu.append(
-				$("<li id='menuitem-about'>").append($("<a href='#'>").text("About").click(function(){window.loadRemote("about"); }))
+				$("<li id='menuitem-about'>").append($("<a href='#'>").text("About").click(function(){window.loadRemote("about"); })), 
+				$("<li id='menuitem-config'>").append($("<a href='#'>").text("Config").click(function(){window.loadRemote("config"); }))
 			);
 
 		}); 
