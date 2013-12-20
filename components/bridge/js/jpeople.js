@@ -65,27 +65,31 @@ self.search = function(query, callback){
 		url: "http://"+jpeople_server_name+jpeople_server_path+"?action=fullAutoComplete&str="+query,
 	})
 	.done(function(data){
-		var data = (typeof data == "string")?JSON.parse(data):data; 
-		var people_tree = data["records"] || []; 
-		var people_list = []; 
+		try{
+			var data = (typeof data == "string")?JSON.parse(data):data; 
+			var people_tree = data["records"] || []; 
+			var people_list = []; 
 
-		for(var i=0;i<people_tree.length;i++){
-			var person = people_tree[i]; 
+			for(var i=0;i<people_tree.length;i++){
+				var person = people_tree[i]; 
 
-			var person_dict = {}; 
+				var person_dict = {}; 
 
-			for(var tag in person){
-				if(jpeople_attr_map.hasOwnProperty(tag)){
-					person_dict[jpeople_attr_map[tag]] = person[tag]; 
+				for(var tag in person){
+					if(jpeople_attr_map.hasOwnProperty(tag)){
+						person_dict[jpeople_attr_map[tag]] = person[tag]; 
+					}
 				}
+
+				person_dict["photo"] = "http://"+jpeople_image_server+jpeople_server_image_prefix+person_dict["eid"]+jpeople_server_image_suffix;
+
+				people_list.push(person_dict); 
 			}
 
-			person_dict["photo"] = "http://"+jpeople_image_server+jpeople_server_image_prefix+person_dict["eid"]+jpeople_server_image_suffix;
-
-			people_list.push(person_dict); 
+			callback(people_list); 
+		} catch(e){
+			callback(false); 
 		}
-
-		callback(people_list); 
 	})
 	.fail(function() {
 	  callback(false); 
