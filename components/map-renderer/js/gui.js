@@ -74,6 +74,10 @@ gui.refreshFloorMenu = function(){
 
 							Box.clearRendering();
 							Box.makeRendering(Floor[1], function(id, spec){
+								if(spec[6] !== "student" && spec[6] !== "common" && spec[6] !== "kitchen" && spec[7] !== true){
+									//only handle click event for these room types
+									return; 
+								}
 								if(typeof id == "string" || typeof id == "undefined"){
 									window.parent.bridge(function(b){
 										b.setSearchString(id); 
