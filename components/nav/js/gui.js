@@ -85,24 +85,24 @@ gui.renderRoomResults = function(rooms){
 
 //Mode Switching
 gui.renderModeMessage = function(){
-	var m = $("<a href='#'>").addClass("list-group-item")
-	.click(function(){
-		return false; 
-	})
+	var m = $("<a href='#' target='_parent'>").addClass("list-group-item"); 
 
 	if(gui.externalMode && !gui.canInternalMode){
 
-		m.append(
+		m
+		.append(
 			$("<h4>").addClass("list-group-item-heading").text("External Mode"), 
-			$("<div>").addClass("list-group-item-text").text("You are not in the Jacobs University network. You can only search for rooms. ")
+			$("<div>").addClass("list-group-item-text").text("You are not logged in. You can only search for rooms. Click here to login. ")
 		)
+		.attr("href", "/login.php"); 
 	} else if(gui.externalMode){
 		m.append(
 			$("<h4>").addClass("list-group-item-heading").text("Room search mode"), 
 			$("<div>").addClass("list-group-item-text").text("click to switch to full search mode")
 		).click(function(){
 			gui.externalMode = false; 
-			$("#peoplesearch").keyup(); //update searcg
+			$("#peoplesearch").keyup(); //update search
+			return false; 
 		})
 	} else {
 		m.append(
@@ -110,7 +110,8 @@ gui.renderModeMessage = function(){
 			$("<div>").addClass("list-group-item-text").text("click to switch to room search mode")
 		).click(function(){
 			gui.externalMode = true; 
-			$("#peoplesearch").keyup(); //update searcg
+			$("#peoplesearch").keyup(); //update search
+			return false; 
 		})
 	}
 
