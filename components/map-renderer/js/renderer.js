@@ -1,116 +1,135 @@
-/*
-	Constructor for Box
+/* 
+	Render Class 
+	Renders a given floor
 */
-var Box = function(x, y, x_size, y_size){
-	//Compute position
-	this.x = x; 
-	this.y = y; 
+var Renderer = function(render_data){
+	this.setRenderData(render_data || []); 
 
-	//Compute Size
-	this.x_size = x_size; 
-	this.y_size = y_size;  
-};
+	this.setSizeGetter(function(d){
+		return stats.findScale(10, 10, 50, 20, d); 
+	});
 
-/*
-	Render a box
-*/
-Box.prototype.render = function() {
-	return Box.prototype.renderWith.call(this, Box); //default grid size
-};
+	this.setOriginGetter(
+		function(d){
+			return stats.findOrigin(10, 10, 50, 20, d)[0];
+		}, 
+		function(d){
+			return stats.findOrigin(10, 10, 50, 20, d)[1];
+		}
+	); 
 
-/*
-	Render a box
-*/
-Box.prototype.renderWith = function(grid) {
-
-	var size = grid.Size(); 
-
-	return $("<div>")
-	.css({
-		"top": this.y*size+grid.YOrigin(),
-		"left": this.x*size+grid.XOrigin(),
-		"width": this.x_size*size,
-		"height": this.y_size*size
-	})
-	.addClass("box")
-	.appendTo("body");
-};
-
-//General Grid dimensions
-Box.Size = function(){
-	return stats.findScale(10, 10, 50, 20, Box.lastRendering);
-};
-
-//Origin
-Box.XOrigin = function(){
-	return stats.findOrigin(10, 10, 50, 20, Box.lastRendering)[0];
-};  
-Box.YOrigin = function(){
-	return stats.findOrigin(10, 10, 50, 20, Box.lastRendering)[1];
+	this.setClickHandler(function(){});
 }; 
 
-Box.lastRendering = []; 
-Box.lastClick = undefined; 
 
-/*
-	Clear all rendered boxes
-*/
-Box.clearRendering = function(){
-	$("div.box").remove(); 
-	$("div.cor").remove(); 
+/* Setters / Getters */
+Renderer.prototype.setRenderData = function(data){
+	this.render_data = data; 
+	return this; 
 }
 
-/*
-	Render a list of boxes. 
-*/
-Box.makeRendering = function(renderArray, onClick){
-	Box.lastRendering = renderArray.slice(0); 
-	Box.lastClick = onClick; 
+Renderer.prototype.getRenderData = function(){
+	return this.render_data; 
+}
 
-	var onClick = (typeof onClick == "function")?onClick:function(){};
-	for(var i=0;i<renderArray.length;i++){
-		(function(){
-			var spec = renderArray[i]; 
-			var box = new Box(spec[0], spec[1], spec[2], spec[3]); 
-			var sub = $("<div>").text(spec[4]).css("font-size", "1em"); 
-			var tile = 
-			box.render()
-			.append(sub)
-			.addClass("activatable "+spec[6])
-			.click(function(){
-				onClick(spec[5], spec); 
-			});
+Renderer.prototype.setSizeGetter = function(getter){
+	this.size = getter; 
+	return this; 
+}
 
-			if(typeof spec[5] != "undefined"){
-				for(var j=0;j<spec[5].length;j++){
-					tile.addClass("id-"+spec[5][j]);
-				}
-			}
+Renderer.prototype.setOriginGetter = function(getter_x, getter_y){
+	this.origin_x = getter_x; 
+	this.origin_y = getter_y; 
+	return this; 
+}
 
-			//update font size 
-			//from: http://www.metaltoad.com/blog/resizing-text-fit-container
-		   	var fontstep = 2;
-		   	var count = 10; //max steps
-		    while (sub.height()>tile.height() || sub.width()>tile.width()){
-		    	var s = parseInt(sub.css('font-size').substr(0,2)); 
-	    		/*if(s <= fontstep+1){ //fix for size
-	    			sub.css('font-size', '1px').css('line-height',''+(1+fontstep) + 'px');
-	    			break; 
-				}*/
-	            sub.css('font-size',((s-fontstep)) + 'px').css('line-height',((s)) + 'px');
+Renderer.prototype.getSize = function(){
+	return this.size(this.getRenderData()); 
+}
 
-	            if(count-- <= 0){ //alternate fix for zoom in page
-	            	break; 
-	            }
-            }
-			
-		})(); 
+Renderer.prototype.getOriginX = function(){
+	return this.origin_x(this.getRenderData()); 
+}
+
+Renderer.prototype.getOriginY = function(){
+	return this.origin_y(this.getRenderData()); 
+}
+
+Renderer.prototype.setClickHandler = function(click){
+	this.click = click; 
+	return this; 	
+}
+
+/* Render core functions */
+Renderer.prototype.render = function(){
+	//Render stuff
+
+	this.unRender(); //remove previous renderings
+
+	var render_data = this.getRenderData(); 
+	var x_org = this.getOriginX(); 
+	var y_org = this.getOriginY();
+	var size = this.getSize(); 
+
+	for(var i=0;i<render_data.length;i++){
+		this.renderRoom(render_data[i], x_org, y_org, size); 
+	}
+	return this; 
+}
+
+Renderer.prototype.renderRoom = function(room, x_org, y_org, size){
+	//Render a single room
+
+	var me = this; 
+
+	var box = {
+		"x": room[0], 
+		"y": room[1],
+		"x_size": room[2], 
+		"y_size": room[3]
+	};
+
+	var box_div = $("<div>")
+	.css({
+		"top": box.y*size+y_org,
+		"left": box.x*size+x_org,
+		"width": box.x_size*size,
+		"height": box.y_size*size,
+		"font-size": "1em"
+	})
+	.addClass("box")
+	.appendTo("body")
+	.text(room[4])
+	.addClass("activatable "+room[6])
+	.click(function(){
+		me.click(room[5], room, box_div); 
+	});
+
+	var sub = $("<div>").appendTo(box_div); 
+
+	if(typeof room[5] != "undefined"){
+		for(var j=0;j<room[5].length;j++){
+			box_div.addClass("id-"+room[5][j]);
+		}
 	}
 
-	gui.flushRenderState(); 
+   	var fontstep = 2;
+   	var count = 10; //at most 10 steps to be sure
+    while (sub.height()>box_div.height() || sub.width()>box_div.width()){
+    	var s = parseInt(sub.css('font-size').substr(0,2)); 
+        sub.css('font-size',((s-fontstep)) + 'px').css('line-height',((s)) + 'px');
+
+        if(count-- <= 0){
+        	break; 
+        }
+    }
+
+    return this; 
 }
 
-Box.refreshRendering = function(){
-	Box.clearRendering(); 
-	Box.makeRendering(Box.lastRendering, Box.lastClick); 
-};
+Renderer.prototype.unRender = function(){
+	//unrender everything
+	$("div.box").remove(); 
+	$("div.cor").remove(); 
+	return this; 
+}

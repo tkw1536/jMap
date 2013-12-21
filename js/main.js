@@ -34,3 +34,7 @@ if(searchParam !== ""){
 		b.setSearchString(searchParam);  //search for the given person
 	})
 }
+
+$(function(){
+	window.frames["renderer"].location.href = util.resolve("components/start/index.html"); 
+})

@@ -2,7 +2,7 @@ $(function(){
 
 	//set the resize handler
 	$(window).resize(function(){
-		window.Box.refreshRendering(); 
+		window.gui.renderer.render(); //refresh the rendering
 	});
 
 	//init the GUI

@@ -1,3 +1,8 @@
+/* 
+	Stats Functions
+	Compute optimal render sizes
+*/
+
 var stats = function(cb, cb2){
 	return (function(Floor){
 		var x = []; 

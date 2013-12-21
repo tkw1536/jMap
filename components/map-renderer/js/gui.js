@@ -1,16 +1,20 @@
 var gui = {}; 
 
+gui.renderer = new Renderer(); //The renderer
+
+//state variables
 gui.currentBuilding = -1;
 gui.currentFloor = -1; 
 gui.currentFlash = undefined; 
 
-gui.buildMenu = function(){
 
+gui.buildMenu = function(){
+	//builds the floor menu
 	window.parent.bridge(function(b){
 		var Buildings = b.getMapData(); 
 
-
-		var ul = $('<ul class="dropdown-menu" role="menu">').appendTo("#buildings");
+		var ul = $('<ul class="dropdown-menu" role="menu">')
+		.appendTo("#buildings");
 		for (var i = 0; i<Buildings.length; i++)
 		{
 			(function(){
@@ -72,9 +76,10 @@ gui.refreshFloorMenu = function(){
 							ul.find(".disabled").removeClass("disabled"); //remove the active class from all active elements
 							$(this).parent().addClass("disabled"); //make this menu item active
 
-							Box.clearRendering();
-							Box.makeRendering(Floor[1], function(id, spec){
-								if(spec[6] !== "student" && spec[6] !== "common" && spec[6] !== "kitchen" && spec[7] !== true){
+							gui.renderer
+							.setRenderData(Floor[1])
+							.setClickHandler(function(id, room){
+								if(room[6] !== "student" && room[6] !== "common" && room[6] !== "kitchen" && room[7] !== true){
 									//only handle click event for these room types
 									return; 
 								}
@@ -90,7 +95,10 @@ gui.refreshFloorMenu = function(){
 										gui.flashRoom(id[0]); 
 									});
 								}
-							});
+							})
+							.render(); 
+
+							gui.flushRenderState();
 
 							$("#floorstitle").text(Floor[0]).val(Floor[0]);
 							
@@ -102,7 +110,6 @@ gui.refreshFloorMenu = function(){
 		}
 
 		ul.find("a").eq(0).click(); //Find the first link in the <ul> and click it
-
 	}); 
 };
 
@@ -115,13 +122,18 @@ gui.renderFloor = function(BuildingId, FloorId){
 gui.flashRoom = function(id){
 	//flashes a room if it is currently being rendered
 	$(".activatable").removeClass("active"); 
-	$(document.getElementsByClassName("id-"+id)).addClass("active");
+	$(document.getElementsByClassName("id-"+id)).addClass("active").dblclick(function(){
+		gui.unFlash(); 
+	});
 	gui.currentFlash = id; 
+
+	gui.flushRenderState(); //store the stuff
 }
 
 gui.unFlash = function(){
-	$(".activatable").removeClass("active"); 
+	$(".activatable").off("dblclick").removeClass("active"); 
 	gui.currentFlash = undefined; 
+	gui.flushRenderState(); 
 }
 
 gui.renderRoomById = function(id, flash, switchFloor, callback){
@@ -155,12 +167,18 @@ gui.renderRoomById = function(id, flash, switchFloor, callback){
 gui.showNotFoundMsg = function(){
 	$(".activatable").removeClass("active"); 
 	$(".notfound").remove(); 
-	$("<div>").hide().appendTo("body").addClass("notfound").text("That room does not exist on the map. ").fadeIn(500, function(){
+	$("<div>")
+	.hide()
+	.appendTo("body")
+	.addClass("notfound")
+	.text("That room does not exist on the map. ")
+	.fadeIn(500, function(){
 		$(this).fadeOut(2000, function(){
 			$(this).remove(); 
 		})
-	})
-	gui.currentFlash = undefined; 
+	});
+
+	gui.unFlash(); //unflash stuff
 }
 
 gui.showPerson = function(person){
