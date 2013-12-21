@@ -2,7 +2,8 @@ var jpeople_server_name,
 jpeople_server_path, 
 jpeople_image_server, 
 jpeople_server_image_prefix, 
-jpeople_server_image_suffix;
+jpeople_server_image_suffix,
+jpeople_server_protocol;
 
 (function(){
 
@@ -18,6 +19,7 @@ jpeople_server_path = "/ajax.php";
 jpeople_image_server = "swebtst01.public.jacobs-university.de"; //switch this to something else
 jpeople_server_image_prefix = "/jPeople/image.php?id=";
 jpeople_server_image_suffix = "";
+jpeople_server_protocol = location.protocol; 
 
 //Map for property names
 //Anything not in here will be removed
@@ -62,7 +64,7 @@ self.search = function(query, callback){
 	//me the search and get a result
 	jQuery
 	.ajax({
-		url: "http://"+jpeople_server_name+jpeople_server_path+"?action=fullAutoComplete&str="+query,
+		url: jpeople_server_protocol+"//"+jpeople_server_name+jpeople_server_path+"?action=fullAutoComplete&str="+query,
 	})
 	.done(function(data){
 		try{
@@ -81,7 +83,7 @@ self.search = function(query, callback){
 					}
 				}
 
-				person_dict["photo"] = "http://"+jpeople_image_server+jpeople_server_image_prefix+person_dict["eid"]+jpeople_server_image_suffix;
+				person_dict["photo"] = jpeople_server_protocol+"//"+jpeople_image_server+jpeople_server_image_prefix+person_dict["eid"]+jpeople_server_image_suffix;
 
 				people_list.push(person_dict); 
 			}
