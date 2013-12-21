@@ -1,7 +1,9 @@
 //Init.js
 //Initialises bridge API
 
-jpeople_server_name = window.location.host;
+jpeople_server_name = jpeople_image_server = window.location.host;
+jpeople_server_image_prefix = "/image.php?id="; 
+
 
 var bridge = window.bridge = {}; 
 
