@@ -113,6 +113,7 @@ Renderer.prototype.renderRoom = function(room, x_org, y_org, size){
 		}
 	}
 
+	//deacrease font size
    	var fontstep = 2;
    	var count = 10; //at most 10 steps to be sure
     while (sub.height()>box_div.height() || sub.width()>box_div.width()){

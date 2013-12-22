@@ -20,7 +20,7 @@ gui.makeSearch = function(query){
 
 gui.showRoom = function(id){
 	window.parent.bridge(function(b){
-		b.renderRoomById(id); 
+		b.renderRoomById(id[0]); 
 	});
 }
 
@@ -75,7 +75,7 @@ gui.renderRoomResults = function(rooms){
 			.append(
 				$("<h4>").addClass("list-group-item-heading pull-right").text(room.name), 
 				$("<div>").addClass("list-group-item-text")
-				.text(room.building+", "+room.floor)
+				.text(room.getBuilding().getName()+", "+room.getBlock().getName()+", "+room.getFloor().getName())
 				)
 			.appendTo(resultList); 
 		})(rooms[i]); 

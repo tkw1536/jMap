@@ -118,10 +118,9 @@ var util = window.util = {};
             }, TIMEOUT_CONST);
             return 1;
         }
-    
-}
+    }
 
-    util.once = function(check, callback, timeout){
+    var once = function(check, callback, timeout){
         var timeout = (typeof timeout == "number")?timeout:1000; 
         
         var next = function(){
@@ -135,8 +134,32 @@ var util = window.util = {};
         next(); 
     }
 
+    var matches = function(q, str){
+        if(typeof str == "string"){
+            return (str.toLowerCase().indexOf(q.toLowerCase()) !== -1); 
+        } else if(typeof str !== "undefined"){
+            try{
+                for(var i=0;i<str.length;i++){
+                    if(matches(q, str[i])){
+                        return true; 
+                    }
+                }
+            } catch(e){}
+            return false; 
+        } else {
+            return false; 
+        }
+    }
+
+    var matchesW = function(q, str){
+        var res = (matches(q, str) || matches(q.split(" ").join("-"), str)); 
+        return res; 
+    }
+
 	util.resolve = resolve; 
 	util.debounce = debounce; 
 	util.loadJS = loadExternalJS; 
+    util.once = once; 
+    util.matches = matchesW; 
 
 })(jQuery); 

@@ -5,9 +5,11 @@ $(function(){
 		window.gui.renderer.render(); //refresh the rendering
 	});
 
-	//init the GUI
-	gui.buildMenu(); //build the floor menu for the gui
-
 	window.navbar.add($("#nbardata").children()); 
 	$("#nbardata").remove(); 
+
+	window.parent.bridge(function(b){
+		gui.renderData = b.getMapData(); //store the render data
+		gui.setRenderState(); //start rendering
+	}); 
 })
