@@ -29,12 +29,11 @@ var Room = function(data, floor){
 	this.force_search = (data.force_include === true); 
 }
 
-Room.prototype.updateTo = function(data){
+Room.prototype.set = function(data){
 	var keys = ["type", "force_search", "name"]; 
 
 	for(var i=0;i<keys.length;i++){
 		if(data.hasOwnProperty(keys[i])){
-			console.log(keys[i], "refresh"); 
 			this[keys[i]] = data[keys[i]]; 
 		}
 	}

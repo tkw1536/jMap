@@ -134,10 +134,15 @@ gui.renderFloor = function(floor){
 
 gui.flashRoom = function(room){
 	//renders (flashes a room)
+	var room = room || gui.renderData.findRoomById(gui.roomFlash); 
+	if(typeof room == "undefined"){
+		return false; 
+	}
 	gui.renderFloor(room.getFloor()); 
 	var id = room.id[0]; 
 	$(document.getElementsByClassName("id-"+id)).addClass("active"); 
 	gui.roomFlash = id; 
+	return true; 
 }
 
 gui.clearFlash = function(){

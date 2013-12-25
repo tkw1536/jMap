@@ -16,7 +16,7 @@ var NM = (function(){
 			if(room.type == "student"){
 				return  numberStr; 
 			} else if(room.type == "admin"){
-				return "RA" + numberStr; 
+				return "RA " + numberStr; 
 			} else if(room.type == "kitchen"){
 				return "Kitchen " + numberStr; 
 			} else {
@@ -90,6 +90,8 @@ var NM = (function(){
 	.setNames(FloorPrefix("NB", "1"))
 	.setIds(function(id){
 		return "NB-1"+id; 
+	}).set({
+		"machine_name": "1"
 	});
 	 
 
@@ -98,6 +100,8 @@ var NM = (function(){
 	.setNames(FloorPrefix("NB", "2"))
 	.setIds(function(id){
 		return "NB-2"+id; 
+	}).set({
+		"machine_name": "2"
 	});
 
 	//B3
@@ -110,6 +114,8 @@ var NM = (function(){
 	.setNames(FloorPrefix("NB", "3"))
 	.setIds(function(id){
 		return "NB-3"+id; 
+	}).set({
+		"machine_name": "3"
 	});
 
 	//B4
@@ -126,7 +132,9 @@ var NM = (function(){
 	.setNames(FloorPrefix("NB", "4"))
 	.setIds(function(id){
 		return "NB-4"+id; 
-	}); 
+	}).set({
+		"machine_name": "4"
+	});
 
 	return Nordmetall; 
 

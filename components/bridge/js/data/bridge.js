@@ -65,3 +65,23 @@ bridge.renderRoomById = function(id){
 		w.gui.renderRoomById(id); 
 	}); 
 }
+bridge.renderMapObj = function(mapObj){
+	if(mapObj instanceof Room){
+		//render the room
+		bridge.renderRoomById(mapObj.id[0]); 
+		return true; 
+	} else {
+		var floor = MapData.selectClosestFloor(mapObj); 
+		if(typeof floor == "undefined"){
+			return false; 
+		}
+		var block = floor.getBlock(); 
+		var build = block.getBuilding(); 
+		bridge.renderMap({
+			"building": build.getIndex(), 
+			"block": block.getIndex(), 
+			"floor": floor.getIndex()
+		}); 
+		return true; 
+	}
+}

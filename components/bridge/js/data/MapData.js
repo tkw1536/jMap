@@ -6,6 +6,10 @@ var MapData = function(){
 	this.buildings = []; 
 };
 
+MapData.prototype.set = function(){
+	return this; 
+}
+
 //updates
 MapData.prototype.refreshIds = function(){
 	for(var i=0;i<this.buildings.length;i++){
@@ -139,6 +143,152 @@ MapData.prototype.removeRooms = function(ids){
 }
 
 MapData.prototype.updateRoom = function(id, data){
-	this.findRoomById(id).updateTo(data); 
+	this.findRoomById(id).set(data); 
 	return this; 
 }
+
+//addTo
+MapData.prototype.addTo = function(newMapData){
+	var newMapData = (newMapData instanceof MapData)?newMapData:new MapData(newMapData); 
+	newMapData.add(this); 
+	return this; 
+}
+
+//add
+MapData.prototype.add = function(newMapData){
+	var me = this; 
+	var newMapData = (newMapData instanceof MapData)?newMapData:new MapData(newMapData); 
+	newMapData.iterateBuildings(function(build){
+		build.cloneTo(me); 
+	}); 
+
+	return this; 
+}
+
+MapData.prototype.selectByMName = function(str){
+	if(str == ""){
+		return this; 
+	}
+	var components = str.split("/"); 
+
+	for(var i=0;i<this.buildings.length;i++){
+		if(this.buildings[i].getMName() == components[0]){
+			components.splice(0, 1); 
+			return this.buildings[i].selectByMName(components.join("/")); 
+		}
+	}
+
+	var i = parseInt(components[0]); 
+
+	if(0<=i && i<this.buildings.length){
+		components.splice(0, 1); 
+		return this.buildings[i].selectByMName(components.join("/")); 
+	}
+
+	return undefined; 
+}
+
+//get closest
+MapData.selectClosestRoom = function(mapObj){
+	if(mapObj instanceof Room){
+		return mapObj; 
+	}
+	if(mapObj instanceof Floor){
+		return mapObj.rooms[0]; 
+	}
+	if(mapObj instanceof Block){
+		return mapObj.floors[0].rooms[0]; 
+	}
+	if(mapObj instanceof Building){
+		return mapObj.blocks[0].floors[0].rooms[0]; 
+	}
+	if(mapObj instanceof MapData){
+		return mapObj.buildings[0].blocks[0].floors[0].rooms[0]; 
+	}
+
+	return undefined; 
+}; 
+
+
+MapData.selectClosestFloor = function(mapObj){
+	if(mapObj instanceof Room){
+		return mapObj.getFloor(); 
+	}
+	if(mapObj instanceof Floor){
+		return mapObj; 
+	}
+	if(mapObj instanceof Block){
+		return mapObj.floors[0]; 
+	}
+	if(mapObj instanceof Building){
+		return mapObj.blocks[0].floors[0]; 
+	}
+	if(mapObj instanceof MapData){
+		return mapObj.buildings[0].blocks[0].floors[0]; 
+	}
+
+	return undefined; 
+}; 
+
+
+MapData.selectClosestBlock = function(mapObj){
+	if(mapObj instanceof Room){
+		return mapObj.getFloor().getBlock(); 
+	}
+	if(mapObj instanceof Floor){
+		return mapObj.getBlock(); 
+	}
+	if(mapObj instanceof Block){
+		return mapObj; 
+	}
+	if(mapObj instanceof Building){
+		return mapObj.blocks[0]; 
+	}
+	if(mapObj instanceof MapData){
+		return mapObj.buildings[0].blocks[0]; 
+	}
+
+	return undefined; 
+}; 
+
+MapData.selectClosestBuilding = function(mapObj){
+	if(mapObj instanceof Room){
+		return mapObj.getFloor().getBlock().getBuilding(); 
+	}
+	if(mapObj instanceof Floor){
+		return mapObj.getBlock().getBuilding(); 
+	}
+	if(mapObj instanceof Block){
+		return mapObj.getBuilding();
+	}
+	if(mapObj instanceof Building){
+		return mapObj; 
+	}
+	if(mapObj instanceof MapData){
+		return mapObj.buildings[0]; 
+	}
+
+	return undefined; 
+}; 
+
+MapData.selectClosestMapData = function(mapObj){
+	if(mapObj instanceof Room){
+		return mapObj.getFloor().getBlock().getBuilding().mapdata; 
+	}
+	if(mapObj instanceof Floor){
+		return mapObj.getBlock().getBuilding().mapdata; 
+	}
+	if(mapObj instanceof Block){
+		return mapObj.getBuilding().mapdata;
+	}
+	if(mapObj instanceof Building){
+		return mapObj.mapdata;;
+	}
+	if(mapObj instanceof MapData){
+		return mapObj; 
+	}
+
+	return undefined; 
+}; 
+
+MapData.empty = function(){return new MapData();};  

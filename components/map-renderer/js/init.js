@@ -2,7 +2,8 @@ $(function(){
 
 	//set the resize handler
 	$(window).resize(function(){
-		window.gui.renderer.render(); //refresh the rendering
+		gui.renderer.render(); //refresh the rendering
+		gui.flashRoom(); 
 	});
 
 	window.navbar.add($("#nbardata").children()); 

@@ -9,7 +9,9 @@ if(renderParam !== ""){
 		util.once(function(){
 			return me.buildingLoadReady; 
 		}, function(){
-			console.log("Unsupported!")
+			b.renderMapObj(
+				me.RenderData.selectByMName(renderParam) || me.RenderData.findRoomById(renderParam)
+			);
 		}); 
 	}); 
 }

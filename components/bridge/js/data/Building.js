@@ -29,9 +29,20 @@ var Building = function(data, mapData){
 	this.updateIndexes(); 
 }; 
 
+Building.prototype.set = function(stuff){
+	var stuff = (typeof stuff !== "undefined")?stuff:{}; 
+	this.name = (stuff.hasOwnProperty("name"))?stuff.name:this.name; 
+	this.machine_name = (stuff.hasOwnProperty("machine_name"))?stuff.machine_name:this.machine_name; 
+	return this; 
+}
+
 Building.prototype.getName = function(){
 	return this.name; 
 }; 
+
+Building.prototype.getMName = function(){
+	return (typeof this.machine_name !== "undefined")?this.machine_name:this.getName().toLowerCase().split(" ").join("_"); 
+}
 
 //updates
 Building.prototype.updateIndexes = function(){
@@ -126,6 +137,48 @@ Building.prototype.toArray = function(){
 	]
 }
 
+//addTo
+Building.prototype.addTo = function(newBuilding){
+	var newBuilding = (newBuilding instanceof Building)?newBuilding:new Building(newBuilding); 
+	newBuilding.add(this); 
+	return this; 
+}
+
+//add
+Building.prototype.add = function(newMapData){
+	var me = this; 
+	var newBuilding = (newBuilding instanceof Building)?newBuilding:new Building(newBuilding); 
+	newBuilding.iterateBlocks(function(block){
+		block.cloneTo(me); 
+	}); 
+
+	return this; 
+}
+
+//select by machine name
+Building.prototype.selectByMName = function(str){
+	if(str == ""){
+		return this; 
+	}
+	var components = str.split("/"); 
+
+	for(var i=0;i<this.blocks.length;i++){
+		if(this.blocks[i].getMName() == components[0]){
+			components.splice(0, 1); 
+			return this.blocks[i].selectByMName(components.join("/")); 
+		}
+	}
+
+	var i = parseInt(components[0]); 
+
+	if(0<=i && i<this.blocks.length){
+		components.splice(0, 1); 
+		return this.blocks[i].selectByMName(components.join("/")); 
+	}
+
+	return undefined; 
+}
+
 //inhertited stuffs
 Building.prototype.setIds = MapData.prototype.setIds; 
 Building.prototype.setNames = MapData.prototype.setNames; 
@@ -133,3 +186,6 @@ Building.prototype.filterRooms  = MapData.prototype.filterRooms;
 Building.prototype.removeRooms  = MapData.prototype.removeRooms; 
 Building.prototype.findRoomById  = MapData.prototype.findRoomById; 
 Building.prototype.updateRoom  = MapData.prototype.updateRoom; 
+
+//empty Building
+Building.empty = function(){return new Building({"name": "", "machine_name": "", "blocks": []}, MapData.empty()); };
