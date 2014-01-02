@@ -14,7 +14,7 @@ See the demo at http://tkw1536.github.io/jMap/ (external mode only)
 
 ## License
 
-&copy; 2013 Tom Wiesing and Sourabh Lal, licensed under [MIT](LICENSE)
+&copy; 2013-14 Tom Wiesing and Sourabh Lal, licensed under [MIT](LICENSE)
 
 This project contains the following libraries: 
 
