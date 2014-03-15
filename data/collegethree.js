@@ -1,6 +1,6 @@
 var C3 = (function(){
 
-	var C_D_block1 = [
+	var C_D_floor1 = [
 		[18, 7, 8, 5, "CC1 A/B", [""], "student"],
 		[26, 7, 8, 5, "CC1 C/D", [""], "student"],
 		[34, 7, 8, 5, "CC1 E/F", [""], "student"],
@@ -30,7 +30,7 @@ var C3 = (function(){
 		[18, -14, 34, 2, "CD1 Corridor", [""], "cor"]
 	]; 
 
-	var C_D_block2 = [
+	var C_D_floor2 = [
 		[18, 7, 8, 5, "CC2 A/B", [""], "student"],
 		[26, 7, 8, 5, "CC2 C/D", [""], "student"],
 		[34, 7, 8, 5, "CC2 E/F", [""], "student"],
@@ -60,7 +60,7 @@ var C3 = (function(){
 		[18, -14, 34, 2, "CD2 Corridor", [""], "cor"]
 	];
 
-	var C_D_block3 = [
+	var C_D_floor3 = [
 		[18, 7, 8, 5, "CC3 A/B", [""], "student"],
 		[26, 7, 8, 5, "CC3 C/D", [""], "student"],
 		[34, 7, 8, 5, "CC3 E/F", [""], "student"],
@@ -95,17 +95,17 @@ var C3 = (function(){
 		"machine_name": "c3", 
 		"blocks": [
 				{
-					"name": "Block C+D+E", 
-					"machine_name": "tstC", 
+					"name": "Block C+D", 
+					"machine_name": "tstCD", 
 					"floors": [
 						{
-							"rooms": C_D_block1
+							"rooms": C_D_floor1
 						}, 
 						{
-							"rooms": C_D_block2
+							"rooms": C_D_floor2
 						},
 						{
-							"rooms": C_D_block3
+							"rooms": C_D_floor3
 						}
 					]
 				}
