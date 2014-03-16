@@ -35,16 +35,16 @@ var C3 = (function(){
 	]; 
 
 	var A_B_floor2 = [
-		[18, 7, 8, 5, "CA2 A/B", [""], "student"],
-		[26, 7, 8, 5, "CA2 C/D", [""], "student"],
-		[34, 7, 8, 5, "CA2 E/F", [""], "student"],
-		[42, 7, 8, 5, "CA2 G/H", [""], "student"],
-		[48, 7, 2, 5, "CA2 Kitchen", [""], "kitchen"],
+		[18, 7, 8, 5, "CA 208/209", ["CA-208","CA-209"], "student"],
+		[26, 7, 8, 5, "CA 212/213", ["CA-212","CA-213"], "student"],
+		[34, 7, 8, 5, "CA 216/217", ["CA-216","CA-217"], "student"],
+		[42, 7, 8, 5, "CA 220/221", ["CA-220","CA-221"], "student"],
+		[48, 7, 2, 5, "CA2 Kitchen", ["CA2_k"], "kitchen"],
 
-		[18, 14, 8, 5, "CA2 I/J", [""], "student"],
-		[26, 14, 8, 5, "CA2 K/L", [""], "student"],
-		[34, 14, 8, 5, "CA2 M/N", [""], "student"],
-		[42, 14, 8, 5, "CA2 O/P", [""], "student"],
+		[18, 14, 8, 5, "CA 236/237", ["CA-236","CA-237"], "student"],
+		[26, 14, 8, 5, "CA 232/233", ["CA-232","CA-233"], "student"],
+		[34, 14, 8, 5, "CA 228/229", ["CA-228","CA-229"], "student"],
+		[42, 14, 8, 5, "CA 224/225", ["CA-224","CA-225"], "student"],
 		[48, 14, 2, 5, "CA2 Stairs", [""], "stairs"],
 
 		[18, 12, 34, 2, "CA2 Corridor", [""], "cor"],
@@ -65,16 +65,16 @@ var C3 = (function(){
 	];
 
 	var A_B_floor3 = [
-		[18, 7, 8, 5, "CA3 A/B", [""], "student"],
-		[26, 7, 8, 5, "CA3 C/D", [""], "student"],
-		[34, 7, 8, 5, "CA3 E/F", [""], "student"],
-		[42, 7, 8, 5, "CA3 G/H", [""], "student"],
-		[48, 7, 2, 5, "CA3 Kitchen", [""], "kitchen"],
+		[18, 7, 8, 5, "CA 308/309", ["CA-308","CA-309"], "student"],
+		[26, 7, 8, 5, "CA 312/313", ["CA-312","CA-313"], "student"],
+		[34, 7, 8, 5, "CA 316/317", ["CA-316","CA-317"], "student"],
+		[42, 7, 8, 5, "CA 320/321", ["CA-320","CA-321"], "student"],
+		[48, 7, 2, 5, "CA3 Kitchen", ["CA3_k"], "kitchen"],
 
-		[18, 14, 8, 5, "CA3 I/J", [""], "student"],
-		[26, 14, 8, 5, "CA3 K/L", [""], "student"],
-		[34, 14, 8, 5, "CA3 M/N", [""], "student"],
-		[42, 14, 8, 5, "CA3 O/P", [""], "student"],
+		[18, 14, 8, 5, "CA 336/137", ["CA-336","CA-337"], "student"],
+		[26, 14, 8, 5, "CA 332/133", ["CA-332","CA-333"], "student"],
+		[34, 14, 8, 5, "CA 328/129", ["CA-328","CA-329"], "student"],
+		[42, 14, 8, 5, "CA 324/125", ["CA-324","CA-325"], "student"],
 		[48, 14, 2, 5, "CA3 Stairs", [""], "stairs"],
 
 		[18, 12, 34, 2, "CA3 Corridor", [""], "cor"],
@@ -121,7 +121,8 @@ var C3 = (function(){
 		[42, -12, 8, 5, "CD1 O/P", [""], "student"],
 		[48, -12, 2, 5, "CD1 Stairs", ["CD1_s"], "stairs"],
 
-		[18, -14, 34, 2, "CD1 Corridor", [""], "cor"]
+		[18, -14, 34, 2, "CD1 Corridor", [""], "cor"],
+		[64, -19, 2, 38, "CCD Corridor", [""], "cor"]
 	]; 
 
 	var C_D_floor2 = [

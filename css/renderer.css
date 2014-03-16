@@ -43,7 +43,7 @@ html, body {
 	background-color: #B3B3B3;
 }
 
-.kitchen {
+.kitchen, .servery {
 	position: fixed; 
 	border-top: 1px solid black; 
 	border-bottom: 1px solid black; 
