@@ -48,8 +48,6 @@ var C3 = (function(){
 		[42, 14, 8, 5, "CA 224/225", ["CA-224","CA-225"], "student"],
 		[50, 14, 2, 5, "CA2 Stairs", [""], "stairs"],
 
-		[18, 12, 34, 2, "CA2 Corridor", [""], "cor"],
-
 		[18, -19, 8, 5, "CB2 A/B", [""], "student"],
 		[26, -19, 8, 5, "CB2 C/D", [""], "student"],
 		[34, -19, 8, 5, "CB2 E/F", [""], "student"],
@@ -62,7 +60,19 @@ var C3 = (function(){
 		[42, -12, 8, 5, "CB2 O/P", [""], "student"],
 		[50, -12, 2, 5, "CB2 Stairs", [""], "stairs"],
 
-		[18, -14, 34, 2, "CB2 Corridor", [""], "cor"]
+		[18, 12, 34, 2, "CA2 Corridor", [""], "cor"],
+		[18, -14, 34, 2, "CB2 Corridor", [""], "cor"],
+
+		[54, 14, 3, 5, "CE 202", ["CE-202"], "student"],
+		[57, 14, 3, 5, "CE 205", ["CE-205"], "student"],
+		[60, 14, 3, 5, "CE 208", ["CE-208"], "student"],
+		[63, 14, 3, 5, "CE 211", ["CE-211"], "student"],
+
+		[52, 7, 2, 12, "CAB Corridor", [""], "cor"],
+		[54, 12, 2, 12, "A2E2C Corridor", [""], "cor"],
+		[66, 7, 2, 12, "CCD Corridor", [""], "cor"],
+
+		[54, -7, 12, 14, "Common Room", ["C3-CommonRoom"], "student"]
 	];
 
 	var A_B_floor3 = [

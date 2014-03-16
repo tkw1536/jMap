@@ -31,7 +31,19 @@ html, body {
 	background-color: #B3B3B3;
 }
 
-.stairs, .main_kitchen{
+.main_kitchen{
+	position: fixed; 
+	border-bottom: 1px solid black; 
+	border-left: 1px solid black; 
+	border-right: 1px solid black;
+	display: table-cell;
+	vertical-align: middle;
+	text-align: center;
+	color: transparent;
+	background-color: #B3B3B3;
+}
+
+.stairs, {
 	position: fixed; 
 	border-bottom: 1px solid black; 
 	border-left: 1px solid black; 
