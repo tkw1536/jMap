@@ -30,6 +30,8 @@ var C3 = (function(){
 		[18, -14, 34, 2, "CB1 Corridor", [""], "cor"],
 
 		[52, -19, 2, 38, "CAB Corridor", [""], "cor"],
+		[54, 7, 3, 3, "Stairs", [""], "stairs"],
+		[54, 10, 3, 2, "Elevator", [""], "stairs"],
 		[54, -19, 12, 12, "Kitchen", [""], "main_kitchen"],
 		[54, -7, 12, 26, "Servery", ["C3-Servery"], "kitchen"],
 		[66, -19, 2, 38, "CCD Corridor", [""], "cor"]
