@@ -74,7 +74,7 @@ var C3 = (function(){
 
 		[54, 7, 3, 3, "Stairs", [""], "stairs"],
 		[54, 10, 3, 2, "Elevator", [""], "stairs"],
-		[57, -7, 14, 14, "Common Room", ["C3-CommonRoom"], "student"]
+		[57, -7, 9, 19, "Common Room", ["C3-CommonRoom"], "student"]
 	];
 
 	var A_B_floor3 = [
