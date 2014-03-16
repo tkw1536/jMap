@@ -43,7 +43,7 @@ html, body {
 	background-color: #B3B3B3;
 }
 
-.stairs, {
+.stairs {
 	position: fixed; 
 	border-bottom: 1px solid black; 
 	border-left: 1px solid black; 
