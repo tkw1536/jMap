@@ -1,5 +1,7 @@
-//new data sample
-//may change in the future
+/*
+	Sample 1 Building
+	Not used anywhere
+*/
 
 var college_nordmetall = {
 	"name": "Nordmetall", 
@@ -30,7 +32,6 @@ var college_nordmetall = {
 
 var college_no_blocks = {
 	"name": "Without blocks", 
-	//"machine_name": "without_blocks", //generated automatically
 	"floors": [
 		{
 			"name": "Floor 0", 

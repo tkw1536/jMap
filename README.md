@@ -12,6 +12,10 @@ See the demo at http://tkw1536.github.io/jMap/ (external mode only)
 	* `bridge`: Serves as a bridge between other frames
 	* some eastereggs (spoilers??? you have been warned)
 
+## Data Structure
+
+Sample data for buildings can be found in data/99_sample*.js. 
+
 ## License
 
 &copy; 2013-14 Tom Wiesing and Sourabh Lal, licensed under [MIT](LICENSE)

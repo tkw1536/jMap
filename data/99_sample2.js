@@ -1,3 +1,8 @@
+/*
+	Sample 2 Building
+	Not used anywhere
+*/
+
 var test = (function(){
 
 	var Test1 = [
