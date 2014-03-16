@@ -30,7 +30,7 @@ var C3 = (function(){
 		[18, -14, 34, 2, "CB1 Corridor", [""], "cor"],
 
 		[50, -19, 2, 38, "CAB Corridor", [""], "cor"],
-		[52, 12, 34, 2, "Servery", [""], "C3-Servery"],
+		[52, 12, 34, 2, "Servery", ["C3-Servery"], "servery"],
 		[64, -19, 2, 38, "CCD Corridor", [""], "cor"]
 	]; 
 
