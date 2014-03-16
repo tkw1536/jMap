@@ -74,7 +74,12 @@ var C3 = (function(){
 
 		[54, 7, 3, 3, "Stairs", [""], "stairs"],
 		[54, 10, 3, 2, "Elevator", [""], "stairs"],
-		[57, -7, 9, 19, "Common Room", ["C3-CommonRoom"], "student"]
+		[57, -7, 9, 19, "Common Room", ["C3-CommonRoom"], "student"],
+		[54, -12, 3, 5, "Toilet", [""], "toilet"],
+
+		[52, -19, 2, 12, "CBA Corridor", [""], "cor"],
+		[54, -14, 12, 2, "B2E2D Corridor", [""], "cor"],
+		[66, -19, 2, 12, "CDC Corridor", [""], "cor"]
 	];
 
 	var A_B_floor3 = [
