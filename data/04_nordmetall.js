@@ -194,6 +194,22 @@ var NM = (function(){
 		[68, -60, 6, 132, "Corridor East", undefined, "cor"]
 	];
 
+	var NC2 = [
+		//[x, y, x_size, y_size, name, id, type, search_force_include]
+		//Types: "student", "floor", "stairs", "common", "toilet", "kitchen", "admin"
+		
+		[58, 82, 10, 10, "NC 203", ["NC-203"], "student"],
+		[58, 88, 54, 6, "NC South Corridor", undefined, "cor"],
+		[58, 94, 10, 10, "NC 224", ["NC-224"], "student"],
+			
+		[-2, -48, 24, 10, "NC 222", ["NC-222"], "student"],
+		[-2, -48, 24, 10, "NC 218 / 219", ["NC-218", "NC-219"], "student"],
+		[-2, -48, 24, 10, "NC 210 / 211", ["NC-210", "NC-211"], "student"],
+		[-2, -48, 24, 10, "NC 216", ["NC-216"], "student"],
+		[-2, -48, 24, 10, "NC 208", ["NC-208"], "student"],
+		[-2, -48, 24, 10, "NC 207", ["NC-207"], "kitchen"]
+	];
+
 	return {
 		"name": "Nordmetall", 
 		"machine_name": "nordmetall", 
@@ -210,22 +226,12 @@ var NM = (function(){
 						},
 						{
 							"rooms": NB3
+						},
+						{
+							"rooms": NB4
 						}
 					]
 				}
 			]
 	};
-
-		
-		//C-Block
-	//	[58, 82, 10, 10, "NC 203", ["NC-203"], "student"],
-	//	[58, 88, 54, 6, "NC South Corridor", undefined, "cor"],
-	//	[58, 94, 10, 10, "NC 224", ["NC-224"], "student"],
-		
-	//	[-2, -48, 24, 10, "NC 222", ["NC-222"], "student"],
-	//	[-2, -48, 24, 10, "NC 218 / 219", ["NC-218", "NC-219"], "student"],
-	//	[-2, -48, 24, 10, "NC 210 / 211", ["NC-210", "NC-211"], "student"],
-	//	[-2, -48, 24, 10, "NC 216", ["NC-216"], "student"],
-	//	[-2, -48, 24, 10, "NC 208", ["NC-208"], "student"],
-	//	[-2, -48, 24, 10, "NC 207", ["NC-207"], "kitchen"],
 })(); 
