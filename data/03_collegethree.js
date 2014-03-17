@@ -29,12 +29,15 @@ var C3 = (function(){
 		[18, 12, 34, 2, "CA1 Corridor", [""], "cor"],
 		[18, -14, 34, 2, "CB1 Corridor", [""], "cor"],
 
-		[52, -19, 2, 38, "CAB Corridor", [""], "cor"],
 		[54, -19, 12, 12, "Kitchen", [""], "main_kitchen"],
-		[54, -7, 12, 26, "Servery", ["C3-Servery"], "kitchen"],
+		[52, -7, 16, 26, "Servery", ["C3-Servery"], "kitchen"],
+		
 		[54, 7, 3, 3, "Stairs", [""], "stairs"],
 		[54, 10, 3, 2, "Elevator", [""], "stairs"],
-		[66, -19, 2, 38, "CCD Corridor", [""], "cor"]
+		[52, -19, 2, 12, "CBA Corridor", [""], "cor"],
+		[66, -19, 2, 12, "CDC Corridor", [""], "cor"],
+		[52, 7, 2, 12, "CAB Corridor", [""], "cor"],
+		[66, 7, 2, 12, "CCD Corridor", [""], "cor"],
 	]; 
 
 	var A_B_floor2 = [
