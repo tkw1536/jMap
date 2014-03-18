@@ -222,6 +222,9 @@ var NM = (function(){
 							"rooms": NB1
 						}, 
 						{
+							"rooms": NC2
+						}, 
+						{
 							"rooms": NB2
 						},
 						{
