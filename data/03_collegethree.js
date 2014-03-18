@@ -161,8 +161,8 @@ var C3 = (function(){
 		[54, 7, 3, 3, "Stairs", [""], "stairs"],
 		[54, 10, 3, 2, "Elevator", [""], "stairs"],
 		[57, -12, 9, 24, "Quiet Study Area", ["C3-QSA"], "student"],
-		[54, -7, 3, 7, "Extra Quiet Study Area", ["C3-EQSA"], "student"],
-		[54, 0, 3, 7, "College Office", ["C3-CollegeOffice"], "student"],
+		[54, 0, 3, 7, "Extra Quiet Study Area", ["C3-EQSA"], "student"],
+		[54, -7, 3, 7, "College Office", ["C3-CollegeOffice"], "student"],
 		[54, -12, 3, 5, "Toilet", [""], "toilet"],
 
 		[13, 12, 39, 2, "CA3 Corridor", [""], "cor"],
