@@ -171,8 +171,11 @@ var C3 = (function(){
 		[18, -14, 34, 2, "CD1 Corridor", [""], "cor"],
 		[11, -19, 2, 38, "CCD Corridor", [""], "cor"],
 
-		[5, 7, 8, 12, "", [""], "student"],
-		[13, 7, 3, 5, "Stairs", [""], "stairs"]
+		[8, 7, 5, 5, "", [""], "student"],
+		[13, 7, 3, 5, "Stairs", [""], "stairs"],
+
+		[8, -19, 5, 5, "", [""], "student"],
+		[13, -19, 3, 5, "Stairs", [""], "stairs"]
 	]; 
 
 	var C_D_floor2 = [
@@ -206,9 +209,13 @@ var C3 = (function(){
 
 		[11, -19, 2, 38, "CCD Corridor", [""], "cor"],
 
-		[5, 7, 8, 12, "", [""], "student"],
+		[8, 7, 5, 5, "", [""], "student"],
 		[8, 14, 8, 5, "", ["RA"], "admin"],
-		[13, 7, 3, 5, "Stairs", [""], "stairs"]
+		[13, 7, 3, 5, "Stairs", [""], "stairs"],
+
+		[8, -19, 5, 5, "", [""], "student"],
+		[8, -12, 8, 5, "", ["RA"], "admin"],
+		[13, -19, 3, 5, "Stairs", [""], "stairs"]
 	];
 
 	var C_D_floor3 = [
@@ -240,11 +247,15 @@ var C3 = (function(){
 
 		[18, -14, 34, 2, "CD3 Corridor", [""], "cor"],
 
-		[11, -19, 2, 38, "CCD Corridor", [""], "cor"],
+		[6, -19, 2, 38, "CCD Corridor", [""], "cor"],
 
-		[5, 7, 8, 12, "", [""], "student"],
+		[8, 7, 5, 5, "", [""], "student"],
 		[8, 14, 8, 5, "", ["RA"], "admin"],
-		[13, 7, 3, 5, "Stairs", [""], "stairs"]
+		[13, 7, 3, 5, "Stairs", [""], "stairs"],
+
+		[8, -19, 5, 5, "", [""], "student"],
+		[8, -12, 8, 5, "", ["RA"], "admin"],
+		[13, -19, 3, 5, "Stairs", [""], "stairs"]
 	];
 
 	return {
