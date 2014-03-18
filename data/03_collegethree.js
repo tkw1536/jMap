@@ -29,8 +29,8 @@ var C3 = (function(){
 		[50, -12, 2, 5, "CB1 Stairs", ["CD1_s"], "stairs"],
 
 		
-		[18, 12, 34, 2, "CA1 Corridor", [""], "cor"],
-		[18, -14, 34, 2, "CB1 Corridor", [""], "cor"],
+		[13, 12, 39, 2, "CA1 Corridor", [""], "cor"],
+		[13, -14, 39, 2, "CB1 Corridor", [""], "cor"],
 
 		[54, -19, 12, 12, "Kitchen", [""], "main_kitchen"],
 		[52, -7, 16, 26, "Servery", ["C3-Servery"], "kitchen"],
@@ -72,8 +72,8 @@ var C3 = (function(){
 		[42, -12, 8, 5, "CB2 O/P", [""], "student"],
 		[50, -12, 2, 5, "CB2 Stairs", [""], "stairs"],
 
-		[15, 12, 37, 2, "CA2 Corridor", [""], "cor"],
-		[15, -14, 37, 2, "CB2 Corridor", [""], "cor"],
+		[13, 12, 39, 2, "CA2 Corridor", [""], "cor"],
+		[13, -14, 39, 2, "CB2 Corridor", [""], "cor"],
 
 		[54, 14, 3, 5, "CE 202", ["CE-202"], "student"],
 		[57, 14, 3, 5, "CE 205", ["CE-205"], "student"],
@@ -113,7 +113,7 @@ var C3 = (function(){
 		[42, 14, 8, 5, "CA 324/125", ["CA-324","CA-325"], "student"],
 		[50, 14, 2, 5, "CA3 Stairs", [""], "stairs"],
 
-		[18, 12, 34, 2, "CA3 Corridor", [""], "cor"],
+		[13, 12, 39, 2, "CA3 Corridor", [""], "cor"],
 
 		[18, -19, 8, 5, "CB3 A/B", [""], "student"],
 		[26, -19, 8, 5, "CB3 C/D", [""], "student"],
@@ -127,7 +127,7 @@ var C3 = (function(){
 		[42, -12, 8, 5, "CB3 O/P", [""], "student"],
 		[50, -12, 2, 5, "CB3 Stairs", [""], "stairs"],
 
-		[18, -14, 34, 2, "CB3 Corridor", [""], "cor"]
+		[13, -14, 39, 2, "CB3 Corridor", [""], "cor"]
 	];
 
 	var C_D_floor1 = [
