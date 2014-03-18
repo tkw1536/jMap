@@ -37,7 +37,7 @@ var C3 = (function(){
 		[52, -19, 2, 12, "CBA Corridor", [""], "cor"],
 		[66, -19, 2, 12, "CDC Corridor", [""], "cor"],
 		[52, 7, 2, 12, "CAB Corridor", [""], "cor"],
-		[66, 7, 2, 12, "CCD Corridor", [""], "cor"],
+		[66, 7, 2, 12, "CCD Corridor", [""], "cor"]
 	]; 
 
 	var A_B_floor2 = [
@@ -47,6 +47,7 @@ var C3 = (function(){
 		[42, 7, 8, 5, "CA 220/221", ["CA-220","CA-221"], "student"],
 		[50, 7, 2, 5, "CA2 Kitchen", ["CA2_k"], "kitchen"],
 
+		[5, 17, 10, 12, "CA ", ["CA-","CA-"], "student"],
 		[10, 14, 8, 5, "CA ", ["CA-","CA-"], "student"],
 		[18, 14, 8, 5, "CA 236/237", ["CA-236","CA-237"], "student"],
 		[26, 14, 8, 5, "CA 232/233", ["CA-232","CA-233"], "student"],
