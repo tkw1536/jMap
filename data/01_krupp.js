@@ -25,7 +25,7 @@ var KP = (function(){
 	];
 
 	return {
-		"name": "Krupp College", 
+		"name": "Krupp", 
 		"machine_name": "krupp", 
 		"blocks": [
 				{
