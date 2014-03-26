@@ -20,7 +20,7 @@ var searchParam = unescape(location.search.substring(1));
 if(searchParam !== ""){
 	window.bridge(function(b){
 		b.setSearchString(searchParam);  //search for the given person
-	})
+	}); 
 }
 
 $(function(){
