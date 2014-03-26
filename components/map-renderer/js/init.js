@@ -2,8 +2,7 @@ $(function(){
 
 	//set the resize handler
 	$(window).resize(function(){
-		gui.renderer.render(); //refresh the rendering
-		gui.flashRoom(); 
+		$("#floors").find("li.disabled > a").eq(0).click(); //Render the floor again
 	});
 
 	window.navbar.add($("#nbardata").children()); 
