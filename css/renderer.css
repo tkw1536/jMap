@@ -183,51 +183,69 @@ html, body {
 	==NORDMETALL== 
 */
 
-.nordmetall.active.student, .nordmetall.student:hover, 
-.nordmetall.active.common, .nordmetall.common:hover, 
-.nordmetall.active.kitchen, .nordmetall.kitchen:hover, 
-.nordmetall.active.servery, .nordmetall.servery:hover, 
-.nordmetall.active.admin, .nordmetall.admin:hover
+.nordmetall.active.student, .nordmetall.student:hover
 {
 	background-color: yellow;
 	color: purple;
 }
 
+.nordmetall.active.common, .nordmetall.common:hover, 
+.nordmetall.active.kitchen, .nordmetall.kitchen:hover, 
+.nordmetall.active.servery, .nordmetall.servery:hover, 
+.nordmetall.active.admin, .nordmetall.admin:hover
+{
+	background-color: purple;
+	color: yellow;
+}
+
 /*
 	==C3==
 */
-.c3.active.student, .c3.student:hover, 
+.c3.active.student, .c3.student:hover
+{
+	background-color: #007A00;
+	color: white;
+}
+
 .c3.active.common, .c3.common:hover, 
 .c3.active.kitchen, .c3.kitchen:hover, 
 .c3.active.servery, .c3.servery:hover, 
 .c3.active.admin, .c3.admin:hover
 {
-	background-color: green;
-	color: white;
+	background-color: #66FF66;
+	color: #007A00;
 }
 
 /*
 	==KRUPP==
 */
-.krupp.active.student, .krupp.student:hover, 
+.krupp.active.student, .krupp.student:hover
+{
+	background-color: red;
+	color: black;
+}
 .krupp.active.common, .krupp.common:hover, 
 .krupp.active.kitchen, .krupp.kitchen:hover, 
 .krupp.active.servery, .krupp.servery:hover, 
 .krupp.active.admin, .krupp.admin:hover
 {
-	background-color: red;
-	color: black;
+	background-color: black;
+	color: red;
 }
 
 /*
 	==MERCATOR==
 */
-.mercator.active.student, .mercator.student:hover, 
+.mercator.active.student, .mercator.student:hover
+{
+	background-color: blue;
+	color: white;
+}
 .mercator.active.common, .mercator.common:hover, 
 .mercator.active.kitchen, .mercator.kitchen:hover, 
 .mercator.active.servery, .mercator.servery:hover, 
 .mercator.active.admin, .mercator.admin:hover
 {
-	background-color: blue;
-	color: white;
+	background-color: #99C2FF;
+	color: blue;
 }
