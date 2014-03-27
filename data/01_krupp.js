@@ -55,7 +55,7 @@ var KP = (function(){
 		[55, 44, 5, 2, "KC1 Kitchen", [""], "kitchen"],
 
 		//D-Block
-		[24, 46, 60, 2, "KD1 Corridor", [""], "cor"]
+		[24, 46, 36, 2, "KD1 Corridor", [""], "cor"]
 	];
 
 	var floor2 = [
@@ -117,7 +117,7 @@ var KP = (function(){
 		[55, 44, 5, 2, "KC2 Kitchen", [""], "kitchen"],
 
 		//D-Block
-		[24, 46, 60, 2, "KD2 Corridor", [""], "cor"]
+		[24, 46, 36, 2, "KD2 Corridor", [""], "cor"]
 	]; 
 
 	var floor3 = [
@@ -179,7 +179,7 @@ var KP = (function(){
 		[55, 44, 5, 2, "KC3 Kitchen", [""], "kitchen"],
 	
 		//D-Block
-		[24, 46, 60, 2, "KD3 Corridor", [""], "cor"]
+		[24, 46, 36, 2, "KD3 Corridor", [""], "cor"]
 	];
 
 	return {
