@@ -106,6 +106,8 @@ gui.renderFloor = function(floor){
 		return r.toArray(); 
 	}); 
 
+	rawRenderData.className = floor.getBuilding().getMName(); 
+
 	window.parent.bridge(function(b){
 		gui.renderer
 		.setRenderData(rawRenderData)

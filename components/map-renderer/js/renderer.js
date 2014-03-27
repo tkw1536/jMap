@@ -25,6 +25,10 @@ var Renderer = function(render_data){
 /* Setters / Getters */
 Renderer.prototype.setRenderData = function(data){
 	this.render_data = data; 
+
+	if(typeof this.render_data.className !== "string"){
+		this.render_data.className = ""; 
+	}
 	return this; 
 }
 
@@ -98,6 +102,7 @@ Renderer.prototype.renderRoom = function(room, x_org, y_org, size){
 		"font-size": "1em"
 	})
 	.addClass("box")
+	.addClass(this.render_data.className)
 	.appendTo("body")
 	.text(room[4])
 	.addClass("activatable "+room[6])

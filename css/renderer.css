@@ -18,7 +18,6 @@ html, body {
 	vertical-align: middle;
 	text-align: center;
 	color: transparent;
-	background-color: #5A5A5A;
 }
 
 .cor {
@@ -28,7 +27,6 @@ html, body {
 	vertical-align: middle;
 	text-align: center;
 	color: transparent;
-	background-color: #B3B3B3;
 }
 
 .main_kitchen{
@@ -40,7 +38,6 @@ html, body {
 	vertical-align: middle;
 	text-align: center;
 	color: transparent;
-	background-color: #B3B3B3;
 }
 
 .stairs {
@@ -52,7 +49,6 @@ html, body {
 	vertical-align: middle;
 	text-align: center;
 	color: transparent;
-	background-color: #B3B3B3;
 }
 
 .kitchen, .servery {
@@ -65,7 +61,6 @@ html, body {
 	vertical-align: middle;
 	text-align: center;
 	color: transparent;
-	background-color: #5A5A5A;
 }
 
 .admin {
@@ -78,7 +73,6 @@ html, body {
 	vertical-align: middle;
 	text-align: center;
 	color: transparent;
-	background-color: #5A5A5A;
 }
 
 .toilet {
@@ -90,44 +84,10 @@ html, body {
 	vertical-align: middle;
 	text-align: center;
 	color: transparent;
-	background-color: #B3B3B3;
 }
 
 .box {
 	overflow: hidden;
-}
-
-/*
-	Hover on different types of rooms
-*/
-.box:hover, .box.active {
-	background-color: yellow; 
-	color: purple;
-}
-
-.admin:hover, .admin.active {
-	background-color: purple; 
-	color: yellow;
-}
-
-.toilet:hover, .toilet.active {
-	background-color: purple; 
-	color: yellow;
-}
-
-.kitchen:hover, .kitchen.active {
-	background-color: purple; 
-	color: yellow;
-}
-
-.cor:hover, .cor.active{
-	background-color: #B3B3B3; 
-	color: transparent;
-}
-
-.stairs:hover, .stairs.active {
-	background-color: #B3B3B3; 
-	color: yellow;
 }
 
 /*
@@ -169,4 +129,105 @@ html, body {
 #photo{
 	max-width: 180px;
 	max-height: 250px;
+}
+
+
+/* 
+	Color Schemes
+*/
+
+/*
+	==DEFAULT==
+*/
+
+/*
+	Inactive colors for primary rooms
+	Dark gray by default
+*/
+
+.student, 
+.common, 
+.kitchen, 
+.servery, 
+.admin {
+	background-color: #5A5A5A;
+}
+
+/*
+	Active colors for primary rooms
+	Black / White by default
+*/
+
+.active.student, .student:hover, 
+.active.common, .common:hover, 
+.active.kitchen, .kitchen:hover, 
+.active.servery, .servery:hover, 
+.active.admin, .admin:hover
+{
+	background-color: black;
+	color: white;
+}
+
+/*
+	Inactive colors for secondary rooms
+	Light gray by default
+*/
+.stairs, 
+.toilet, 
+.main_kitchen, 
+.cor {
+	background-color: #B3B3B3;
+}
+
+/*
+	==NORDMETALL== 
+*/
+
+.nordmetall.active.student, .nordmetall.student:hover, 
+.nordmetall.active.common, .nordmetall.common:hover, 
+.nordmetall.active.kitchen, .nordmetall.kitchen:hover, 
+.nordmetall.active.servery, .nordmetall.servery:hover, 
+.nordmetall.active.admin, .nordmetall.admin:hover
+{
+	background-color: yellow;
+	color: purple;
+}
+
+/*
+	==C3==
+*/
+.c3.active.student, .c3.student:hover, 
+.c3.active.common, .c3.common:hover, 
+.c3.active.kitchen, .c3.kitchen:hover, 
+.c3.active.servery, .c3.servery:hover, 
+.c3.active.admin, .c3.admin:hover
+{
+	background-color: green;
+	color: white;
+}
+
+/*
+	==KRUPP==
+*/
+.krupp.active.student, .krupp.student:hover, 
+.krupp.active.common, .krupp.common:hover, 
+.krupp.active.kitchen, .krupp.kitchen:hover, 
+.krupp.active.servery, .krupp.servery:hover, 
+.krupp.active.admin, .krupp.admin:hover
+{
+	background-color: red;
+	color: black;
+}
+
+/*
+	==MERCATOR==
+*/
+.mercator.active.student, .mercator.student:hover, 
+.mercator.active.common, .mercator.common:hover, 
+.mercator.active.kitchen, .mercator.kitchen:hover, 
+.mercator.active.servery, .mercator.servery:hover, 
+.mercator.active.admin, .mercator.admin:hover
+{
+	background-color: blue;
+	color: white;
 }
