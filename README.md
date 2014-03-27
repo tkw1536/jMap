@@ -1,6 +1,6 @@
 # jMap
 
-This is a project which provides an interactive map of the college I live in. Done together with my roommate. 
+This is a project which provides an interactive map of Jacobs University Bremen. It is an upgrade of the pre-existing jPeople by Stefan Mirea, as it provides a visulaiztion of room data. i.e. it has maps.
 
 See the demo at http://tkw1536.github.io/jMap/ (external mode only)
 
