@@ -48,7 +48,7 @@ gui.renderPeopleResults = function(people){
 				$("<div>").addClass("list-group-item-text").append(
 					$("<img>").attr("src",person.photo).width(42).height(56)
 					.click(function(){
-					gui.showRoom(person.room); 
+					gui.showRoom(person.room[0]); 
 					return false; 
 				})
 				)
