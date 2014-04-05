@@ -3,7 +3,6 @@ var ME = (function(){
 		//A-Block
 		[0, 1, 12, 8, "MA 101/102/103", ["MA-101","MA-102","MA-103"], "student"],
 		[7, 9, 5, 3, "MA Stairs", [""], "stairs"],
-		[0, 9, 5, 3, "MA1 Entrance", [""], "cor"],			
 
 		[0, 12, 5, 8, "MA 136/137", ["MA-136","MA-137"], "student"],
 		[0, 20, 5, 8, "MA 132/133", ["MA-132","MA-133"], "student"],
@@ -17,12 +16,11 @@ var ME = (function(){
 		[7, 20, 5, 8, "MA 112/113", ["MA-112","MA-113"], "student"],
 		[7, 28, 5, 8, "MA 116/117", ["MA-116","MA-117"], "student"],
 		[7, 36, 5, 8, "MA 120/121", ["MA-120","MA-121"], "student"],
-		[7, 44, 5, 2, "MA1 Kitchen", [""], "kitchen"],
+		[7, 44, 5, 2, "MA1 Kitchen", ["MA-K1"], "kitchen"],
 
 		//B-Block
 		[24, 1, 12, 8, "MB 101/102/103", ["MB-101","MB-102","MB-103"], "student"],
 		[31, 9, 5, 3, "MB Stairs", [""], "stairs"],
-		[24, 9, 5, 3, "MB1 Entrance", [""], "cor"],			
 
 		[24, 12, 5, 8, "MB 136/137", ["MB-136","MB-137"], "student"],
 		[24, 20, 5, 8, "MB 132/133", ["MB-132","MB-133"], "student"],
@@ -36,12 +34,11 @@ var ME = (function(){
 		[31, 20, 5, 8, "MB 112/113", ["MB-112","MB-113"], "student"],
 		[31, 28, 5, 8, "MB 116/117", ["MB-116","MB-117"], "student"],
 		[31, 36, 5, 8, "MB 120/121", ["MB-120","MB-121"], "student"],
-		[31, 44, 5, 2, "MB1 Kitchen", [""], "kitchen"],
+		[31, 44, 5, 2, "MB1 Kitchen", ["MB-K1"], "kitchen"],
 
 		//C-Block
 		[48, 1, 12, 8, "MC 101/102/103", ["MC-101","MC-102","MC-103"], "student"],
 		[55, 9, 5, 3, "MC Stairs", [""], "stairs"],
-		[48, 9, 5, 3, "MC1 Entrance", [""], "cor"],			
 
 		[48, 12, 5, 8, "MC 136/137", ["MC-136","MC-137"], "student"],
 		[48, 20, 5, 8, "MC 132/133", ["MC-132","MC-133"], "student"],
@@ -55,7 +52,7 @@ var ME = (function(){
 		[55, 20, 5, 8, "MC 112/113", ["MC-112","MC-113"], "student"],
 		[55, 28, 5, 8, "MC 116/117", ["MC-116","MC-117"], "student"],
 		[55, 36, 5, 8, "MC 120/121", ["MC-120","MC-121"], "student"],
-		[55, 44, 5, 2, "MC1 Kitchen", [""], "kitchen"],
+		[55, 44, 5, 2, "MC1 Kitchen", ["MC-K1"], "kitchen"],
 
 		//D-Block
 		[24, 46, 36, 2, "MD1 Corridor", [""], "cor"]
@@ -63,7 +60,7 @@ var ME = (function(){
 
 	var floor2 = [
 		//A-Block
-		[0, 1, 12, 8, "MA 202/203", ["MA-202","MA-203"], "student"],
+		[0, 1, 12, 8, "MA 201/202/203", ["MA-201","MA-202","MA-203"], "student"],
 		[0, 4, 5, 8, "MA 240/241", ["MA-240","MA-241"], "student"],
 		[7, 9, 5, 3, "MA Stairs", [""], "stairs"],
 
@@ -79,10 +76,10 @@ var ME = (function(){
 		[7, 20, 5, 8, "MA 212/213", ["MA-212","MA-213"], "student"],
 		[7, 28, 5, 8, "MA 216/217", ["MA-216","MA-217"], "student"],
 		[7, 36, 5, 8, "MA 220/221", ["MA-220","MA-221"], "student"],
-		[7, 44, 5, 2, "MA2 Kitchen", [""], "kitchen"],
+		[7, 44, 5, 2, "MA2 Kitchen", ["MA-K2"], "kitchen"],
 
 		//B-Block
-		[24, 1, 12, 8, "MB 202/203", ["MB-202","MB-203"], "student"],
+		[24, 1, 12, 8, "MB 201/202/203", ["MB-201","MB-202","MB-203"], "student"],
 		[24, 4, 5, 8, "MB 240/241", ["MB-240","MB-241"], "student"],
 		[31, 9, 5, 3, "MB Stairs", [""], "stairs"],
 
@@ -98,10 +95,10 @@ var ME = (function(){
 		[31, 20, 5, 8, "MB 212/213", ["MB-212","MB-213"], "student"],
 		[31, 28, 5, 8, "MB 216/217", ["MB-216","MB-217"], "student"],
 		[31, 36, 5, 8, "MB 220/221", ["MB-220","MB-221"], "student"],
-		[31, 44, 5, 2, "MB2 Kitchen", [""], "kitchen"],
+		[31, 44, 5, 2, "MB2 Kitchen", ["MB-K2"], "kitchen"],
 
 		//C-Block
-		[48, 1, 12, 8, "MC 202/203", ["MC-202","MC-203"], "student"],
+		[48, 1, 12, 8, "MC 201/202/203", ["MC-201","MC-202","MC-203"], "student"],
 		[48, 4, 5, 8, "MC 240/241", ["MC-240","MC-241"], "student"],
 		[55, 9, 5, 3, "MC Stairs", [""], "stairs"],
 
@@ -117,7 +114,7 @@ var ME = (function(){
 		[55, 20, 5, 8, "MC 212/213", ["MC-212","MC-213"], "student"],
 		[55, 28, 5, 8, "MC 216/217", ["MC-216","MC-217"], "student"],
 		[55, 36, 5, 8, "MC 220/221", ["MC-220","MC-221"], "student"],
-		[55, 44, 5, 2, "MC2 Kitchen", [""], "kitchen"],
+		[55, 44, 5, 2, "MC2 Kitchen", ["MC-K2"], "kitchen"],
 
 		//D-Block
 		[24, 46, 36, 2, "MD2 Corridor", [""], "cor"]
@@ -125,7 +122,7 @@ var ME = (function(){
 
 	var floor3 = [
 				//A-Block
-		[0, 1, 12, 8, "MA 302/203", ["MA-302","MA-303"], "student"],
+		[0, 1, 12, 8, "MA 301/302/203", ["MA-301","MA-302","MA-303"], "student"],
 		[0, 4, 5, 8, "MA 340/241", ["MA-340","MA-341"], "student"],
 		[7, 9, 5, 3, "MA Stairs", [""], "stairs"],
 
@@ -141,10 +138,10 @@ var ME = (function(){
 		[7, 20, 5, 8, "MA 312/213", ["MA-312","MA-313"], "student"],
 		[7, 28, 5, 8, "MA 316/217", ["MA-316","MA-317"], "student"],
 		[7, 36, 5, 8, "MA 320/221", ["MA-320","MA-321"], "student"],
-		[7, 44, 5, 2, "MA3 Kitchen", [""], "kitchen"],
+		[7, 44, 5, 2, "MA3 Kitchen", ["MA-K3"], "kitchen"],
 	
 		//B-Block
-		[24, 1, 12, 8, "MB 302/203", ["MB-302","MB-303"], "student"],
+		[24, 1, 12, 8, "MB 301/302/203", ["MB-301","MB-302","MB-303"], "student"],
 		[24, 4, 5, 8, "MB 340/241", ["MB-340","MB-341"], "student"],
 		[31, 9, 5, 3, "MB Stairs", [""], "stairs"],
 
@@ -160,10 +157,10 @@ var ME = (function(){
 		[31, 20, 5, 8, "MB 312/213", ["MB-312","MB-313"], "student"],
 		[31, 28, 5, 8, "MB 316/217", ["MB-316","MB-317"], "student"],
 		[31, 36, 5, 8, "MB 320/221", ["MB-320","MB-321"], "student"],
-		[31, 44, 5, 2, "MB3 Kitchen", [""], "kitchen"],
+		[31, 44, 5, 2, "MB3 Kitchen", ["MB-K3"], "kitchen"],
 
 		//C-Block
-		[48, 1, 12, 8, "MC 302/203", ["MC-302","MC-303"], "student"],
+		[48, 1, 12, 8, "MC 301/302/203", ["MC-301","MC-302","MC-303"], "student"],
 		[48, 4, 5, 8, "MC 340/241", ["MC-340","MC-341"], "student"],
 		[55, 9, 5, 3, "MC Stairs", [""], "stairs"],
 
@@ -179,7 +176,7 @@ var ME = (function(){
 		[55, 20, 5, 8, "MC 312/213", ["MC-312","MC-313"], "student"],
 		[55, 28, 5, 8, "MC 316/217", ["MC-316","MC-317"], "student"],
 		[55, 36, 5, 8, "MC 320/221", ["MC-320","MC-321"], "student"],
-		[55, 44, 5, 2, "MC3 Kitchen", [""], "kitchen"],
+		[55, 44, 5, 2, "MC3 Kitchen", ["MC-K3"], "kitchen"],
 	
 		//D-Block
 		[24, 46, 36, 2, "MD3 Corridor", [""], "cor"]
