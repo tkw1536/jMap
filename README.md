@@ -18,7 +18,24 @@ Sample data for buildings can be found in data/99_sample*.js.
 
 ## License
 
-&copy; 2013-14 Tom Wiesing and Sourabh Lal, licensed under [MIT](LICENSE)
+Notice we are currently updating the license. 
+
+All files in this project, with the exception of the files: 
+
+* data/01_krupp.js
+* data/02_mercator.js
+* data/03_collegethree.js
+* data/04_nordmetall.js
+
+are licensed under [MIT](LICENSE.text) &copy; 2013-14 Tom Wiesing and Sourabh Lal
+
+Those files are licensed under the following terms: 
+
+```
+(c) 2013-14 Tom Wiesing and Sourabh Lal
+
+You may use the files data/01_krupp.js, data/02_mercator.js, data/03_collegethree.js, data/04_nordmetall.js only with explicit permissions from the copyright holders. This grant may or may not impose further restrictions on the use of those files. 
+```
 
 This project contains the following libraries: 
 
