@@ -72,7 +72,15 @@
 			  	});
 
 			  	google.maps.event.addListener(ME, 'click', function() {
-					location.parent.href = "https://jmap.tk/#mercator";
+			  			var state = {
+							"building": 2, 
+							"block": 1, 
+							"floor": 1, 
+							"flash": undefined
+						}; 
+					window.parent.bridge(function(b){
+  				  		b.setMapRenderState(state); 
+    				})
 			  	});
 
 				google.maps.event.addListener(C3, 'click', function() {
