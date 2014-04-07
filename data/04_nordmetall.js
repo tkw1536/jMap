@@ -53,7 +53,7 @@ var NM = (function(){
 		[68, -60, 6, 132, "Corridor East", undefined, "cor"]
 	];
 
-	var NB2 = [
+	var NBC2 = [
 		//[x, y, x_size, y_size, name, id, type, search_force_include]
 		//Types: "student", "floor", "stairs", "common", "toilet", "kitchen", "admin"
 
@@ -99,6 +99,18 @@ var NM = (function(){
 		[46, -48, 12, 10, "Kitchen NB 258", ["NB-258"], "kitchen"],
 		[58, -48, 10, 12, "Staircase East", undefined, "stairs"],
 		[68, -60, 6, 132, "Corridor East", undefined, "cor"],
+
+		//C Block
+		[58, 82, 10, 10, "NC 203", ["NC-203"], "student"],
+		[58, 88, 54, 6, "NC South Corridor", undefined, "cor"],
+		[58, 94, 10, 10, "NC 224", ["NC-224"], "student"],
+			
+		[-2, -48, 24, 10, "NC 222", ["NC-222"], "student"],
+		[-2, -48, 24, 10, "NC 218 / 219", ["NC-218", "NC-219"], "student"],
+		[-2, -48, 24, 10, "NC 210 / 211", ["NC-210", "NC-211"], "student"],
+		[-2, -48, 24, 10, "NC 216", ["NC-216"], "student"],
+		[-2, -48, 24, 10, "NC 208", ["NC-208"], "student"],
+		[-2, -48, 24, 10, "NC 207", ["NC-207"], "kitchen"]
 	];
 
 	var NB3 = [
@@ -194,21 +206,6 @@ var NM = (function(){
 		[68, -60, 6, 132, "Corridor East", undefined, "cor"]
 	];
 
-	var NC2 = [
-		//[x, y, x_size, y_size, name, id, type, search_force_include]
-		//Types: "student", "floor", "stairs", "common", "toilet", "kitchen", "admin"
-		
-		[58, 82, 10, 10, "NC 203", ["NC-203"], "student"],
-		[58, 88, 54, 6, "NC South Corridor", undefined, "cor"],
-		[58, 94, 10, 10, "NC 224", ["NC-224"], "student"],
-			
-		[-2, -48, 24, 10, "NC 222", ["NC-222"], "student"],
-		[-2, -48, 24, 10, "NC 218 / 219", ["NC-218", "NC-219"], "student"],
-		[-2, -48, 24, 10, "NC 210 / 211", ["NC-210", "NC-211"], "student"],
-		[-2, -48, 24, 10, "NC 216", ["NC-216"], "student"],
-		[-2, -48, 24, 10, "NC 208", ["NC-208"], "student"],
-		[-2, -48, 24, 10, "NC 207", ["NC-207"], "kitchen"]
-	];
 
 	return {
 		"name": "Nordmetall", 
@@ -222,10 +219,7 @@ var NM = (function(){
 							"rooms": NB1
 						}, 
 						{
-							"rooms": NC2
-						}, 
-						{
-							"rooms": NB2
+							"rooms": NBC2
 						},
 						{
 							"rooms": NB3
