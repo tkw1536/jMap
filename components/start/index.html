@@ -71,15 +71,16 @@
 					location.parent.href = "https://jmap.tk/#krupp";
 			  	});
 
+	  			var Mstate = {
+					"building": 2, 
+					"block": 1, 
+					"floor": 1, 
+					"flash": undefined
+				}; 
+
 			  	google.maps.event.addListener(ME, 'click', function() {
-			  			var state = {
-							"building": 2, 
-							"block": 1, 
-							"floor": 1, 
-							"flash": undefined
-						}; 
 					window.parent.bridge(function(b){
-  				  		b.setMapRenderState(state); 
+  				  		b.setMapRenderState(Mstate); 
     				})
 			  	});
 
