@@ -122,7 +122,7 @@ var NM = (function(){
 		[74, 78, 12, 22, "NC 207", ["NC-207"], "kitchen"]
 	];
 
-	var NB3 = [
+	var NBC3 = [
 		//[x, y, x_size, y_size, name, id, type, search_force_include]
 		//Types: "student", "floor", "stairs", "common", "toilet", "kitchen", "admin"
 
@@ -167,10 +167,29 @@ var NM = (function(){
 
 		[46, -48, 12, 10, "Kitchen NB 358", ["NB-358"], "kitchen"],
 		[58, -48, 10, 12, "Staircase East", undefined, "stairs"],
-		[68, -60, 6, 132, "Corridor East", undefined, "cor"]
+		[68, -60, 6, 132, "Corridor East", undefined, "cor"],
+
+		//C Block
+		[58, 72, 10, 6, "Niche", undefined, "admin"],
+		[58, 78, 10, 12, "Main Stairwell East", undefined, "stairs"],
+		[62, 82, 6, 4, "Elevator", undefined, "stairs"],
+
+		[74, 72, 18, 28, "NC North+East Corridor", undefined, "cor"],
+
+		[58, 90, 10, 10, "NC 303", ["NC-303"], "student"],
+		[58, 100, 44, 6, "NC South Corridor", undefined, "cor"],
+		[58, 106, 16, 10, "NC 324", ["NC-324"], "student"],
+			
+		[74, 106, 20, 10, "NC 318 / 319", ["NC-318", "NC-319"], "student"],
+		[94, 106, 8, 10, "NC 316", ["NC-316"], "student"],
+
+		[92, 72, 10, 8, "NC 308", ["NC-308"], "student"],
+		[92, 80, 10, 20, "NC 310 / 311", ["NC-310", "NC-311"], "student"],
+		
+		[74, 78, 12, 22, "NC 307", ["NC-307"], "kitchen"]
 	];
 
-	var NB4 = [
+	var NBC4 = [
 		//[x, y, x_size, y_size, name, id, type, search_force_include]
 		//Types: "student", "floor", "stairs", "common", "toilet", "kitchen", "admin"
 
@@ -212,7 +231,25 @@ var NM = (function(){
 		[58, -60, 6, 12, "Kitchen East", undefined, "kitchen"],
 		[58, -48, 10, 12, "Staircase East", undefined, "stairs"],
 		[64, -60, 4, 12, "Corridor Extension E", undefined, "cor"],
-		[68, -60, 6, 132, "Corridor East", undefined, "cor"]
+		[68, -60, 6, 132, "Corridor East", undefined, "cor"],
+
+		//C Block
+		[58, 72, 10, 6, "<-Bridge", undefined, "admin"],
+		[58, 78, 10, 12, "Main Stairwell East", undefined, "stairs"],
+		[62, 82, 6, 4, "Elevator", undefined, "stairs"],
+
+		[74, 72, 18, 28, "NC North+East Corridor", undefined, "cor"],
+
+		[58, 100, 44, 6, "NC South Corridor", undefined, "cor"],
+		[58, 106, 16, 10, "NC 424", ["NC-424"], "student"],
+			
+		[74, 106, 20, 10, "NC 418 / 419", ["NC-418", "NC-419"], "student"],
+		[94, 106, 8, 10, "NC 416", ["NC-416"], "student"],
+
+		[92, 72, 10, 8, "NC 408", ["NC-408"], "student"],
+		[92, 80, 10, 20, "NC 410 / 411", ["NC-410", "NC-411"], "student"],
+		
+		[74, 78, 12, 22, "NC 407", ["NC-407"], "kitchen"]
 	];
 
 
@@ -221,8 +258,8 @@ var NM = (function(){
 		"machine_name": "nordmetall", 
 		"blocks": [
 				{
-					"name": "B Block", 
-					"machine_name": "B", 
+					"name": "B/C Block", 
+					"machine_name": "BC", 
 					"floors": [
 						{
 							"rooms": NB1
@@ -231,10 +268,10 @@ var NM = (function(){
 							"rooms": NBC2
 						},
 						{
-							"rooms": NB3
+							"rooms": NBC3
 						},
 						{
-							"rooms": NB4
+							"rooms": NBC4
 						}
 					]
 				}
