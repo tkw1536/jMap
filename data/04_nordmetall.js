@@ -167,7 +167,7 @@ var NM = (function(){
 
 		[46, -48, 12, 10, "Kitchen NB 358", ["NB-358"], "kitchen"],
 		[58, -48, 10, 12, "Staircase East", undefined, "stairs"],
-		[68, -60, 6, 132, "Corridor East", undefined, "cor"],
+		[68, -60, 6, 160, "Corridor East", undefined, "cor"],
 
 		//C Block
 		[58, 72, 10, 6, "Niche", undefined, "admin"],
@@ -234,11 +234,9 @@ var NM = (function(){
 		[68, -60, 6, 132, "Corridor East", undefined, "cor"],
 
 		//C Block
-		[58, 72, 10, 6, "<-Bridge", undefined, "admin"],
+		[58, 72, 34, 28, "NC North+East Corridor", undefined, "cor"],
 		[58, 78, 10, 12, "Main Stairwell East", undefined, "stairs"],
 		[62, 82, 6, 4, "Elevator", undefined, "stairs"],
-
-		[74, 72, 18, 28, "NC North+East Corridor", undefined, "cor"],
 
 		[58, 100, 44, 6, "NC South Corridor", undefined, "cor"],
 		[58, 106, 16, 10, "NC 424", ["NC-424"], "student"],
