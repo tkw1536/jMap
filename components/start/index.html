@@ -18,14 +18,20 @@
 	 		var MEpos = new google.maps.LatLng(53.166305, 8.655305); //ME
 	 		var C3pos = new google.maps.LatLng(53.165593, 8.655546); //C3
 	 		var NMpos = new google.maps.LatLng(53.168567, 8.653835); //NM
-	 		var MapCenter = new google.maps.LatLng(53.1668472,8.6503052); //Center of map
+	 		var MapCenter = new google.maps.LatLng(53.1669051,8.6513137); //Center of map
 	      	
+
 	      	function initialize() {
+
 		        var mapOptions = {
 	          		center: MapCenter,
 	          		zoom: 17,
 	          		disableDefaultUI: true
 	        	};
+
+	       		if(screen.availWidth<1600 || screen.availHeight<800){
+	      			mapOptions.zoom = 16;
+	      		}
 	        
 	        	var map = new google.maps.Map(document.getElementById("map-canvas"), mapOptions);
 
@@ -62,9 +68,17 @@
 
 				google.maps.event.addListener(map, 'zoom_changed', function() {
 				// 1 seconds after the center of the map has changed, zoom back to the center.
+					
+	      /* 		if(screen.availWidth<1600 || screen.availHeight<800){
+	      			window.setTimeout(function() {
+			      		map.setZoom(16);
+			    	}, 500);
+	      		}
+	      		else{*/
 			    	window.setTimeout(function() {
 			      		map.setZoom(17);
 			    	}, 500);
+			   // }
 				});
 
 				google.maps.event.addListener(KP, 'click', function() {
