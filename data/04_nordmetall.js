@@ -72,6 +72,10 @@ var NM = (function(){
 		[-48, -24, 10, 24, "NB 226 / 227 ", ["NB-226", "NB-227"], "student"],
 		[-48, -36, 10, 12, "NB 224 ", ["NB-224"], "student"], 
 
+		//A block
+		[-43, 72, 5, 24, "Main Stairwell West", undefined, "stairs"],
+		[-64, 72, 21, 24, "<-- A Block", undefined, "label"],
+
 		//B - East - In 
 		[58, -36, 10, 12, "NB 260 ", ["NB-260"], "student"],
 		[58, -24, 10, 24, "NB 262 / 263 ", ["NB-262", "NB-263"], "student"],
