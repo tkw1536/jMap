@@ -8,6 +8,9 @@ var NM = (function(){
 	var NB1 = [
 		//[x, y, x_size, y_size, name, id, type, search_force_include]
 		//Types: "student", "floor", "stairs", "common", "toilet", "kitchen", "admin"
+		//A block
+		[-43, 72, 5, 24, "Main Stairwell West", undefined, "stairs"],
+		[-64, 72, 21, 24, "<-- A Block", undefined, "label"],
 
 		//B - West - Out
 		[-64, -60, 10, 12, "NB 122", ["NB-122"], "student"],
@@ -129,6 +132,10 @@ var NM = (function(){
 	var NBC3 = [
 		//[x, y, x_size, y_size, name, id, type, search_force_include]
 		//Types: "student", "floor", "stairs", "common", "toilet", "kitchen", "admin"
+		
+		//A block
+		[-43, 72, 5, 24, "Main Stairwell West", undefined, "stairs"],
+		[-64, 72, 21, 24, "<-- A Block", undefined, "label"],
 
 		//B - West - Out
 		[-64, -60, 10, 12, "", undefined, "common"], //not really a room, just some space
@@ -197,6 +204,10 @@ var NM = (function(){
 		//[x, y, x_size, y_size, name, id, type, search_force_include]
 		//Types: "student", "floor", "stairs", "common", "toilet", "kitchen", "admin"
 
+		//A block
+		[-43, 72, 5, 24, "Main Stairwell West", undefined, "stairs"],
+		[-64, 72, 21, 24, "<-- A Block", undefined, "label"],
+		
 		//B - West - Out
 		[-64, -60, 10, 12, "NB-422", ["NB-422"], "student"],
 		[-64, -48, 10, 24, "NB 418 / NB 419", ["NB-418", "NB-419"], "student"],
@@ -254,6 +265,137 @@ var NM = (function(){
 		[74, 78, 12, 22, "NC 407", ["NC-407"], "kitchen"]
 	];
 
+	var A2 = [
+		//[x, y, x_size, y_size, name, id, type, search_force_include]
+		//Types: "student", "floor", "stairs", "common", "toilet", "kitchen", "admin"
+		
+		[0, 0, 18, 3, "A block staircase", undefined, "stairs"],
+		[0, 3, 50, 3, "A block corridor", undefined, "cor"],
+
+		[0, 6, 6, 12, "NA 201", ["NA-201"], "student"],
+		[6, 6, 6, 12, "NA 203", ["NA-203"], "student"],
+		[12, 6, 6, 12, "NA 205", ["NA-205"], "student"],
+
+		[18, 6, 6, 12, "NA 207", ["NA-207"], "student"],
+		[24, 6, 6, 12, "NA 209", ["NA-209"], "student"],
+		[30, 6, 6, 12, "NA 211", ["NA-211"], "student"],
+	
+		[36, 6, 6, 12, "NA 213", ["NA-213"], "student"],
+		[42, 6, 6, 12, "NA 215", ["NA-215"], "student"],
+		[48, 6, 6, 12, "NA 217", ["NA-217"], "student"],
+		
+		[54, 6, 6, 12, "NA 219", ["NA-219"], "student"],
+		[60, 6, 6, 12, "NA 221", ["NA-221"], "student"],
+		[66, 6, 6, 12, "NA 223", ["NA-223"], "student"],
+		
+		[72, 6, 6, 12, "NA 225", ["NA-225"], "student"],
+		[78, 6, 6, 12, "NA 227", ["NA-227"], "student"],
+		[84, 6, 6, 12, "NA 229", ["NA-229"], "student"],
+		
+		[90, 6, 6, 12, "NA 231", ["NA-231"], "student"],
+		[96, 6, 6, 12, "NA 233", ["NA-233"], "student"],
+		[102, 6, 6, 12, "NA 235", ["NA-235"], "student"],
+
+		[108, 0, 6, 18, "AB block corridor", undefined, "stairs"]
+	];
+
+	var A3 = [
+		//[x, y, x_size, y_size, name, id, type, search_force_include]
+		//Types: "student", "floor", "stairs", "common", "toilet", "kitchen", "admin"
+		
+		[0, 0, 18, 3, "A block staircase", undefined, "stairs"],
+		[0, 3, 50, 3, "A block corridor", undefined, "cor"],
+
+		[0, 6, 6, 12, "NA 301", ["NA-301"], "student"],
+		[6, 6, 6, 12, "NA 303", ["NA-303"], "student"],
+		[12, 6, 6, 12, "NA 305", ["NA-305"], "student"],
+
+		[18, 6, 6, 12, "NA 307", ["NA-307"], "student"],
+		[24, 6, 6, 12, "NA 309", ["NA-309"], "student"],
+		[30, 6, 6, 12, "NA 311", ["NA-311"], "student"],
+	
+		[36, 6, 6, 12, "NA 313", ["NA-313"], "student"],
+		[42, 6, 6, 12, "NA 315", ["NA-315"], "student"],
+		[48, 6, 6, 12, "NA 317", ["NA-317"], "student"],
+		
+		[54, 6, 6, 12, "NA 319", ["NA-319"], "student"],
+		[60, 6, 6, 12, "NA 321", ["NA-321"], "student"],
+		[66, 6, 6, 12, "NA 323", ["NA-323"], "student"],
+		
+		[72, 6, 6, 12, "NA 325", ["NA-325"], "student"],
+		[78, 6, 6, 12, "NA 327", ["NA-327"], "student"],
+		[84, 6, 6, 12, "NA 329", ["NA-329"], "student"],
+		
+		[90, 6, 6, 12, "NA 331", ["NA-331"], "student"],
+		[96, 6, 6, 12, "NA 333", ["NA-333"], "student"],
+		[102, 6, 6, 12, "NA 335", ["NA-335"], "student"],
+
+		[108, 0, 6, 18, "AB block corridor", undefined, "stairs"]
+	];
+
+	var A4 = [
+		//[x, y, x_size, y_size, name, id, type, search_force_include]
+		//Types: "student", "floor", "stairs", "common", "toilet", "kitchen", "admin"
+		
+		[0, 0, 18, 3, "A block staircase", undefined, "stairs"],
+		[0, 3, 50, 3, "A block corridor", undefined, "cor"],
+
+		[0, 6, 6, 12, "NA 401", ["NA-401"], "student"],
+		[6, 6, 6, 12, "NA 403", ["NA-403"], "student"],
+		[12, 6, 6, 12, "NA 405", ["NA-405"], "student"],
+
+		[18, 6, 6, 12, "NA 407", ["NA-207"], "student"],
+		[24, 6, 6, 12, "NA 409", ["NA-209"], "student"],
+		[30, 6, 6, 12, "NA 411", ["NA-211"], "student"],
+	
+		[36, 6, 6, 12, "NA 413", ["NA-213"], "student"],
+		[42, 6, 6, 12, "NA 415", ["NA-215"], "student"],
+		[48, 6, 6, 12, "NA 417", ["NA-217"], "student"],
+		
+		[54, 6, 6, 12, "NA 419", ["NA-219"], "student"],
+		[60, 6, 6, 12, "NA 421", ["NA-221"], "student"],
+		[66, 6, 6, 12, "NA 423", ["NA-223"], "student"],
+		
+		[72, 6, 6, 12, "NA 425", ["NA-225"], "student"],
+		[78, 6, 6, 12, "NA 427", ["NA-227"], "student"],
+		[84, 6, 6, 12, "NA 429", ["NA-229"], "student"],
+		
+		[90, 6, 6, 12, "NA 431", ["NA-231"], "student"],
+		[96, 6, 6, 12, "NA 433", ["NA-233"], "student"],
+		[102, 6, 6, 12, "NA 435", ["NA-235"], "student"],
+
+		[108, 0, 6, 18, "AB block corridor", undefined, "stairs"]
+	];
+
+	var A5 = [
+		//[x, y, x_size, y_size, name, id, type, search_force_include]
+		//Types: "student", "floor", "stairs", "common", "toilet", "kitchen", "admin"
+		
+		[0, 0, 18, 3, "A block staircase", undefined, "stairs"],
+		[18, 0, 90, 3, "A block corridor", undefined, "cor"],
+
+		[18, 3, 6, 12, "NA 507", ["NA-207"], "student"],
+		[24, 3, 6, 12, "NA 509", ["NA-209"], "student"],
+		[30, 3, 6, 12, "NA 511", ["NA-211"], "student"],
+	
+		[36, 3, 6, 12, "NA 513", ["NA-213"], "student"],
+		[42, 3, 6, 12, "NA 515", ["NA-215"], "student"],
+		[48, 3, 6, 12, "NA 517", ["NA-217"], "student"],
+		
+		[54, 3, 6, 12, "NA 519", ["NA-219"], "student"],
+		[60, 3, 6, 12, "NA 521", ["NA-221"], "student"],
+		[66, 3, 6, 12, "NA 523", ["NA-223"], "student"],
+		
+		[72, 3, 6, 12, "NA 525", ["NA-225"], "student"],
+		[78, 3, 6, 12, "NA 527", ["NA-227"], "student"],
+		[84, 3, 6, 12, "NA 529", ["NA-229"], "student"],
+		
+		[90, 3, 6, 12, "NA 531", ["NA-231"], "student"],
+		[96, 3, 6, 12, "NA 533", ["NA-233"], "student"],
+		[102, 3, 6, 12, "NA 535", ["NA-235"], "student"],
+
+		[108, 0, 6, 18, "AB block corridor", undefined, "stairs"]
+	];
 
 	return {
 		"name": "Nordmetall", 
@@ -274,6 +416,24 @@ var NM = (function(){
 						},
 						{
 							"rooms": NBC4
+						}
+					]
+				}, 
+				{
+					"name": "A Block", 
+					"machine_name": "A", 
+					"floors": [
+						{
+							"rooms": A2
+						}, 
+						{
+							"rooms": A3
+						},
+						{
+							"rooms": A4
+						},
+						{
+							"rooms": A5
 						}
 					]
 				}
