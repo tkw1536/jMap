@@ -2,7 +2,17 @@
 
 This is a project which provides an interactive map of Jacobs University Bremen. It is an upgrade of the pre-existing jPeople by Stefan Mirea, as it provides a visulaiztion of room data. i.e. it has maps.
 
-See the demo at http://tkw1536.github.io/jMap/ (external mode only)
+See the demo at http://jmap.tk/ (external mode only)
+
+## Running it locally
+
+To serve this locally, you might need a php server. Run in the current directory: 
+
+```
+php -S 127.0.0.1:8080
+```
+
+Then go to http://localhost:8080/ to see the page. Note that it will be in offline mode. 
 
 ## How it works
 
