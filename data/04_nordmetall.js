@@ -297,7 +297,7 @@ var NM = (function(){
 		[84, 6, 6, 12, "NA 229", ["NA-229"], "student"],
 		
 		[90, 0, 9, 3, "A block kitchen", undefined, "kitchen"],
-		[99, 0, 9, 3, "corner corridor", undefined, "cor"],
+		[99, 0, 9, 3, "^^B-Block^^", undefined, "label"],
 
 		[90, 6, 6, 12, "NA 231", ["NA-231"], "student"],
 		[96, 6, 6, 12, "NA 233", ["NA-233"], "student"],
@@ -334,7 +334,7 @@ var NM = (function(){
 		[84, 6, 6, 12, "NA 329", ["NA-329"], "student"],
 
 		[90, 0, 9, 3, "A block kitchen", undefined, "kitchen"],
-		[99, 0, 9, 3, "corner corridor", undefined, "cor"],
+		[99, 0, 9, 3, "^^B-Block^^", undefined, "label"],
 		
 		[90, 6, 6, 12, "NA 331", ["NA-331"], "student"],
 		[96, 6, 6, 12, "NA 333", ["NA-333"], "student"],
@@ -371,7 +371,7 @@ var NM = (function(){
 		[84, 6, 6, 12, "NA 429", ["NA-429"], "student"],
 
 		[90, 0, 9, 3, "A block kitchen", undefined, "kitchen"],
-		[99, 0, 9, 3, "corner corridor", undefined, "cor"],
+		[99, 0, 9, 3, "^^B-Block^^", undefined, "label"],
 		
 		[90, 6, 6, 12, "NA 431", ["NA-431"], "student"],
 		[96, 6, 6, 12, "NA 433", ["NA-433"], "student"],
