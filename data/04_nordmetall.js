@@ -21,7 +21,7 @@ var NM = (function(){
 		[-64, 48, 10, 24, "NB 102 / 103 ", ["NB-102", "NB-103"], "student"], 
 
 		//B - West - In
-		[-48, 48, 10, 24, "Toilets ", undefined, "toilet"],
+		[-48, 48, 10, 24, "Toilets ", undefined, "admin"],
 		[-48, 24, 10, 24, "NB 134 / 135 ", ["NB-134", "NB-135"], "student"],
 		[-48, 0, 10, 24, "NB 130 / 131 ", ["NB-130", "NB-131"], "student"],
 		[-48, -24, 10, 24, "NB 126 / 127 ", ["NB-126", "NB-127"], "student"],
@@ -265,12 +265,16 @@ var NM = (function(){
 		[74, 78, 12, 22, "NC 407", ["NC-407"], "kitchen"]
 	];
 
+	var A1 = [
+		[0, 0, 50, 30, "Servery", undefined, "label"]
+	];
+
 	var A2 = [
 		//[x, y, x_size, y_size, name, id, type, search_force_include]
 		//Types: "student", "floor", "stairs", "common", "toilet", "kitchen", "admin"
 		
 		[0, 0, 18, 3, "A block staircase", undefined, "stairs"],
-		[0, 3, 50, 3, "A block corridor", undefined, "cor"],
+		[0, 3, 108, 3, "A block corridor", undefined, "cor"],
 
 		[0, 6, 6, 12, "NA 201", ["NA-201"], "student"],
 		[6, 6, 6, 12, "NA 203", ["NA-203"], "student"],
@@ -292,6 +296,9 @@ var NM = (function(){
 		[78, 6, 6, 12, "NA 227", ["NA-227"], "student"],
 		[84, 6, 6, 12, "NA 229", ["NA-229"], "student"],
 		
+		[90, 0, 9, 3, "A block kitchen", undefined, "kitchen"],
+		[99, 0, 9, 3, "corner corridor", undefined, "cor"],
+
 		[90, 6, 6, 12, "NA 231", ["NA-231"], "student"],
 		[96, 6, 6, 12, "NA 233", ["NA-233"], "student"],
 		[102, 6, 6, 12, "NA 235", ["NA-235"], "student"],
@@ -304,7 +311,7 @@ var NM = (function(){
 		//Types: "student", "floor", "stairs", "common", "toilet", "kitchen", "admin"
 		
 		[0, 0, 18, 3, "A block staircase", undefined, "stairs"],
-		[0, 3, 50, 3, "A block corridor", undefined, "cor"],
+		[0, 3, 108, 3, "A block corridor", undefined, "cor"],
 
 		[0, 6, 6, 12, "NA 301", ["NA-301"], "student"],
 		[6, 6, 6, 12, "NA 303", ["NA-303"], "student"],
@@ -325,6 +332,9 @@ var NM = (function(){
 		[72, 6, 6, 12, "NA 325", ["NA-325"], "student"],
 		[78, 6, 6, 12, "NA 327", ["NA-327"], "student"],
 		[84, 6, 6, 12, "NA 329", ["NA-329"], "student"],
+
+		[90, 0, 9, 3, "A block kitchen", undefined, "kitchen"],
+		[99, 0, 9, 3, "corner corridor", undefined, "cor"],
 		
 		[90, 6, 6, 12, "NA 331", ["NA-331"], "student"],
 		[96, 6, 6, 12, "NA 333", ["NA-333"], "student"],
@@ -338,7 +348,7 @@ var NM = (function(){
 		//Types: "student", "floor", "stairs", "common", "toilet", "kitchen", "admin"
 		
 		[0, 0, 18, 3, "A block staircase", undefined, "stairs"],
-		[0, 3, 50, 3, "A block corridor", undefined, "cor"],
+		[0, 3, 108, 3, "A block corridor", undefined, "cor"],
 
 		[0, 6, 6, 12, "NA 401", ["NA-401"], "student"],
 		[6, 6, 6, 12, "NA 403", ["NA-403"], "student"],
@@ -359,6 +369,9 @@ var NM = (function(){
 		[72, 6, 6, 12, "NA 425", ["NA-425"], "student"],
 		[78, 6, 6, 12, "NA 427", ["NA-427"], "student"],
 		[84, 6, 6, 12, "NA 429", ["NA-429"], "student"],
+
+		[90, 0, 9, 3, "A block kitchen", undefined, "kitchen"],
+		[99, 0, 9, 3, "corner corridor", undefined, "cor"],
 		
 		[90, 6, 6, 12, "NA 431", ["NA-431"], "student"],
 		[96, 6, 6, 12, "NA 433", ["NA-433"], "student"],
@@ -423,6 +436,9 @@ var NM = (function(){
 					"name": "A Block", 
 					"machine_name": "A", 
 					"floors": [
+						{
+							"rooms": A1
+						}, 
 						{
 							"rooms": A2
 						}, 
