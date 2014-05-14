@@ -1,6 +1,6 @@
 var gui = {}; //namespace
 
-gui.renderer = new Renderer(); //The renderer
+gui.renderer = undefined; //The renderer
 gui.renderData = undefined; //The render data
 
 //state
@@ -21,6 +21,7 @@ gui.refreshMenu = function(){
 		$("#buildings").find("ul").remove().end()
 	);
 
+	//for each of the buildings, add a menu item
 	renderData.iterateBuildings(function(building){
 		$('<li role="presentation">')
 		.append(
@@ -35,6 +36,7 @@ gui.refreshMenu = function(){
 		).appendTo(ul_buildings); 
 	}); 
 
+	//get the current building
 	var currentBuilding = gui.renderData.buildings[gui.buildingId]; 
 	$("#buildingstitle").text(currentBuilding.getName()); 
 	ul_buildings.find("li").eq(gui.buildingId).addClass("disabled").find("a").click(function(){return false; });
@@ -45,6 +47,8 @@ gui.refreshMenu = function(){
 		$("#blocks").find("ul").remove().end()
 	);
 
+
+	//add the blocks for the current building
 	currentBuilding.iterateBlocks(function(block){
 		$('<li role="presentation">')
 		.append(
@@ -58,16 +62,18 @@ gui.refreshMenu = function(){
 		).appendTo(ul_blocks); 
 	}); 
 
+	//get the current block
 	var currentBlock = currentBuilding.blocks[gui.blockId]; 
 	$("#blockstitle").text(currentBlock.getName()); 
 	ul_blocks.find("li").eq(gui.blockId).addClass("disabled").find("a").click(function(){return false; });
 
-	//build floors menu
+	//add the floors for the current block
 	var ul_floors = 
 	$('<ul class="dropdown-menu" role="menu">').appendTo(
 		$("#floors").find("ul").remove().end()
 	);
 
+	//add the current floors
 	currentBlock.iterateFloors(function(floor){
 		$('<li role="presentation">')
 		.append(
@@ -80,6 +86,7 @@ gui.refreshMenu = function(){
 		).appendTo(ul_floors); 
 	}); 
 
+	//render the current floor
 	var currentFloor = currentBlock.floors[gui.floorId]; 
 	$("#floorstitle").text(currentFloor.getName()); 
 	ul_floors.find("li").eq(gui.floorId).addClass("disabled").find("a").click(function(){return false; });
@@ -102,32 +109,46 @@ gui.renderFloor = function(floor){
 	gui.floorId = pos.floor; 
 	gui.flushRenderState(); 
 
+	var buildingName = floor.getBuilding().getMName(); 
+
 	var rawRenderData = floor.rooms.map(function(r){
-		return r.toArray(); 
+		var item = r.toArray(); 
+
+		return [item[0], item[1], item[2], item[3], item[5], {
+			"pureRoom": item, 
+			"label": item[4], 
+			"class": "box "+buildingName+" "+item[6], 
+			"active-class": "active"
+		}]; 
 	}); 
 
 	rawRenderData.className = floor.getBuilding().getMName(); 
 
 	window.parent.bridge(function(b){
+
 		gui.renderer
-		.setRenderData(rawRenderData)
-		.setClickHandler(function(id, room){
+		.render(rawRenderData, false)
+		.draw()
+		.canvas
+		.off("gridersize.click")
+		.on("gridersize.click", function(evt, box, id){
+
+			var room = box.data("gridersize.original")[5]["pureRoom"]; 
 			var roomObj = gui.renderData.findRoomById((typeof id == "string")?id:id[0]); 
+
 
 			//do stuff here
 			if(room[6] !== "student" && room[6] !== "common" && room[6] !== "kitchen" && room[7] !== true){
 				//only handle click event for these room types
 				return; 
 			}
+
 			if(typeof id == "string" || typeof id == "undefined"){
 				b.setSearchString(id); 
-				gui.flashRoom(roomObj); 
 			} else {
 				b.setSearchString(id.join("; ")); 
-				gui.flashRoom(roomObj); 
 			}
-		})
-		.render(); 
+		});
 	
 		gui.refreshMenu(); //refresh the menu
 
@@ -140,16 +161,30 @@ gui.flashRoom = function(room){
 	if(typeof room == "undefined"){
 		return false; 
 	}
-	gui.renderFloor(room.getFloor()); 
+
+	gui.renderFloor(room.getFloor());
+
+
 	var id = room.id[0]; 
-	$(document.getElementsByClassName("id-"+id)).addClass("active"); 
+
+	console.log(id); 
+
+	//Toggle the room
+	gui.renderer
+	.activateElementById(id); 
+
+
 	gui.roomFlash = id; 
 	return true; 
 }
 
 gui.clearFlash = function(){
 	//clears flashed room
-	$(".activatable").off("dblclick").removeClass("active"); 
+
+	gui.renderer
+	.deactivateAll()
+
+
 	gui.roomFlash = undefined; 
 	gui.flushRenderState(); 
 }
@@ -158,6 +193,7 @@ gui.renderRoomById = function(id){
 	//renders a room via its id
 	//also flashes it
 	var room = gui.renderData.findRoomById(id); 
+
 	if(typeof room !== "undefined"){
 		gui.flashRoom(room); 
 		return true;
@@ -215,7 +251,8 @@ gui.flushRenderState = function(){
 gui.setRenderState = function(state){
 	//sets the render state
 	
-	var state  = (typeof state == "undefined")?{"building": 0, "block": 0, "floor": 0, "flash": undefined}:state; 
+	var state  = (typeof state == "undefined")?{"building": 0, "block": 0, "floor": 0, "flash": undefined}:state;
+
 	if(typeof state.flash !== "undefined"){
 		gui.renderRoomById(id); 
 	} else {
@@ -223,4 +260,7 @@ gui.setRenderState = function(state){
 		var f = gui.renderData.getFloorByState(state.building, state.block, state.floor);
 		gui.renderFloor(f); 
 	}
+
+	//show everything
+	gui.renderer.showAll(); 
 }
