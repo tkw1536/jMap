@@ -91,6 +91,8 @@ gui.refreshMenu = function(){
 	$("#floorstitle").text(currentFloor.getName()); 
 	ul_floors.find("li").eq(gui.floorId).addClass("disabled").find("a").click(function(){return false; });
 
+	//show everything
+	gui.renderer.showAll(); 
 }; 
 
 
