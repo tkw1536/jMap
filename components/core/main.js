@@ -1,0 +1,7 @@
+/*
+	jMap
+
+	main javascript
+
+	Initialiser
+*/
