@@ -1,7 +1,6 @@
 /*
 	jMap
-
-	main javascript
-
-	Initialiser
 */
+
+//Main jMap Namespace
+var jMap = {};

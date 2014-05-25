@@ -11,6 +11,15 @@ This is the dev branch of JMap. It contains an almost complete rewrite of jMap, 
 * /lib/ JS / CSS Libraries
 * /doc/ JavaScript documentation
 
+## Documentation
+Run 
+
+```
+rm -rf doc && jsdoc -r . README.md -d doc
+```
+
+to rebuild the documentation. 
+
 ## Requirements
 
 * needs to run on a webserver
