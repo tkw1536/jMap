@@ -9,114 +9,36 @@
 	      	#map-canvas { height: 100% }
 	    </style>
 	    
-	    <script type="text/javascript" src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCDJOa47c61VDch7JWe_s0zOrjZT6a9lcc&sensor=false"></script>
 	    
 	    <script type="text/javascript">
-	    	var markers = [];
-	    	
-	    	var KPpos = new google.maps.LatLng(53.166594, 8.653111); //KP
-	 		var MEpos = new google.maps.LatLng(53.166305, 8.655305); //ME
-	 		var C3pos = new google.maps.LatLng(53.165593, 8.655546); //C3
-	 		var NMpos = new google.maps.LatLng(53.168567, 8.653835); //NM
-	 		var MapCenter = new google.maps.LatLng(53.1669051,8.6513137); //Center of map
-	      	
-
+	    	   	
 	      	function initialize() {
 
-		        var mapOptions = {
-	          		center: MapCenter,
-	          		zoom: 17,
-	          		disableDefaultUI: true
-	        	};
-	        	console.log("h: "+screen.availHeight);
-	        	console.log("w: "+screen.availWidth);
-
-	       		if(screen.availWidth<1600 || screen.availHeight<800){
-	      			mapOptions.zoom = 16;
-	      		}
-	        
-	        	var map = new google.maps.Map(document.getElementById("map-canvas"), mapOptions);
-
-		       	var KP = new google.maps.Marker({
-				    position: KPpos,
-			    	map: map,
-			    	title: 'Krupp'
-			  	});
-
-		       	var ME = new google.maps.Marker({
-				    position: MEpos,
-			    	map: map,
-			    	title: 'Mercator'
-			  	});
-
-		       	var C3 = new google.maps.Marker({
-				    position: C3pos,
-			    	map: map,
-			    	title: 'College 3'
-			  	});
-
-		       	var NM = new google.maps.Marker({
-				    position: NMpos,
-			    	map: map,
-			    	title: 'Nordmetall'
-			  	});		  			  			  	
-
-				google.maps.event.addListener(map, 'center_changed', function() {
-				// 1 seconds after the center of the map has changed, pan back to the center.
-			    	window.setTimeout(function() {
-			      		map.panTo(MapCenter);
-			    	}, 500);
-				});
-
-				google.maps.event.addListener(map, 'zoom_changed', function() {
-				// 1 seconds after the center of the map has changed, zoom back to the center.
-					
-	       		if(screen.availWidth<1600 || screen.availHeight<800){
-	      			window.setTimeout(function() {
-			      		map.setZoom(16);
-			    	}, 500);
-	      		}
-	      		else{
-			    	window.setTimeout(function() {
-			      		map.setZoom(17);
-			    	}, 500);
-			    }
-				});
-
-				google.maps.event.addListener(KP, 'click', function() {
+				$(document).on('click', $("#k"), function() {
 					window.parent.bridge(function(b, me){
   				  		b.renderMapObj(me.RenderData.selectByMName("krupp"));
     				}); 
 			  	});
 
-			  	google.maps.event.addListener(ME, 'click', function() {
+			  	$(document).on('click', $("#m"), function() {
 					window.parent.bridge(function(b, me){
   				  		b.renderMapObj(me.RenderData.selectByMName("mercator")); 
     				}); 
 			  	});
 
-				google.maps.event.addListener(C3, 'click', function() {
+				$(document).on('click', $("#c"), function() {
 					window.parent.bridge(function(b, me){
   				  		b.renderMapObj(me.RenderData.selectByMName("c3"));
     				}); 
 			  	});		  				
 
-				google.maps.event.addListener(NM, 'click', function() {
+				$(document).on('click', $("#n"), function() {
 					window.parent.bridge(function(b, me){
   				  		b.renderMapObj(me.RenderData.selectByMName("nordmetall"));
     				}); 
 			  	});		  	
 	    	}
 
-	        function addMarker(location) {
-	 			var marker = new google.maps.Marker({
-	   				position: location,
-	    			map: map
-				});
-				markers.push(marker);
-			}
-
-	    	google.maps.event.addDomListener(window, 'load', initialize);
 		</script>
 		<link rel="stylesheet" href="../../libs/bootstrap/css/bootstrap.min.css">
 		<link rel="stylesheet" href="../../libs/bootstrap/css/bootstrap-theme.min.css">
@@ -129,6 +51,10 @@
 		<script src="../../js/remote.js"></script>
 		<script src="../../js/navbar.js"></script>
 		<h3> Please choose which college you would like to explore by clicking on the appropriate marker </h3>
-    	<div id="map-canvas"/>
+		<br>
+		<h2 id="k"> Krupp </h2>
+		<h2 id="m"> Mercator </h2>
+		<h2 id="c"> C3 </h2>
+		<h2 id="n"> Nordmetall </h2>
 	</body>
 </html>
